@@ -21,7 +21,7 @@ object Main {
       .config("spark.serializer", "org.apache.spark.serializer.KryoSerializer")
       .getOrCreate()
 //    var inputSource = "src/main/resources/SEO.ttl"
-    var inputSource = "src/main/resources/SEO.nt"
+    var inputSource = "src/main/resources/conference-de.nt"
     //    val lang1: Lang = Lang.TURTLE
     val lang1: Lang = Lang.NTRIPLES
     val sourceOntology: RDD[graph.Triple] = sparkSession1.rdf(lang1)(inputSource)
