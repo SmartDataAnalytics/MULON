@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>OECM-V.2</groupId>
-    <artifactId>OECM-V.2</artifactId>
+    <groupId>OECM-Try</groupId>
+    <artifactId>OECM-Try</artifactId>
     <version>1.0-SNAPSHOT</version>
     <licenses>
         <license>
