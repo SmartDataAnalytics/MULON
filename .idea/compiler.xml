@@ -6,11 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="MULON" />
         <module name="OECM-Try" />
         <module name="OECM-V.2" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="MULON" target="1.8" />
       <module name="OECM-Try" target="1.8" />
       <module name="OECM-V.2" target="1.8" />
     </bytecodeTargetLevel>
