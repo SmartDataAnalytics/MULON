@@ -55,11 +55,11 @@ import org.apache.spark.storage.StorageLevel
     val targetClassesWithoutCodes: RDD[String] = ontStat.RetrieveClassesWithLabels(targetOntology).persist(StorageLevel.MEMORY_AND_DISK) //For SEO
     //    val targetClassesWithoutCodes: RDD[(String)] = ontStat.RetrieveClassesWithCodesAndLabels(targetOntology).map(x=>x._2).persist(StorageLevel.MEMORY_AND_DISK) //For Cmt and Multifarm dataset
     println("All classes in the target ontology:" + targetClassesWithoutCodes.count())
-    targetClassesWithoutCodes.foreach(println(_))
+    targetClassesWithoutCodes.map(x => p.stringPreProcessing(x)).foreach(println(_))
     //    targetClassesWithoutCodes.map(x => p.stringPreProcessing(x).toLowerCase).coalesce(1, shuffle = true).saveAsTextFile("Output/TargetClasses")
     val targetRelationsWithoutCodes: RDD[(String, String)] = ontStat.RetrieveRelationsWithoutCodes(targetOntology)
     println("All relations in the target ontology: " + targetRelationsWithoutCodes.count())
-    targetRelationsWithoutCodes.foreach(println(_))
+    targetRelationsWithoutCodes.map(x => p.stringPreProcessing(x._1)).foreach(println(_))
     //    targetRelationsWithoutCodes.map(x => p.splitCamelCase(x._1).toLowerCase).coalesce(1, shuffle = true).saveAsTextFile("Output/TargetRelations")
     val sourceClassesWithCodes: RDD[(String, String)] = ontStat.RetrieveClassesWithCodesAndLabels(sourceOntology) //applied for ontologies with codes like Multifarm ontologies
     println("All classes in the source ontology:" + sourceClassesWithCodes.count())
@@ -107,7 +107,10 @@ import org.apache.spark.storage.StorageLevel
 
     println("Semantic similarity for relations: ")
     val relationSim = new RelationSimilarity()
-    relationSim.GetRelationSimilarity(targetRelationsWithoutCodes.map(x => x._1), relationsWithTranslation.map(x => x._3))
+    val similarRelations = relationSim.GetRelationSimilarity(targetRelationsWithoutCodes.map(x => x._1), relationsWithTranslation)
+    println("Relation similarity: ")
+    similarRelations.foreach(println(_))
+
 
     val om = new OntologyMerging()
     om.ResolveConflictClasses(sourceClassesWithBestTranslation, targetClassesWithoutCodes, listOfMatchedClasses)
@@ -136,8 +139,6 @@ import org.apache.spark.storage.StorageLevel
     println("List of translated relations in source ontology " + listOfRelationsInSourceOntology.count())
     listOfRelationsInSourceOntology.foreach(println(_))
 
-    //    val relationSim = new RelationSimilarity()
-    //    relationSim.GetRelationSimilarity(targetRelationsWithoutCodes.map(x => x._1), listOfRelationsInSourceOntology)
 
     val translatedSourceOntologyClassTriples = translatedSourceOntology.subtract(translatedSourceOntologyRelationTriples)
     println("Translated classes of the source ontology " + translatedSourceOntologyClassTriples.count())
