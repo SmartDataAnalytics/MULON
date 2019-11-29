@@ -156,7 +156,7 @@ class PreProcessing extends Serializable{
     lemmas
   }
   def removeStopWordsFromEnglish(sentence: String): String={
-    val stopWords = List("the", "is", "has", "of", "have", "a", "or", "for")
+    val stopWords = List("the", "is", "of", "have", "a", "or", "for")
     sentence.split(" ").filter(!stopWords.contains(_)).mkString(" ")
   }
 }

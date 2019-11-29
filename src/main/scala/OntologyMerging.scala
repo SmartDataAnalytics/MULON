@@ -19,6 +19,7 @@ class OntologyMerging {
     val allClasses = sourceClassesWithBestTranslation.keyBy(_._1).leftOuterJoin(multilingualMatchedClasses.keyBy(_._1))
       .map{case x => if (!x._2._2.isEmpty) (x._1, x._2._1._2,x._2._2.last._3) else (x._1, x._2._1._2, x._2._1._3)}
 //      .map{case (code,((code1, source,translation),(x,y,z))) => if(!y.isEmpty) (code,source,y.)}
+    println("All classes")
     allClasses.foreach(println(_))
 
   }
