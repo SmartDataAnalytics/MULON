@@ -45,6 +45,7 @@ import org.apache.spark.storage.StorageLevel
     val p = new PreProcessing()
 
     val sOntology: RDD[(String, String, String)] = ontoRebuild.RebuildOntologyWithLabels(sourceOntology)
+    sOntology.take(10).foreach(println(_))
     val tOntology: RDD[(String, String, String)] = ontoRebuild.RebuildOntologyWithLabels(targetOntology)
 
     println("======================================")
@@ -107,13 +108,20 @@ import org.apache.spark.storage.StorageLevel
 
     println("Semantic similarity for relations: ")
     val relationSim = new RelationSimilarity()
-    val similarRelations = relationSim.GetRelationSimilarity(targetRelationsWithoutCodes.map(x => x._1), relationsWithTranslation)
+    val similarRelations: RDD[(String, String, String, String, Double)] = relationSim.GetRelationSimilarity(targetRelationsWithoutCodes.map(x => x._1), relationsWithTranslation)
     println("Relation similarity: ")
     similarRelations.foreach(println(_))
 
 
     val om = new OntologyMerging()
-    om.ResolveConflictClasses(sourceClassesWithBestTranslation, targetClassesWithoutCodes, listOfMatchedClasses)
+//    val allResourcesWithMultilingualInfo = om.ResolveConflictClasses(sourceClassesWithBestTranslation, targetClassesWithoutCodes, listOfMatchedClasses, similarRelations, relationsWithTranslation)
+val allClassesWithMultilingualInfo = om.ResolveConflictClasses(sourceClassesWithBestTranslation, targetClassesWithoutCodes, listOfMatchedClasses)
+    val RelationsWithMultilingualInfo = om.ResolveConflictRelations(similarRelations, relationsWithTranslation)
+      println("All resources for source ontology with multilingual info after resolving conflicts:")
+    allClassesWithMultilingualInfo.union(RelationsWithMultilingualInfo).foreach(println(_))
+
+//    om.GenerateURIs(allResourcesWithMultilingualInfo)
+
 
 
 
