@@ -35,17 +35,14 @@ import org.apache.spark.storage.StorageLevel
     val runTime = Runtime.getRuntime
 
     //Get statistics for input ontologies
-    val ontStat = new OntologyStatistics(sparkSession1)
-    //    ontStat.GetStatistics(sourceOntology)
+    val ontStat = new OntologyStatistics(sparkSession1) //    ontStat.GetStatistics(sourceOntology)
     //    ontStat.GetStatistics(targetOntology)
-
-
     //Replacing classes and properties with their labels
     val ontoRebuild = new OntologyRebuilding(sparkSession1)
     val p = new PreProcessing()
 
     val sOntology: RDD[(String, String, String)] = ontoRebuild.RebuildOntologyWithLabels(sourceOntology)
-    sOntology.take(10).foreach(println(_))
+    //    sOntology.take(10).foreach(println(_))
     val tOntology: RDD[(String, String, String)] = ontoRebuild.RebuildOntologyWithLabels(targetOntology)
 
     println("======================================")
@@ -74,7 +71,6 @@ import org.apache.spark.storage.StorageLevel
     val sourceRelations: RDD[(String, String)] = ontStat.RetrieveRelationsWithCodes(sourceLabelBroadcasting, sourceOntology)
     println("All relations in the source ontology: " + sourceRelations.count())
     sourceRelations.foreach(println(_)) //    sourceRelations.map(x => x._2.toLowerCase).coalesce(1, shuffle = true).saveAsTextFile("Output/SourceRelations")
-
     println("======================================")
     println("|    Cross-lingual Matching Phase    |")
     println("======================================")
@@ -83,15 +79,11 @@ import org.apache.spark.storage.StorageLevel
     val tc = targetClassesWithoutCodes.zipWithIndex().collect().toMap
     val targetClassesBroadcasting: Broadcast[Map[String, Long]] = sparkSession1.sparkContext.broadcast(tc)
     val translate = new ClassSimilarity(sparkSession1)
-    val availableTranslations: RDD[(String, List[String])] = translate.GettingAllAvailableTranslations("src/main/resources/OfflineDictionaries/Translations-conference-de.csv")
-    //    println("All available translations:")
+    val availableTranslations: RDD[(String, List[String])] = translate.GettingAllAvailableTranslations("src/main/resources/OfflineDictionaries/Translations-conference-de.csv") //    println("All available translations:")
     //    availableTranslations.foreach(println(_))
-
-    val sourceClassesWithListOfBestTranslations = availableTranslations.map(x => (x._1, x._2 ,translate.GetBestTranslationForClass(x._2, targetClassesBroadcasting))).persist(StorageLevel.MEMORY_AND_DISK)
-    //    println("All source classes with list of best translations ")
+    val sourceClassesWithListOfBestTranslations = availableTranslations.map(x => (x._1, x._2, translate.GetBestTranslationForClass(x._2, targetClassesBroadcasting))).persist(StorageLevel.MEMORY_AND_DISK) //    println("All source classes with list of best translations ")
     //    sourceClassesWithListOfBestTranslations.foreach(println(_))
     //sourceClassesWithListOfBestTranslations.coalesce(1).saveAsTextFile("src/main/resources/EvaluationDataset/German/translation")
-
     println("2) Cross-lingual semantic similarity:")
     val listOfMatchedClasses: RDD[List[String]] = sourceClassesWithListOfBestTranslations.map(x => x._3.toString().toLowerCase.split(",").toList).filter(y => y.last.exists(_.isDigit)).persist(StorageLevel.MEMORY_AND_DISK)
     println("List of matched classes between source and target ontologies: " + listOfMatchedClasses.count())
@@ -106,119 +98,119 @@ import org.apache.spark.storage.StorageLevel
     println("Relations with translations: ")
     relationsWithTranslation.foreach(println(_))
 
-    println("Semantic similarity for relations: ")
+//    println("Semantic similarity for relations: ")
     val relationSim = new RelationSimilarity()
     val similarRelations: RDD[(String, String, String, String, Double)] = relationSim.GetRelationSimilarity(targetRelationsWithoutCodes.map(x => x._1), relationsWithTranslation)
-    println("Relation similarity: ")
-    similarRelations.foreach(println(_))
+    //    println("Relation similarity: ")
+    //    similarRelations.foreach(println(_))
 
-
-    val om = new OntologyMerging()
-//    val allResourcesWithMultilingualInfo = om.ResolveConflictClasses(sourceClassesWithBestTranslation, targetClassesWithoutCodes, listOfMatchedClasses, similarRelations, relationsWithTranslation)
-val allClassesWithMultilingualInfo = om.ResolveConflictClasses(sourceClassesWithBestTranslation, targetClassesWithoutCodes, listOfMatchedClasses)
-    val RelationsWithMultilingualInfo = om.ResolveConflictRelations(similarRelations, relationsWithTranslation)
-      println("All resources for source ontology with multilingual info after resolving conflicts:")
-    allClassesWithMultilingualInfo.union(RelationsWithMultilingualInfo).foreach(println(_))
-
-//    om.GenerateURIs(allResourcesWithMultilingualInfo)
+    val om = new OntologyMerging(sparkSession1)
+    om.Merge(sourceClassesWithBestTranslation, targetClassesWithoutCodes, listOfMatchedClasses, similarRelations, relationsWithTranslation, sOntology)
 
 
 
 
 
-    println("####################### Recreating the source ontology with using valid translations #####################################")
-    val ontologyElementsWithoutCodes: RDD[(String, String)] = sourceClassesWithBestTranslation.map(x => (x._2, x._3)).union(relationsWithTranslation.map(y => (y._2, y._3)))
-
-    val sor = new SourceOntologyReconstruction()
-    val translatedSourceOntology = sor.ReconstructOntology(sOntology, ontologyElementsWithoutCodes).persist(StorageLevel.MEMORY_AND_DISK)
-    println("Source Ontology after translating classes and relations " + translatedSourceOntology.count())
-    translatedSourceOntology.distinct().foreach(println(_))
-
-    val listOfSourcePredicates = translatedSourceOntology.map(x => x._2).distinct(2)
-    println("List of predicates in the source ontology: ")
-    listOfSourcePredicates.foreach(println(_))
-
-    val listOfSourcePredicatesBroadcasting: Broadcast[Map[String, Long]] = sparkSession1.sparkContext.broadcast(listOfSourcePredicates.zipWithIndex().collect().toMap)
-    val translatedSourceOntologyRelationTriples: RDD[(String, String, String)] = translatedSourceOntology.filter(x => listOfSourcePredicatesBroadcasting.value.contains(x._2) && x._2 != "subClassOf" && x._2 != "disjointWith" && x._3 != "Class")
-    println("Translated relations of the source ontology" + translatedSourceOntologyRelationTriples.count())
-    translatedSourceOntologyRelationTriples.foreach(println(_))
-
-    val listOfRelationsInSourceOntology: RDD[String] = translatedSourceOntologyRelationTriples.map(x => x._1).distinct(2)
-    println("List of translated relations in source ontology " + listOfRelationsInSourceOntology.count())
-    listOfRelationsInSourceOntology.foreach(println(_))
 
 
-    val translatedSourceOntologyClassTriples = translatedSourceOntology.subtract(translatedSourceOntologyRelationTriples)
-    println("Translated classes of the source ontology " + translatedSourceOntologyClassTriples.count())
-    translatedSourceOntologyClassTriples.foreach(println(_))
 
 
-    println("======================================")
-    println("|       Enrichment Phase      |")
-    println("======================================")
-    println("1. Hierarchical Enrichment:")
-    val m = new HierarchicalEnrichment(sparkSession1)
+    /*
+        println("####################### Recreating the source ontology with using valid translations #####################################")
+        val ontologyElementsWithoutCodes: RDD[(String, String)] = sourceClassesWithBestTranslation.map(x => (x._2, x._3)).union(relationsWithTranslation.map(y => (y._2, y._3)))
 
-    val monolingualTriplesForEnrichment: RDD[(String, String, String)] = m.GetTriplesForClassesToBeEnriched(translatedSourceOntologyClassTriples, targetClassesWithoutCodes, listOfMatchedClasses) //.cache()
-    //    monolingualTriplesForEnrichment.foreach(println(_))
-    val listOfNewClasses: RDD[String] = monolingualTriplesForEnrichment.map(x => x._1).union(monolingualTriplesForEnrichment.map(x => x._3)).filter(y => y != "Class").distinct(2)
+        val sor = new SourceOntologyReconstruction()
+        val translatedSourceOntology = sor.ReconstructOntology(sOntology, ontologyElementsWithoutCodes).persist(StorageLevel.MEMORY_AND_DISK)
+        println("Source Ontology after translating classes and relations " + translatedSourceOntology.count())
+        translatedSourceOntology.distinct().foreach(println(_))
 
-    //    println("List of new classes that added to the target ontology is: " + listOfNewClasses.count())
-    //    listOfNewClasses.foreach(println(_))
-    val retrieveURIs = new RetrieveURIs(sparkSession1, sourceOntology)
+        val listOfSourcePredicates = translatedSourceOntology.map(x => x._2).distinct(2)
+        println("List of predicates in the source ontology: ")
+        listOfSourcePredicates.foreach(println(_))
 
-    val triplesForHierarchicalEnrichmentWithURIs: RDD[(String, String, String)] = retrieveURIs.getTripleURIsForHierarchicalEnrichment(sourceClassesWithBestTranslation, monolingualTriplesForEnrichment)
+        val listOfSourcePredicatesBroadcasting: Broadcast[Map[String, Long]] = sparkSession1.sparkContext.broadcast(listOfSourcePredicates.zipWithIndex().collect().toMap)
+        val translatedSourceOntologyRelationTriples: RDD[(String, String, String)] = translatedSourceOntology.filter(x => listOfSourcePredicatesBroadcasting.value.contains(x._2) && x._2 != "subClassOf" && x._2 != "disjointWith" && x._3 != "Class")
+        println("Translated relations of the source ontology" + translatedSourceOntologyRelationTriples.count())
+        translatedSourceOntologyRelationTriples.foreach(println(_))
 
-    println("Triples for hierarchical enrichment with URIs: " + triplesForHierarchicalEnrichmentWithURIs.count())
-    triplesForHierarchicalEnrichmentWithURIs.foreach(println(_))
+        val listOfRelationsInSourceOntology: RDD[String] = translatedSourceOntologyRelationTriples.map(x => x._1).distinct(2)
+        println("List of translated relations in source ontology " + listOfRelationsInSourceOntology.count())
+        listOfRelationsInSourceOntology.foreach(println(_))
 
-    println("2. Relational Enrichment:")
-    val listOfNewClassesBroadcasting: Broadcast[Map[String, Long]] = sparkSession1.sparkContext.broadcast(listOfNewClasses.zipWithIndex().collect().toMap)
 
-    val RelEnrich = new RelationalEnrichment()
+        val translatedSourceOntologyClassTriples = translatedSourceOntology.subtract(translatedSourceOntologyRelationTriples)
+        println("Translated classes of the source ontology " + translatedSourceOntologyClassTriples.count())
+        translatedSourceOntologyClassTriples.foreach(println(_))
 
-    val triplesRelationsForEnrichment = RelEnrich.GetTriplesForRelationsToBeEnriched(translatedSourceOntologyRelationTriples, listOfNewClassesBroadcasting)
 
-    //    println("Triples for relations to be enriched: " + triplesRelationsForEnrichment.count())
-    //    triplesRelationsForEnrichment.foreach(println(_))
-    val newC = triplesRelationsForEnrichment.map(x => x._3).subtract(listOfNewClasses).distinct(2)
 
-    //    println("List of new classes in triples for relations " + newC.count())
-    //    newC.foreach(println(_))
-    val triplesForRelationalEnrichmentWithURIs: RDD[(String, String, String)] = retrieveURIs.getTripleURIsForRelationalEnrichment(relationsWithTranslation, sourceClassesWithBestTranslation, triplesRelationsForEnrichment)
 
-    println("Triples for relational enrichment with URIs: " + triplesForRelationalEnrichmentWithURIs.count())
-    triplesForRelationalEnrichmentWithURIs.foreach(println(_))
+        println("======================================")
+        println("|       Enrichment Phase      |")
+        println("======================================")
+        println("1. Hierarchical Enrichment:")
+        val m = new HierarchicalEnrichment(sparkSession1)
 
-    //    triplesForRelationalEnrichmentWithURIs.coalesce(1, shuffle = true).saveAsTextFile("Output/triplesForRelationalEnrichmentWithURIs(SEO-Conference)")
-    val gCreate = new GraphCreating(sparkSession1)
-    val triplesToBeEnrichedAsGraph: RDD[graph.Triple] = gCreate.createGraph(triplesForHierarchicalEnrichmentWithURIs).union(gCreate.createGraph(triplesForRelationalEnrichmentWithURIs))
-    val enrichedTargetOntology = targetOntology.union(triplesToBeEnrichedAsGraph)
+        val monolingualTriplesForEnrichment: RDD[(String, String, String)] = m.GetTriplesForClassesToBeEnriched(translatedSourceOntologyClassTriples, targetClassesWithoutCodes, listOfMatchedClasses) //.cache()
+        //    monolingualTriplesForEnrichment.foreach(println(_))
+        val listOfNewClasses: RDD[String] = monolingualTriplesForEnrichment.map(x => x._1).union(monolingualTriplesForEnrichment.map(x => x._3)).filter(y => y != "Class").distinct(2)
 
-    //    triplesToBeEnrichedAsGraph.coalesce(1, shuffle = true).saveAsNTriplesFile("Output/TriplesToBeEnrichedGraph")
-    println("Graph printing" + triplesToBeEnrichedAsGraph.count())
-    triplesToBeEnrichedAsGraph.foreach(println(_)) //    enrichedTargetOntology.coalesce(1, shuffle = true).saveAsNTriplesFile("Output/EnrichedTargetOntology")
-    println("Enriched Target Ontology: " + enrichedTargetOntology.count())
-    enrichedTargetOntology.foreach(println(_))
+        //    println("List of new classes that added to the target ontology is: " + listOfNewClasses.count())
+        //    listOfNewClasses.foreach(println(_))
+        val retrieveURIs = new RetrieveURIs(sparkSession1, sourceOntology)
 
-    //    val triplesToBeEnrichedAsGraphWithForeignClassLabels = gCreate.createMultilingualGraphLabelsForClasses(triplesForHierarchicalEnrichmentWithURIs,sourceClassesWithBestTranslation)
-    //    println("Foreign labels for classes")
-    //    triplesToBeEnrichedAsGraphWithForeignClassLabels.foreach(println(_))
-    //
-    //    val triplesToBeEnrichedAsGraphWithForeignRelationsLabels = gCreate.createMultilingualGraphLabelsForRelations(triplesForRelationalEnrichmentWithURIs,relationsWithTranslation)
-    //    println("Foreign labels for relations")
-    //    triplesToBeEnrichedAsGraphWithForeignRelationsLabels.foreach(println(_))
-    //    triplesToBeEnrichedAsGraphWithForeignClassLabels.union(triplesToBeEnrichedAsGraphWithForeignRelationsLabels).coalesce(1, shuffle = true).saveAsNTriplesFile("Output/MultilingualLabels")
-    //################################## Quality Assessment ###################
-    println("################################## Quality Assessment ###################")
+        val triplesForHierarchicalEnrichmentWithURIs: RDD[(String, String, String)] = retrieveURIs.getTripleURIsForHierarchicalEnrichment(sourceClassesWithBestTranslation, monolingualTriplesForEnrichment)
 
-    val enrichStats = new EnrichmentStatistics(sparkSession1)
-    enrichStats.getEnrichmentStatistics(targetOntology, enrichedTargetOntology)
+        println("Triples for hierarchical enrichment with URIs: " + triplesForHierarchicalEnrichmentWithURIs.count())
+        triplesForHierarchicalEnrichmentWithURIs.foreach(println(_))
 
-    val endTimeMillis = System.currentTimeMillis()
-    val durationMinutes = (endTimeMillis - startTimeMillis) / (1000 * 60)
-    println("runtime = " + durationMinutes + " minutes")
+        println("2. Relational Enrichment:")
+        val listOfNewClassesBroadcasting: Broadcast[Map[String, Long]] = sparkSession1.sparkContext.broadcast(listOfNewClasses.zipWithIndex().collect().toMap)
 
-    sparkSession1.stop
+        val RelEnrich = new RelationalEnrichment()
+
+        val triplesRelationsForEnrichment = RelEnrich.GetTriplesForRelationsToBeEnriched(translatedSourceOntologyRelationTriples, listOfNewClassesBroadcasting)
+
+        //    println("Triples for relations to be enriched: " + triplesRelationsForEnrichment.count())
+        //    triplesRelationsForEnrichment.foreach(println(_))
+        val newC = triplesRelationsForEnrichment.map(x => x._3).subtract(listOfNewClasses).distinct(2)
+
+        //    println("List of new classes in triples for relations " + newC.count())
+        //    newC.foreach(println(_))
+        val triplesForRelationalEnrichmentWithURIs: RDD[(String, String, String)] = retrieveURIs.getTripleURIsForRelationalEnrichment(relationsWithTranslation, sourceClassesWithBestTranslation, triplesRelationsForEnrichment)
+
+        println("Triples for relational enrichment with URIs: " + triplesForRelationalEnrichmentWithURIs.count())
+        triplesForRelationalEnrichmentWithURIs.foreach(println(_))
+
+        //    triplesForRelationalEnrichmentWithURIs.coalesce(1, shuffle = true).saveAsTextFile("Output/triplesForRelationalEnrichmentWithURIs(SEO-Conference)")
+
+        val triplesToBeEnrichedAsGraph: RDD[graph.Triple] = gCreate.createGraph(triplesForHierarchicalEnrichmentWithURIs).union(gCreate.createGraph(triplesForRelationalEnrichmentWithURIs))
+        val enrichedTargetOntology = targetOntology.union(triplesToBeEnrichedAsGraph)
+
+        //    triplesToBeEnrichedAsGraph.coalesce(1, shuffle = true).saveAsNTriplesFile("Output/TriplesToBeEnrichedGraph")
+        println("Graph printing" + triplesToBeEnrichedAsGraph.count())
+        triplesToBeEnrichedAsGraph.foreach(println(_))
+        //    enrichedTargetOntology.coalesce(1, shuffle = true).saveAsNTriplesFile("Output/EnrichedTargetOntology")
+        println("Enriched Target Ontology: " + enrichedTargetOntology.count())
+        enrichedTargetOntology.foreach(println(_))
+
+        //    val triplesToBeEnrichedAsGraphWithForeignClassLabels = gCreate.createMultilingualGraphLabelsForClasses(triplesForHierarchicalEnrichmentWithURIs,sourceClassesWithBestTranslation)
+        //    println("Foreign labels for classes")
+        //    triplesToBeEnrichedAsGraphWithForeignClassLabels.foreach(println(_))
+        //
+        //    val triplesToBeEnrichedAsGraphWithForeignRelationsLabels = gCreate.createMultilingualGraphLabelsForRelations(triplesForRelationalEnrichmentWithURIs,relationsWithTranslation)
+        //    println("Foreign labels for relations")
+        //    triplesToBeEnrichedAsGraphWithForeignRelationsLabels.foreach(println(_))
+        //    triplesToBeEnrichedAsGraphWithForeignClassLabels.union(triplesToBeEnrichedAsGraphWithForeignRelationsLabels).coalesce(1, shuffle = true).saveAsNTriplesFile("Output/MultilingualLabels")
+        //################################## Quality Assessment ###################
+        println("################################## Quality Assessment ###################")
+
+        val enrichStats = new EnrichmentStatistics(sparkSession1)
+        enrichStats.getEnrichmentStatistics(targetOntology, enrichedTargetOntology)
+
+        val endTimeMillis = System.currentTimeMillis()
+        val durationMinutes = (endTimeMillis - startTimeMillis) / (1000 * 60)
+        println("runtime = " + durationMinutes + " minutes")
+    */ sparkSession1.stop
   }
 }
