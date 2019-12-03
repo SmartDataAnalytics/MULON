@@ -22,10 +22,10 @@ import org.apache.spark.storage.StorageLevel
 
     val startTimeMillis = System.currentTimeMillis()
     //    println("Start time in millis "+startTimeMillis)
-    val inputTarget = "src/main/resources/SEO.nt"
+//    val inputTarget = "src/main/resources/SEO.nt"
     //    val inputTarget = "src/main/resources/EvaluationDataset/English/edas-en.nt"
     //    val inputTarget = "src/main/resources/EvaluationDataset/English/cmt-en.nt"
-    //    val inputTarget = "src/main/resources/EvaluationDataset/English/ekaw-en.nt"
+        val inputTarget = "src/main/resources/EvaluationDataset/English/ekaw-en.nt"
     val inputSource = "src/main/resources/conference-de.nt"
     //    val inputSource = "src/main/resources/EvaluationDataset/German/confOf-de.nt"
     //    val inputSource = "src/main/resources/EvaluationDataset/German/sigkdd-de.nt"
@@ -35,14 +35,16 @@ import org.apache.spark.storage.StorageLevel
     val runTime = Runtime.getRuntime
 
     //Get statistics for input ontologies
-    val ontStat = new OntologyStatistics(sparkSession1) //    ontStat.GetStatistics(sourceOntology)
+    val ontStat = new OntologyStatistics(sparkSession1)
+        ontStat.GetStatistics(sourceOntology)
     //    ontStat.GetStatistics(targetOntology)
     //Replacing classes and properties with their labels
     val ontoRebuild = new OntologyRebuilding(sparkSession1)
     val p = new PreProcessing()
 
     val sOntology: RDD[(String, String, String)] = ontoRebuild.RebuildOntologyWithLabels(sourceOntology)
-    //    sOntology.take(10).foreach(println(_))
+//    println("ObjectProperty in source ontology")
+//    sOntology.filter(_._3 == "ObjectProperty").foreach(println(_))
     val tOntology: RDD[(String, String, String)] = ontoRebuild.RebuildOntologyWithLabels(targetOntology)
 
     println("======================================")
@@ -90,19 +92,19 @@ import org.apache.spark.storage.StorageLevel
     listOfMatchedClasses.foreach(println(_))
 
     val sourceClassesWithBestTranslation: RDD[(String, String, String)] = sourceClassesWithListOfBestTranslations.map(x => (x._1.toLowerCase, p.stringPreProcessing(x._3.head.toString.toLowerCase.split(",").head))).keyBy(_._1).join(sourceClassesWithCodes).map({ case (u, ((uu, tt), s)) => (u, s, tt.trim.replaceAll(" +", " ")) }) //.cache()//.filter(!_.isDigit)
-    println("Source classes with the best translation W.R.T the target ontology: ")
-    sourceClassesWithBestTranslation.foreach(println(_))
+//    println("Source classes with the best translation W.R.T the target ontology: ")
+//    sourceClassesWithBestTranslation.foreach(println(_))
 
     // ####################### Relation Translation using offline dictionaries from Google translate #######################
     val relationsWithTranslation: RDD[(String, String, String)] = translate.GetTranslationForRelation(availableTranslations, sourceRelations)
-    println("Relations with translations: ")
-    relationsWithTranslation.foreach(println(_))
+//    println("Relations with translations: ")
+//    relationsWithTranslation.foreach(println(_))
 
 //    println("Semantic similarity for relations: ")
     val relationSim = new RelationSimilarity()
     val similarRelations: RDD[(String, String, String, String, Double)] = relationSim.GetRelationSimilarity(targetRelationsWithoutCodes.map(x => x._1), relationsWithTranslation)
-    //    println("Relation similarity: ")
-    //    similarRelations.foreach(println(_))
+        println("Relation similarity: ")
+        similarRelations.foreach(println(_))
 
     val om = new OntologyMerging(sparkSession1)
     om.Merge(sourceClassesWithBestTranslation, targetClassesWithoutCodes, listOfMatchedClasses, similarRelations, relationsWithTranslation, sOntology)
