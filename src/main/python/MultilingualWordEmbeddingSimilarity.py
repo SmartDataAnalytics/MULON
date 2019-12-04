@@ -66,10 +66,10 @@ def getSimilarity(phrase, emb, id2word):
 # sim = 1 - distance.cosine(s1_afv, s2_afv)
 # print('Similarity = ', sim)
 
-with open('/home/shimaa/OECM/Output/Sigkdd_de_classes') as f:
+with open('/home/shimaa/MULON/src/main/python/OntologyResources/ConfOf_de_relations') as f:
     sourceClasses = f.read().splitlines()
 
-with open('/home/shimaa/OECM/Output/Cmt_en_classes') as f:
+with open('/home/shimaa/MULON/src/main/python/OntologyResources/Edas_en_relations') as f:
     targetClasses = f.read().splitlines()
 
 sim = []
@@ -81,7 +81,7 @@ for s in sourceClasses:
         sim.append((s, t, similarity))
 # print(sim)
 
-with open('/home/shimaa/OECM/Output/MUSE-Results/Sigkdd_deXCmt_en(Classes).txt', 'w') as f:
+with open('/home/shimaa/MULON/src/main/python/MUSE-Results/ConfOf_deXEdas_en(Relations).txt', 'w') as f:
     for item in sim:
         f.write("{}\n".format(item))
 
