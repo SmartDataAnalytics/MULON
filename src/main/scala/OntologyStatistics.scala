@@ -24,8 +24,8 @@ class OntologyStatistics(sparkSession: SparkSession) {
     val sClass = ontologyTriples.filter(q => q.getSubject.isURI && q.getObject.isURI && q.getObject.getLocalName == "Class").distinct(2)
     println("Number of classes is " + sClass.count()) //    sClass.foreach(println(_))
     val listOfPredicates = ontologyTriples.map(x => x.getPredicate.getLocalName).distinct(2)
-    println("List of predicates in the ontology: ")
-    listOfPredicates.foreach(println(_))
+//    println("List of predicates in the ontology: ")
+//    listOfPredicates.foreach(println(_))
   }
 
   def GetNumberOfClasses(ontologyTriples: RDD[graph.Triple]): Double = {
@@ -46,7 +46,8 @@ class OntologyStatistics(sparkSession: SparkSession) {
   }
 
   def GetNumberOfSubClasses(ontologyTriples: RDD[graph.Triple]): Double = {
-    val numOfSubClasses = ontologyTriples.filter(q => q.getSubject.isURI && q.getObject.isURI && q.getPredicate.getLocalName == "subClassOf").distinct(2).count() //    println("Number of SubClasses "+numOfSubClasses)
+    val numOfSubClasses = ontologyTriples.filter(q => q.getSubject.isURI && q.getObject.isURI && q.getPredicate.getLocalName == "subClassOf").distinct(2).count()
+    println("Number of SubClasses "+numOfSubClasses)
     numOfSubClasses
 
   }

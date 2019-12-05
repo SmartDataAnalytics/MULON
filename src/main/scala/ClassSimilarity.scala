@@ -26,9 +26,9 @@ class ClassSimilarity(sparkSession: SparkSession) extends Serializable{
     //    var bestTranslation: List[String] = List(" ")
 
     val gS = new GetSimilarity()
-    var t: RDD[String] = sp.sparkContext.parallelize(targetClassesBroadcasting.value.map(_._1).toList)//.cache()
+    var targetClasses: RDD[String] = sp.sparkContext.parallelize(targetClassesBroadcasting.value.map(_._1).toList)//.cache()
     var translations = sp.sparkContext.parallelize(listOfTranslations)
-    var crossRDD: RDD[(String, String)] = translations.cartesian(t)
+    var crossRDD: RDD[(String, String)] = translations.cartesian(targetClasses)
     //    println("The cross RDD is:")
     //    crossRDD.foreach(println(_))
     //    var sim: RDD[(String, String, Double)] = crossRDD.map(x=>(x._1,x._2,gS.getJaccardStringSimilarity(x._1,x._2))).filter(y=>y._3>=0.3)
