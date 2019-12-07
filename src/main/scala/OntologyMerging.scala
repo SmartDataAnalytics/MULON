@@ -34,11 +34,11 @@ class OntologyMerging(sparkSession: SparkSession) extends Serializable {
     println("Translate ontology with number of triples")
     translatedSourceOntology.foreach(println(_))
 
-    val englishLabels = gCreate.CreateMultilingualEnglishLabels(sourceClassesWithURIs.union(sourceRelationsWithURIs)) //    println("English labels"+englishLabels.count())
-    //    englishLabels.foreach(println(_))
-    val germanLabels = gCreate.CreateMultilingualGermanLabels(sourceClassesWithURIs.union(sourceRelationsWithURIs)) //    println("German labels"+germanLabels.count())
-    //    germanLabels.foreach(println(_))
-    val O1 = translatedSourceOntology.union(englishLabels).union(germanLabels)
+    val sourceEnglishLabels = gCreate.CreateMultilingualEnglishLabels(sourceClassesWithURIs.union(sourceRelationsWithURIs)) //    println("English labels"+sourceEnglishLabels.count())
+    //    sourceEnglishLabels.foreach(println(_))
+    val sourceGermanLabels = gCreate.CreateMultilingualGermanLabels(sourceClassesWithURIs.union(sourceRelationsWithURIs)) //    println("German labels"+sourceGermanLabels.count())
+    //    sourceGermanLabels.foreach(println(_))
+    val O1 = translatedSourceOntology.union(sourceEnglishLabels).union(sourceGermanLabels)
     println("Multilingual O1")
     O1.take(20).foreach(println(_))
     //    O1.coalesce(1, shuffle = true).saveAsNTriplesFile("src/main/resources/Output/O1")
@@ -60,11 +60,19 @@ class OntologyMerging(sparkSession: SparkSession) extends Serializable {
     println("targetRelationsWithURIs"+targetRelationsWithURIs.count())
     targetRelationsWithURIs.foreach(println(_))
 
-    this.TranslateEnglishOntology(targetClassesWithURIs.union(targetRelationsWithURIs), tOntology)
+    val targetGraph = this.TranslateEnglishOntology(targetClassesWithURIs.union(targetRelationsWithURIs), tOntology)
 //    val translatedTargetOntology: RDD[graph.Triple] = this.TranslateGermanOntology(targetClassesWithURIs.union(targetRelationsWithURIs), tOntology)
 //    println("Translate target ontology with number of triples")
 //    translatedTargetOntology.foreach(println(_))
-
+    val targetEnglishLabels = gCreate.CreateMultilingualEnglishLabels(targetClassesWithURIs.union(targetRelationsWithURIs))
+        println("English labels"+targetEnglishLabels.count())
+        targetEnglishLabels.foreach(println(_))
+    val targetGermanLabels = gCreate.CreateMultilingualGermanLabels(targetClassesWithURIs.union(targetRelationsWithURIs))
+        println("German labels"+targetGermanLabels.count())
+        targetGermanLabels.foreach(println(_))
+    val O2 = targetGraph.union(targetEnglishLabels).union(targetGermanLabels)
+    println("Multilingual O2")
+    O1.take(20).foreach(println(_))
 
   }
 
@@ -125,14 +133,17 @@ class OntologyMerging(sparkSession: SparkSession) extends Serializable {
     gCreate.CreateGraph(translatedOntology)
   }
 
-  def TranslateEnglishOntology(resourcesWithURIs: RDD[(String, String, String)], sOntology: RDD[(String, String, String)])= {
-    val sub = sOntology.keyBy(_._1).leftOuterJoin(resourcesWithURIs.keyBy(_._3))//.map { case (gr1, ((gr2, label, typ), ((uri, gr3, en)))) => (uri, label, typ) }
-//    val translatedOntology: RDD[(String, String, String)] = sub.keyBy(_._3).leftOuterJoin(resourcesWithURIs.keyBy(_._2)).map { case (gr1, ((uri1, label, typ), list)) => if (!list.isEmpty) (uri1, label, list.last._1) else (uri1, label, typ) }
-//    translatedOntology.filter(x => x._2 == "type").foreach(println(_))
-    println("target ontology triples"+sOntology.count())
-    println("translated ontology before graph"+sub.count())
-    sub.foreach(println(_))
-//    gCreate.CreateGraph(translatedOntology)
+  def TranslateEnglishOntology(resourcesWithURIs: RDD[(String, String, String)], sOntology: RDD[(String, String, String)]): RDD[graph.Triple]= {
+    val p = new PreProcessing()
+    val sourceOntology = sOntology.map(x=>(p.stringPreProcessing(p.splitCamelCase(x._1).toLowerCase.replaceAll("\\s{2,}", " ").trim()),x._2,p.stringPreProcessing(p.splitCamelCase(x._3).toLowerCase.replaceAll("\\s{2,}", " ").trim())))
+
+    val sub = sourceOntology.keyBy(_._1).leftOuterJoin(resourcesWithURIs.keyBy(_._3.toLowerCase))
+      .filter(x => !x._2._2.isEmpty)
+      .map { case (en1, ((en2, relation, obj), Some((uri, gr, en3)))) => (uri, relation, obj) }
+    val translatedOntology = sub.keyBy(_._3).leftOuterJoin(resourcesWithURIs.keyBy(_._3.toLowerCase)).map { case (en1, ((uri1, relation, obj), list)) => if (!list.isEmpty) (uri1, relation, list.last._1) else (uri1, relation, obj) }
+
+    gCreate.CreateGraph(translatedOntology)
+
   }
 
   def MultilingualInfoForTargetOntology(offlineDictionaryForTarget: String, resourceType: Char): RDD[(String, String)]= {

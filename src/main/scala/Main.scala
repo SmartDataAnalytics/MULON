@@ -50,8 +50,11 @@ import org.apache.spark.storage.StorageLevel
     val sOntology: RDD[(String, String, String)] = ontoRebuild.RebuildOntologyWithLabels(sourceOntology)
     //    println("ObjectProperty in source ontology")
     //    sOntology.filter(_._3 == "ObjectProperty").foreach(println(_))
-    val tOntology: RDD[(String, String, String)] = ontoRebuild.RebuildOntologyWithLabels(targetOntology)
-    tOntology.take(10).foreach(println(_))
+//    val tOntology: RDD[(String, String, String)] = ontoRebuild.RebuildOntologyWithLabels(targetOntology)
+//    tOntology.foreach(println(_))
+    val tOntology = ontoRebuild.RebuildTargetOntologyWithoutCodes(targetOntology)
+    println("Target ontology triples"+tOntology.count())
+    tOntology.foreach(println(_))
 
     println("======================================")
     println("|     Resources Extraction Phase     |")

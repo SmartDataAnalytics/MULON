@@ -63,6 +63,12 @@ class GraphCreating{
           NodeFactory.createURI("http://www.w3.org/2000/01/rdf-schema#"++x._2),
           NodeFactory.createURI("http://www.w3.org/2002/07/owl#"++x._3)
         )}
+        else if (x._2 =="comment"){
+        graph.Triple.create(
+          NodeFactory.createURI(x._1),
+          NodeFactory.createURI("http://www.w3.org/2000/01/rdf-schema#comment"),
+          NodeFactory.createLiteral(x._3, "en")
+        )}
       else {//println("case 5")
         graph.Triple.create(
         NodeFactory.createURI(x._1),
