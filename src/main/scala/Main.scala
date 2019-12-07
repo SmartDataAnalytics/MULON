@@ -20,7 +20,7 @@ import org.apache.spark.storage.StorageLevel
     val sparkSession1 = SparkSession.builder //      .master("spark://172.18.160.16:3090")
       .master("local[*]").config("spark.serializer", "org.apache.spark.serializer.KryoSerializer").getOrCreate()
 
-    val inputTarget = "src/main/resources/CaseStudy/SEO.nt"
+    val inputTarget = "src/main/resources/CaseStudy/SEO2.nt"
     //        val inputTarget = "src/main/resources/EvaluationDataset/English/edas-en.nt"
     //    val inputTarget = "src/main/resources/EvaluationDataset/English/cmt-en.nt"
     //    val inputTarget = "src/main/resources/EvaluationDataset/English/ekaw-en.nt"
@@ -40,9 +40,11 @@ import org.apache.spark.storage.StorageLevel
 
     //Get statistics for input ontologies
     val ontStat = new OntologyStatistics(sparkSession1)
-//    val o = ontStat.GetNumberOfSubClasses(targetOntology)
-    //    ontStat.GetStatistics(sourceOntology)
-    //        ontStat.GetStatistics(targetOntology)
+//    val o = ontStat.GetNumberOfSubClasses
+//    println("predicates")
+//    targetOntology.map(_.getPredicate.getLocalName).distinct().foreach(println(_))
+    ontStat.GetStatistics(sourceOntology)
+    ontStat.GetStatistics(targetOntology)
     //Replacing classes and properties with their labels
     val ontoRebuild = new OntologyRebuilding(sparkSession1)
     val p = new PreProcessing()
@@ -115,7 +117,7 @@ import org.apache.spark.storage.StorageLevel
     similarRelations.foreach(println(_))
 
     val om = new OntologyMerging(sparkSession1)
-    om.Merge(sourceClassesWithBestTranslation.map(x=>(x._2,x._3)), listOfMatchedClasses, similarRelations.map(x=>(x._2,x._3,x._4)), relationsWithTranslation.map(x=>(x._2,x._3)), sOntology, tOntology, offlineDictionaryForTarget)
+    val multilingualMergedOntology = om.Merge(sourceClassesWithBestTranslation.map(x=>(x._2,x._3)), listOfMatchedClasses, similarRelations.map(x=>(x._2,x._3,x._4)), relationsWithTranslation.map(x=>(x._2,x._3)), sOntology, tOntology, offlineDictionaryForTarget)
 
 
 

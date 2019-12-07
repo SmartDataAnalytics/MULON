@@ -19,9 +19,10 @@ class OntologyStatistics(sparkSession: SparkSession) {
     val sAnnotationProperty = ontologyTriples.filter(q => q.getObject.isURI && q.getObject.getLocalName == "AnnotationProperty").distinct(2)
     println("Number of annotation properties is " + sAnnotationProperty.count())
 //    sAnnotationProperty.foreach(println(_))
-    val sDatatypeProperty = ontologyTriples.filter(q => q.getObject.isURI && q.getObject.getLocalName == "DatatypeProperty").distinct(2)
+    val sDatatypeProperty: RDD[graph.Triple] = ontologyTriples.filter(q => q.getObject.isURI && q.getObject.getLocalName == "DatatypeProperty").distinct(2)
     println("Number of Datatype properties is " + sDatatypeProperty.count()) //    sDatatypeProperty.foreach(println(_))
-    val sClass = ontologyTriples.filter(q => q.getSubject.isURI && q.getObject.isURI && q.getObject.getLocalName == "Class").distinct(2)
+//    val sClass = ontologyTriples.filter(q => q.getSubject.isURI && q.getObject.isURI && q.getObject.getLocalName == "Class").distinct(2)
+val sClass = ontologyTriples.find(None, None, Some(NodeFactory.createURI("http://www.w3.org/2002/07/owl#Class"))).map(x => x.getSubject.getLocalName.toLowerCase).filter(x=> x.toLowerCase!="class") .distinct()
     println("Number of classes is " + sClass.count()) //    sClass.foreach(println(_))
     val listOfPredicates = ontologyTriples.map(x => x.getPredicate.getLocalName).distinct(2)
 //    println("List of predicates in the ontology: ")
@@ -72,7 +73,7 @@ class OntologyStatistics(sparkSession: SparkSession) {
   }
 
   def RetrieveClassesWithLabels(ontologyTriples: RDD[graph.Triple]): RDD[String] = { //will be applied for ontologies without codes like SEO
-    val classesWithoutURIs: RDD[String] = ontologyTriples.find(None, None, Some(NodeFactory.createURI("http://www.w3.org/2002/07/owl#Class"))).map(x => x.getSubject.getLocalName)
+    val classesWithoutURIs: RDD[String] = ontologyTriples.find(None, None, Some(NodeFactory.createURI("http://www.w3.org/2002/07/owl#Class"))).map(x => x.getSubject.getLocalName).filter(x=> x.toLowerCase!="class").distinct()
     classesWithoutURIs
   }
 

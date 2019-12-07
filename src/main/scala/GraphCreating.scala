@@ -16,7 +16,7 @@ class GraphCreating{
     val g = resourcesWithURIs.map{case x => graph.Triple.create(
       NodeFactory.createURI(x._1),
       NodeFactory.createURI("http://www.w3.org/2000/01/rdf-schema#label"),
-      NodeFactory.createLiteral(x._3.toLowerCase.capitalize, "de")
+      NodeFactory.createLiteral(x._2.toLowerCase.capitalize, "de")
     )}
     g
   }
@@ -68,6 +68,18 @@ class GraphCreating{
           NodeFactory.createURI(x._1),
           NodeFactory.createURI("http://www.w3.org/2000/01/rdf-schema#comment"),
           NodeFactory.createLiteral(x._3, "en")
+        )}
+      else if (x._2 =="issued"){
+        graph.Triple.create(
+          NodeFactory.createURI(x._1),
+          NodeFactory.createURI("http://purl.org/dc/terms/issued"),
+          NodeFactory.createLiteral(x._3)//.createLiteral(x._3, "en")
+        )}
+      else if (x._2 =="description"){
+        graph.Triple.create(
+          NodeFactory.createURI(x._1),
+          NodeFactory.createURI("http://purl.org/dc/elements/1.1/description"),
+          NodeFactory.createLiteral(x._3)//.createLiteral(x._3, "en")
         )}
       else {//println("case 5")
         graph.Triple.create(
