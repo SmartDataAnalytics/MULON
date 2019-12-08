@@ -138,6 +138,21 @@ import org.apache.spark.storage.StorageLevel
     println("Readability for O1 is " + quality.Readability(sourceOntology))
     println("Readability for O2 is " + quality.Readability(targetOntology))
     println("Readability for Om is " + quality.Readability(multilingualMergedOntology))
+    println("==============================================")
+    println("Isolated Elements for O1 is " + quality.IsolatedElements(sourceOntology))
+    println("Isolated Elements for O2 is " + quality.IsolatedElements(targetOntology))
+    println("Isolated Elements for Om is " + quality.IsolatedElements(multilingualMergedOntology))
+    println("==============================================")
+    println("Class coverage for merged ontology Om is " + quality.ClassCoverage(sourceOntology,targetOntology,multilingualMergedOntology,listOfMatchedClasses.count().toInt))
+    println("==============================================")
+    println("Property coverage for merged ontology Om is " + quality.PropertyCoverage(sourceOntology,targetOntology,multilingualMergedOntology,similarRelations.count().toInt))
+    println("==============================================")
+    println("Compactness for merged ontology Om is " + quality.Compactness(sourceOntology,targetOntology,multilingualMergedOntology))
+
+
+
+
+//    ontStat.tryyyy(targetOntology)
 
 
 

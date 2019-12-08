@@ -26,7 +26,7 @@ class OntologyStatistics(sparkSession: SparkSession) {
     println("Number of Datatype properties is " + sDatatypeProperty.count()) //    sDatatypeProperty.foreach(println(_))
 //    val sClass = ontologyTriples.filter(q => q.getSubject.isURI && q.getObject.isURI && q.getObject.getLocalName == "Class").distinct(2)
 
-    val sClass = ontologyTriples.find(None, None, Some(NodeFactory.createURI("http://www.w3.org/2002/07/owl#Class"))).map(x => x.getSubject.getLocalName.toLowerCase).filter(x=> x.toLowerCase!="class") .distinct()
+    val sClass = ontologyTriples.find(None, None, Some(NodeFactory.createURI("http://www.w3.org/2002/07/owl#Class"))).map(x => x.getSubject.getLocalName.toLowerCase).filter(x=> x.toLowerCase!="class").distinct()
     println("Number of classes is " + sClass.count()) //    sClass.foreach(println(_))
     val listOfPredicates = ontologyTriples.map(x => x.getPredicate.getLocalName).distinct(2)
 //    println("List of predicates in the ontology: ")
@@ -56,12 +56,35 @@ class OntologyStatistics(sparkSession: SparkSession) {
     numOfSubClasses
 
   }
+  def GetAllProperties(ontologyTriples:RDD[graph.Triple]): RDD[String]= {
+    val allProperties: RDD[String] = ontologyTriples.filter(q => q.getObject.isURI && (q.getObject.getLocalName == "ObjectProperty" || q.getObject.getLocalName == "DatatypeProperty" || q.getObject.getLocalName == "AnnotationProperty")).map(x => x.getSubject.getLocalName).distinct(2)
+    allProperties
+  }
+
+  def GetAllResources(ontologyTriples:RDD[graph.Triple]): RDD[String]={
+    val allClasses = ontologyTriples.find(None, None, Some(NodeFactory.createURI("http://www.w3.org/2002/07/owl#Class"))).map(x => x.getSubject.getLocalName.toLowerCase).filter(x=> x.toLowerCase!="class") .distinct()
+    val allProperties = this.GetAllProperties(ontologyTriples)
+    allClasses.union(allProperties)
+  }
 
   def GetNumberOfHRD(ontologyTriples: RDD[graph.Triple]): Double = {
     val numOfHRD = ontologyTriples.filter(q => q.getPredicate.getLocalName == "comment" || q.getPredicate.getLocalName == "label" || q.getPredicate.getLocalName == "description").distinct(2).count()
     //    println("Number of SubClasses "+numOfSubClasses)
     numOfHRD
 
+  }
+
+  def ResourceDistribution(ontologyTriples:RDD[graph.Triple]): RDD[Int]= {
+    val rd: RDD[Int] = ontologyTriples.filter(x => x.getPredicate.getLocalName != "label")
+      .groupBy(_.getSubject)
+      .map(f => (f._2.filter(p => p.getSubject.getLocalName.contains(p.getSubject.getLocalName))).size)
+    rd
+  }
+  def tryyyy(ontologyTriples:RDD[graph.Triple])= {
+    val allProperties = this.GetAllProperties(ontologyTriples).zipWithIndex()
+    val propertiesDist = allProperties.keyBy(_._1).leftOuterJoin(ontologyTriples.keyBy(_.getSubject.getLocalName)).groupBy(_._1)
+
+   propertiesDist.foreach(println(_))
   }
 
   //  def GetNumberOfRelations(triples: RDD[graph.Triple]): Double={
