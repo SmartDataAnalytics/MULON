@@ -55,8 +55,8 @@ import org.apache.spark.storage.StorageLevel
 //    val tOntology: RDD[(String, String, String)] = ontoRebuild.RebuildOntologyWithLabels(targetOntology)
 //    tOntology.foreach(println(_))
     val tOntology = ontoRebuild.RebuildTargetOntologyWithoutCodes(targetOntology)
-    println("Target ontology triples"+tOntology.count())
-    tOntology.foreach(println(_))
+//    println("Target ontology triples"+tOntology.count())
+//    tOntology.foreach(println(_))
 
     println("======================================")
     println("|     Resources Extraction Phase     |")
@@ -87,7 +87,7 @@ import org.apache.spark.storage.StorageLevel
     println("======================================")
     println("|    Cross-lingual Matching Phase    |")
     println("======================================")
-    println("1) Translation using offline dictionaries:")
+//    println("1) Translation using offline dictionaries:")
     // ####################### Class Translation using offline dictionaries from Google translate #######################
     val tc = targetClassesWithoutCodes.zipWithIndex().collect().toMap
     val targetClassesBroadcasting: Broadcast[Map[String, Long]] = sparkSession1.sparkContext.broadcast(tc)
@@ -95,8 +95,8 @@ import org.apache.spark.storage.StorageLevel
     val availableTranslations: RDD[(String, List[String])] = translate.GettingAllAvailableTranslations(offlineDictionaryForSource) //    println("All available translations:")
     //    availableTranslations.foreach(println(_))
     val sourceClassesWithListOfBestTranslations = availableTranslations.map(x => (x._1, x._2, translate.GetBestTranslationForClass(x._2, targetClassesBroadcasting))).persist(StorageLevel.MEMORY_AND_DISK)
-        println("All source classes with list of best translations ")
-        sourceClassesWithListOfBestTranslations.foreach(println(_))
+//        println("All source classes with list of best translations ")
+//        sourceClassesWithListOfBestTranslations.foreach(println(_))
     //sourceClassesWithListOfBestTranslations.coalesce(1).saveAsTextFile("src/main/resources/EvaluationDataset/German/translation")
     println("2) Cross-lingual semantic similarity:")
     val listOfMatchedClasses: RDD[List[String]] = sourceClassesWithListOfBestTranslations.map(x => x._3.toString().toLowerCase.split(",").toList).filter(y => y.last.exists(_.isDigit)).persist(StorageLevel.MEMORY_AND_DISK)
@@ -104,8 +104,8 @@ import org.apache.spark.storage.StorageLevel
     listOfMatchedClasses.map(x => (x(0), x(1), x(2))).foreach(println(_))
 
     val sourceClassesWithBestTranslation: RDD[(String, String, String)] = sourceClassesWithListOfBestTranslations.map(x => (x._1.toLowerCase, p.stringPreProcessing(x._3.head.toString.toLowerCase.split(",").head))).keyBy(_._1).join(sourceClassesWithCodes).map({ case (u, ((uu, tt), s)) => (u, s, tt.trim.replaceAll(" +", " ")) }) //.cache()//.filter(!_.isDigit)
-        println("Source classes with the best translation W.R.T the target ontology: ")
-        sourceClassesWithBestTranslation.foreach(println(_))
+//        println("Source classes with the best translation W.R.T the target ontology: ")
+//        sourceClassesWithBestTranslation.foreach(println(_))
     // ####################### Relation Translation using offline dictionaries from Google translate #######################
     val relationsWithTranslation: RDD[(String, String, String)] = translate.GetTranslationForRelation(availableTranslations, sourceRelations)
     //    println("Relations with translations: ")
@@ -119,7 +119,25 @@ import org.apache.spark.storage.StorageLevel
     val om = new OntologyMerging(sparkSession1)
     val multilingualMergedOntology = om.Merge(sourceClassesWithBestTranslation.map(x=>(x._2,x._3)), listOfMatchedClasses, similarRelations.map(x=>(x._2,x._3,x._4)), relationsWithTranslation.map(x=>(x._2,x._3)), sOntology, tOntology, offlineDictionaryForTarget)
 
-
+    println("======================================")
+    println("|         Quality Assessment         |")
+    println("======================================")
+    val quality = new QualityAssessment(sparkSession1)
+    println("Relationship richness for O1 is " + quality.RelationshipRichness(sourceOntology))
+    println("Relationship richness for O2 is " + quality.RelationshipRichness(targetOntology))
+    println("Relationship richness for Om is " + quality.RelationshipRichness(multilingualMergedOntology))
+    println("==============================================")
+    println("Attribute richness for O1 is " + quality.AttributeRichness(sourceOntology))
+    println("Attribute richness for O2 is " + quality.AttributeRichness(targetOntology))
+    println("Attribute richness for Om is " + quality.AttributeRichness(multilingualMergedOntology))
+    println("==============================================")
+    println("Inheritance richness for O1 is " + quality.InheritanceRichness(sourceOntology))
+    println("Inheritance richness for O2 is " + quality.InheritanceRichness(targetOntology))
+    println("Inheritance richness for Om is " + quality.InheritanceRichness(multilingualMergedOntology))
+    println("==============================================")
+    println("Readability for O1 is " + quality.Readability(sourceOntology))
+    println("Readability for O2 is " + quality.Readability(targetOntology))
+    println("Readability for Om is " + quality.Readability(multilingualMergedOntology))
 
 
 

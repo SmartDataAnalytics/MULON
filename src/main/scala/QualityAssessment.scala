@@ -70,33 +70,37 @@ class QualityAssessment(sparkSession: SparkSession) {
     if (SC_count > 0) S_intersection_SC_count.toDouble / SC_count.toDouble
     else 0.00
   }
+
   def AttributeRichness(ontologyTriples: RDD[graph.Triple]): Double={
-    /*Attribute richness (AR) refers to the average number of attributes per class.
-Formally, AR = A/C, the number of attributes for all classes (A) divided
-by the number of classes (C). The more attributes are defined, the more
-knowledge the ontology provides.*/
-    val ontoStat = new OntologyStatistics(sparkSession)
+    /*refers to how much knowledge about classes is inthe schema. The more attributes are defined, the more knowledge the ontol-ogy provides. = the number of attributes for all classes divided by the number of classes (C).*/
     val numOfRelations = ontoStat.GetNumberOfRelations(ontologyTriples)
 //    println("Number of Relations = "+numOfRelations)
     val numOfClasses = ontoStat.GetNumberOfClasses(ontologyTriples)
 //    println("Number of Classes = "+numOfClasses)
     val attributeRichness: Double = numOfRelations / numOfClasses
-    (attributeRichness * 100).round / 100.toDouble
+    ontoStat.Round(attributeRichness)
   }
+
   def RelationshipRichness(ontologyTriples: RDD[graph.Triple]): Double={
-    /*refers to the diversity of relations and the placement of them in the ontology. Formally, RR = R/(S + R), the number of
-relationships (R) defined in the schema, divided by the sum of the number of sub-classes (S) and the number of relationships. The more relations, except is-a relations, the ontology has, the richer it is.*/
+    /*refers to the diversity of relations and their position in the ontology. The more relations the ontology has (except \texttt{rdfs:subClassOf} relation), the richer it is.= number of object property / (subClassOf + object property)*/
     val numOfRelations = ontoStat.GetNumberOfRelations(ontologyTriples)
     val numOfSubClassOf = ontoStat.GetNumberOfSubClasses(ontologyTriples)
     val relationshipRichness = numOfRelations / (numOfSubClassOf + numOfRelations)
-    relationshipRichness
+    ontoStat.Round(relationshipRichness)
   }
+
   def InheritanceRichness(ontologyTriples: RDD[graph.Triple]): Double={
-    /*refers to the average number of sub-classes per class. Formally, IR = S/C, the number of sub-classes divided by the sum of the
-number of classes. A high IR means that ontology represents a wide range of general knowledge, i.e., is of a horizontal nature.*/
+    /*refers to how well knowledge is distributed across different  levels  in  the  ontology. = the number of sub-classes divided by the sum of the number of classes. */
     val numOfSubClassOf = ontoStat.GetNumberOfSubClasses(ontologyTriples)
     val numOfClasses = ontoStat.GetNumberOfClasses(ontologyTriples)
     ontoStat.Round(numOfSubClassOf/numOfClasses)
+  }
+
+  def Readability(ontologyTriples: RDD[graph.Triple]): Double={
+    /*refers to the the existence of human readable descriptions(HRD) in the ontology, such as comments, labels, or description. The morehuman readable descriptions exist, the more readable the ontology is. HRD / number of triples*/
+    val numOfHRD = ontoStat.GetNumberOfHRD(ontologyTriples)
+    val numOfTriples = ontologyTriples.distinct().count()
+    ontoStat.Round(numOfHRD/numOfTriples)
   }
 //  def EnrichmentStatistics(targetOntology: RDD[graph.Triple], enrichedTargetOntology: RDD[graph.Triple])={
 //    val numOfClassesBeforeEnrichment = ontoStat.GetNumberOfClasses(targetOntology)

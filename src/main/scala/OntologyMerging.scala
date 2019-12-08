@@ -1,6 +1,4 @@
-import net.sansa_stack.rdf.spark.model._
 import org.apache.jena.graph
-import org.apache.jena.graph.NodeFactory
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.SparkSession
 
@@ -68,17 +66,19 @@ class OntologyMerging(sparkSession: SparkSession) extends Serializable {
 //    println("Translate target ontology with number of triples")
 //    translatedTargetOntology.foreach(println(_))
 //    translatedTargetOntology.coalesce(1, shuffle = true).saveAsNTriplesFile("src/main/resources/Output/translatedTargetOntology")
-    println("target classes are")
-      translatedTargetOntology.find(None, None, Some(NodeFactory.createURI("http://www.w3.org/2002/07/owl#Class"))).map(x => x.getSubject.getLocalName).filter(x=> x.toLowerCase!="class").distinct().foreach(println(_))
+
     val targetEnglishLabels = gCreate.CreateMultilingualEnglishLabels(targetClassesWithURIs.union(targetRelationsWithURIs))
 //        println("English labels"+targetEnglishLabels.count())
 //        targetEnglishLabels.foreach(println(_))
+
     val targetGermanLabels = gCreate.CreateMultilingualGermanLabels(targetClassesWithURIs.union(targetRelationsWithURIs))
 //        println("German labels"+targetGermanLabels.count())
 //        targetGermanLabels.foreach(println(_))
+
     val O2 = translatedTargetOntology.union(targetEnglishLabels).union(targetGermanLabels)
 //    println("Multilingual O2")
 //    O1.take(20).foreach(println(_))
+
     println("Statistics for second ontology")
     ontStat.GetStatistics(translatedTargetOntology)
 
@@ -164,9 +164,9 @@ class OntologyMerging(sparkSession: SparkSession) extends Serializable {
     var targetResourcesWithTranslation = sparkSession.sparkContext.emptyRDD[(String, String)]
     val targetDictionary: RDD[List[String]] = sparkSession.sparkContext.textFile(offlineDictionaryForTarget).map(_.split(",").toList)
     if (resourceType == 'C')
-      targetResourcesWithTranslation = targetDictionary.filter(x => x(3) == "C").map(y => (y(1),y(2)))
+      targetResourcesWithTranslation = targetDictionary.filter(x => x(2) == "C").map(y => (y(0),y(1)))
     else if (resourceType == 'P')
-      targetResourcesWithTranslation = targetDictionary.filter(x => x(3) == "P").map(y => (y(1),y(2)))
+      targetResourcesWithTranslation = targetDictionary.filter(x => x(2) == "P").map(y => (y(0),y(1)))
 
     targetResourcesWithTranslation
   }

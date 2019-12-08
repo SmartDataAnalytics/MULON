@@ -13,16 +13,20 @@ class OntologyStatistics(sparkSession: SparkSession) {
 //    val ontoName = ontologyTriples.filter(x => x.getPredicate.getLocalName == "type" && x.getObject.getLocalName == "Ontology").map(x => x.getSubject.getLocalName).first()
 //    println("Ontology name is: " + ontoName)
     println("Number of triples in the ontology = " + ontologyTriples.count()) //    triples.foreach(println(_))
+
     val sObjectProperty = ontologyTriples.filter(q => q.getObject.isURI && q.getObject.getLocalName == "ObjectProperty").distinct(2)
     println("Number of object properties is " + sObjectProperty.count())
 //    sObjectProperty.foreach(println(_))
+
     val sAnnotationProperty = ontologyTriples.filter(q => q.getObject.isURI && q.getObject.getLocalName == "AnnotationProperty").distinct(2)
     println("Number of annotation properties is " + sAnnotationProperty.count())
 //    sAnnotationProperty.foreach(println(_))
+
     val sDatatypeProperty: RDD[graph.Triple] = ontologyTriples.filter(q => q.getObject.isURI && q.getObject.getLocalName == "DatatypeProperty").distinct(2)
     println("Number of Datatype properties is " + sDatatypeProperty.count()) //    sDatatypeProperty.foreach(println(_))
 //    val sClass = ontologyTriples.filter(q => q.getSubject.isURI && q.getObject.isURI && q.getObject.getLocalName == "Class").distinct(2)
-val sClass = ontologyTriples.find(None, None, Some(NodeFactory.createURI("http://www.w3.org/2002/07/owl#Class"))).map(x => x.getSubject.getLocalName.toLowerCase).filter(x=> x.toLowerCase!="class") .distinct()
+
+    val sClass = ontologyTriples.find(None, None, Some(NodeFactory.createURI("http://www.w3.org/2002/07/owl#Class"))).map(x => x.getSubject.getLocalName.toLowerCase).filter(x=> x.toLowerCase!="class") .distinct()
     println("Number of classes is " + sClass.count()) //    sClass.foreach(println(_))
     val listOfPredicates = ontologyTriples.map(x => x.getPredicate.getLocalName).distinct(2)
 //    println("List of predicates in the ontology: ")
@@ -48,8 +52,15 @@ val sClass = ontologyTriples.find(None, None, Some(NodeFactory.createURI("http:/
 
   def GetNumberOfSubClasses(ontologyTriples: RDD[graph.Triple]): Double = {
     val numOfSubClasses = ontologyTriples.filter(q => q.getSubject.isURI && q.getObject.isURI && q.getPredicate.getLocalName == "subClassOf").distinct(2).count()
-    println("Number of SubClasses "+numOfSubClasses)
+//    println("Number of SubClasses "+numOfSubClasses)
     numOfSubClasses
+
+  }
+
+  def GetNumberOfHRD(ontologyTriples: RDD[graph.Triple]): Double = {
+    val numOfHRD = ontologyTriples.filter(q => q.getPredicate.getLocalName == "comment" || q.getPredicate.getLocalName == "label" || q.getPredicate.getLocalName == "description").distinct(2).count()
+    //    println("Number of SubClasses "+numOfSubClasses)
+    numOfHRD
 
   }
 
