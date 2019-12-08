@@ -82,7 +82,7 @@ class OntologyMerging(sparkSession: SparkSession) extends Serializable {
     println("Statistics for second ontology")
     ontStat.GetStatistics(translatedTargetOntology)
 
-    val mergedOntology: RDD[graph.Triple] = O1.union(O2).distinct()
+    val mergedOntology: RDD[graph.Triple] = O1.union(O2).distinct(2)
     println("Statistics for merged ontology")
     ontStat.GetStatistics(mergedOntology)
 //    mergedOntology.coalesce(1, shuffle = true).saveAsNTriplesFile("src/main/resources/Output/mergedOntology")
@@ -120,9 +120,9 @@ class OntologyMerging(sparkSession: SparkSession) extends Serializable {
   }
   def ResolveConflictsForEnglish(listOfResourcesWithTranslations: RDD[(String, String)], multilingualMatchedResources: RDD[(String, String)]): RDD[(String, String)]= {
     val allResources: RDD[(String, String)] = listOfResourcesWithTranslations.keyBy(_._1).leftOuterJoin(multilingualMatchedResources.keyBy(_._2))
-      .map{case x => if (!x._2._2.isEmpty) (x._2._2.last._1, x._1) else (x._2._1._2,x._1)}.distinct()
-//    println("Translate target to german")
-//    allResources.foreach(println(_))
+      .map{case x => if (!x._2._2.isEmpty) (x._2._2.last._1, x._1) else (x._2._1._2,x._1)}.distinct().subtract(multilingualMatchedResources)
+    println("Translate target to german")
+    allResources.foreach(println(_))
 
 //      .map { case x => if (x._2._2.isEmpty) (x._1, x._2._1._2) else (x._1, x._2._2.last._2) }
     allResources
