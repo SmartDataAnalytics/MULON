@@ -20,21 +20,21 @@ import org.apache.spark.storage.StorageLevel
     val sparkSession1 = SparkSession.builder //      .master("spark://172.18.160.16:3090")
       .master("local[*]").config("spark.serializer", "org.apache.spark.serializer.KryoSerializer").getOrCreate()
 
-        val inputTarget = "src/main/resources/CaseStudy/SEO.nt"
-//    val inputTarget = "src/main/resources/EvaluationDataset/English/edas-en.nt"
+//        val inputTarget = "src/main/resources/CaseStudy/SEO.nt"
+    val inputTarget = "src/main/resources/EvaluationDataset/English/edas-en.nt"
     //    val inputTarget = "src/main/resources/EvaluationDataset/English/cmt-en.nt"
 //            val inputTarget = "src/main/resources/EvaluationDataset/English/ekaw-en.nt"
 
-    val inputSource = "src/main/resources/EvaluationDataset/German/conference-de.nt"
-//        val inputSource = "src/main/resources/EvaluationDataset/German/confOf-de.nt"
+//    val inputSource = "src/main/resources/EvaluationDataset/German/conference-de.nt"
+        val inputSource = "src/main/resources/EvaluationDataset/German/confOf-de.nt"
     //    val inputSource = "src/main/resources/EvaluationDataset/German/sigkdd-de.nt"
 
-    val offlineDictionaryForSource = "src/main/resources/OfflineDictionaries/Translations-conference-de.csv"
-//        val offlineDictionaryForSource = "src/main/resources/OfflineDictionaries/Translations-confOf-de.csv"
+//    val offlineDictionaryForSource = "src/main/resources/OfflineDictionaries/Translations-conference-de.csv"
+        val offlineDictionaryForSource = "src/main/resources/OfflineDictionaries/Translations-confOf-de.csv"
 
-        val offlineDictionaryForTarget: String = "src/main/resources/OfflineDictionaries/Translations-SEO-en.csv"
+//        val offlineDictionaryForTarget: String = "src/main/resources/OfflineDictionaries/Translations-SEO-en.csv"
 //        val offlineDictionaryForTarget: String = "src/main/resources/OfflineDictionaries/Translations-Ekaw-en.csv"
-    //    val offlineDictionaryForTarget: String = "src/main/resources/OfflineDictionaries/Translations-Edas-en.csv"
+        val offlineDictionaryForTarget: String = "src/main/resources/OfflineDictionaries/Translations-Edas-en.csv"
 
 
     val lang1: Lang = Lang.NTRIPLES

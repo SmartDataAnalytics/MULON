@@ -30,9 +30,10 @@ import org.apache.spark.sql.SparkSession
   }
 
   def Readability(ontologyTriples: RDD[graph.Triple]): Double = {
-    /*refers to the the existence of human readable descriptions(HRD) in the ontology, such as comments, labels, or description. The morehuman readable descriptions exist, the more readable the ontology is. HRD / number of triples*/ val numOfHRD = ontoStat.GetNumberOfHRD(ontologyTriples)
-    val numOfTriples = ontologyTriples.distinct().count()
-    ontoStat.Round(numOfHRD / numOfTriples)
+    /*refers to the the existence of human readable descriptions(HRD) in the ontology, such as comments, labels, or description. The morehuman readable descriptions exist, the more readable the ontology is. HRD / number of resources*/ val numOfHRD = ontoStat.GetNumberOfHRD(ontologyTriples)
+//    val numOfTriples = ontologyTriples.distinct().count()
+    val numOfResources = ontoStat.GetAllResources(ontologyTriples).count().toDouble
+    ontoStat.Round(numOfHRD / numOfResources)
   }
 
   def IsolatedElements(ontologyTriples: RDD[graph.Triple]): Double = {
