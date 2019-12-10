@@ -80,11 +80,11 @@ class OntologyStatistics(sparkSession: SparkSession) {
       .map(f => (f._2.filter(p => p.getSubject.getLocalName.contains(p.getSubject.getLocalName))).size)
     rd
   }
-  def tryyyy(ontologyTriples:RDD[graph.Triple])= {
-    val allProperties = this.GetAllProperties(ontologyTriples).zipWithIndex()
-    val propertiesDist = allProperties.keyBy(_._1).leftOuterJoin(ontologyTriples.keyBy(_.getSubject.getLocalName)).groupBy(_._1)
-
-   propertiesDist.foreach(println(_))
+  def MissingDomainOrRange(ontologyTriples:RDD[graph.Triple]): Long= {
+    val allProperties: RDD[String] = this.GetAllProperties(ontologyTriples)
+    val t = ontologyTriples.filter(x => x.getPredicate.getLocalName == "domain" || x.getPredicate.getLocalName == "range").map(y => (y.getSubject,y.getPredicate.getLocalName))
+    val tt = allProperties.zipWithIndex().keyBy(_._1).leftOuterJoin(t.keyBy(_._1.getLocalName)).filter(x => x._2._2.isEmpty)
+    tt.count()
   }
 
   //  def GetNumberOfRelations(triples: RDD[graph.Triple]): Double={

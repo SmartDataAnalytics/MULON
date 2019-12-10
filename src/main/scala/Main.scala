@@ -20,24 +20,25 @@ import org.apache.spark.storage.StorageLevel
     val sparkSession1 = SparkSession.builder //      .master("spark://172.18.160.16:3090")
       .master("local[*]").config("spark.serializer", "org.apache.spark.serializer.KryoSerializer").getOrCreate()
 
-    val inputTarget = "src/main/resources/CaseStudy/SEO.nt"
-//    val inputTarget = "src/main/resources/EvaluationDataset/English/edas-en.nt"
+//    val inputTarget = "src/main/resources/CaseStudy/SEO.nt"
+//      val inputTarget = "src/main/resources/CaseStudy/ModSci-Copy.nt"
+    val inputTarget = "src/main/resources/EvaluationDataset/English/edas-en.nt"
 //    val inputTarget = "src/main/resources/EvaluationDataset/English/cmt-en.nt"
 //    val inputTarget = "src/main/resources/EvaluationDataset/English/ekaw-en.nt"
 
 
-    val inputSource = "src/main/resources/EvaluationDataset/German/conference-de.nt"
-//    val inputSource = "src/main/resources/EvaluationDataset/German/confOf-de.nt"
+//    val inputSource = "src/main/resources/EvaluationDataset/German/conference-de.nt"
+    val inputSource = "src/main/resources/EvaluationDataset/German/confOf-de.nt"
 //    val inputSource = "src/main/resources/EvaluationDataset/German/sigkdd-de.nt"
 
 
-    val offlineDictionaryForSource = "src/main/resources/OfflineDictionaries/Translations-conference-de.csv"
-//    val offlineDictionaryForSource = "src/main/resources/OfflineDictionaries/Translations-confOf-de.csv"
+//    val offlineDictionaryForSource = "src/main/resources/OfflineDictionaries/Translations-conference-de.csv"
+    val offlineDictionaryForSource = "src/main/resources/OfflineDictionaries/Translations-confOf-de.csv"
 
 
-    val offlineDictionaryForTarget: String = "src/main/resources/OfflineDictionaries/Translations-SEO-en.csv"
+//    val offlineDictionaryForTarget: String = "src/main/resources/OfflineDictionaries/Translations-SEO-en.csv"
 //    val offlineDictionaryForTarget: String = "src/main/resources/OfflineDictionaries/Translations-Ekaw-en.csv"
-//    val offlineDictionaryForTarget: String = "src/main/resources/OfflineDictionaries/Translations-Edas-en.csv"
+    val offlineDictionaryForTarget: String = "src/main/resources/OfflineDictionaries/Translations-Edas-en.csv"
 
 
     val lang1: Lang = Lang.NTRIPLES
@@ -146,14 +147,13 @@ import org.apache.spark.storage.StorageLevel
     println("Isolated Elements for O2 is " + quality.IsolatedElements(targetOntology))
     println("Isolated Elements for Om is " + quality.IsolatedElements(multilingualMergedOntology))
     println("==============================================")
+    println("Missing Domain Or Range for O1 is " + quality.MissingDomainOrRange(sourceOntology))
+    println("Missing Domain Or Range for O2 is " + quality.MissingDomainOrRange(targetOntology))
+    println("Missing Domain Or Range for Om is " + quality.MissingDomainOrRange(multilingualMergedOntology))
+    println("==============================================")
     println("Class coverage for merged ontology Om is " + quality.ClassCoverage(sourceOntology, targetOntology, multilingualMergedOntology, listOfMatchedClasses.count().toInt))
     println("Property coverage for merged ontology Om is " + quality.PropertyCoverage(sourceOntology, targetOntology, multilingualMergedOntology, similarRelations.count().toInt))
     println("Compactness for merged ontology Om is " + quality.Compactness(sourceOntology, targetOntology, multilingualMergedOntology))
-
-
-
-
-    //    ontStat.tryyyy(targetOntology)
     sparkSession1.stop
   }
 }

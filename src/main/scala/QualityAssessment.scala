@@ -43,6 +43,13 @@ import org.apache.spark.sql.SparkSession
     ontoStat.Round(numOfIsolatedElements / (numOfClasses + numOfProperties))
   }
 
+  def MissingDomainOrRange(ontologyTriples: RDD[graph.Triple]): Double = {
+    /*refers to missing information about properties. The less of missing information about properties, the more the ontology is complete.*/
+    val numOfPropertiesMissingInfo = ontoStat.MissingDomainOrRange(ontologyTriples).toDouble
+    val numOfAllProperties = ontoStat.GetAllProperties(ontologyTriples).count().toDouble
+    ontoStat.Round(numOfPropertiesMissingInfo/numOfAllProperties)
+  }
+
   def ClassCoverage(O1: RDD[graph.Triple], O2: RDD[graph.Triple], Om: RDD[graph.Triple], numberOfMatchedClasses: Int): Double = {
     /* refers  to  how  many  classes  in  the  input  ontologies C1+C2 are preserved in the merged ontology Cm excluding matched classes Cmatch. */ val numOfMergedClasses = ontoStat.GetNumberOfClasses(Om)
     val numOfClassesO1 = ontoStat.GetNumberOfClasses(O1)
