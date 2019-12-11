@@ -21,14 +21,14 @@ import org.apache.spark.sql.SparkSession
     //    val O1 = "src/main/resources/EvaluationDataset/German/confOf-de.nt"
     //    val O1 = "src/main/resources/EvaluationDataset/German/sigkdd-de.nt"
 
-    //    val O2 = "src/main/resources/CaseStudy/SEO.nt"
+        val O2 = "src/main/resources/CaseStudy/SEO.nt"
     //    val O2 = "src/main/resources/EvaluationDataset/English/edas-en.nt"
     //    val O2 = "src/main/resources/EvaluationDataset/English/cmt-en.nt"
-    val O2 = "src/main/resources/EvaluationDataset/English/ekaw-en.nt"
+//    val O2 = "src/main/resources/EvaluationDataset/English/ekaw-en.nt"
 
     val offlineDictionaryForO1: String = "src/main/resources/OfflineDictionaries/Translations-conference-de.csv" //    val offlineDictionaryForO1 = "src/main/resources/OfflineDictionaries/Translations-confOf-de.csv"
-    //    val offlineDictionaryForO2: String = "src/main/resources/OfflineDictionaries/Translations-SEO-en.csv"
-    val offlineDictionaryForO2: String = "src/main/resources/OfflineDictionaries/Translations-Ekaw-en.csv" //    val offlineDictionaryForO2: String = "src/main/resources/OfflineDictionaries/Translations-Edas-en.csv"
+        val offlineDictionaryForO2: String = "src/main/resources/OfflineDictionaries/Translations-SEO-en.csv"
+//    val offlineDictionaryForO2: String = "src/main/resources/OfflineDictionaries/Translations-Ekaw-en.csv" //    val offlineDictionaryForO2: String = "src/main/resources/OfflineDictionaries/Translations-Edas-en.csv"
     val lang1: Lang = Lang.NTRIPLES
     val O1triples: RDD[graph.Triple] = sparkSession1.rdf(lang1)(O1).distinct(2)
     val O2triples: RDD[graph.Triple] = sparkSession1.rdf(lang1)(O2).distinct(2)
