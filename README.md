@@ -29,11 +29,37 @@ Example
 ----------
 
 ````
-//Resources Extraction
-val O1Classes = ontStat.GetAllClasses(O1triples)
-val O2Classes = ontStat.GetAllClasses(O2triples)
-
-val availableTranslations = translate.GettingAllAvailableTranslations(offlineDictionaryForO2)
+val multilingualMergedOntology = ontoMerge.Merge(sourceOntology, targetOntology, offlineDictionaryForSource, offlineDictionaryForTarget)
+ 
+val ontStat = new OntologyStatistics(sparkSession1)
+println("Statistics for merged ontology")
+ontStat.GetStatistics(multilingualMergedOntology)
+     
+//Assessemnt sheet
+val quality = new QualityAssessment(sparkSession1)
+println("Relationship richness for O1 is " + quality.RelationshipRichness(sourceOntology))
+println("Relationship richness for O2 is " + quality.RelationshipRichness(targetOntology))
+println("Relationship richness for Om is " + quality.RelationshipRichness(multilingualMergedOntology))
+println("==============================================")
+println("Attribute richness for O1 is " + quality.AttributeRichness(sourceOntology))
+println("Attribute richness for O2 is " + quality.AttributeRichness(targetOntology))
+println("Attribute richness for Om is " + quality.AttributeRichness(multilingualMergedOntology))
+println("==============================================")
+println("Inheritance richness for O1 is " + quality.InheritanceRichness(sourceOntology))
+println("Inheritance richness for O2 is " + quality.InheritanceRichness(targetOntology))
+println("Inheritance richness for Om is " + quality.InheritanceRichness(multilingualMergedOntology))
+println("==============================================")
+println("Readability for O1 is " + quality.Readability(sourceOntology))
+println("Readability for O2 is " + quality.Readability(targetOntology))
+println("Readability for Om is " + quality.Readability(multilingualMergedOntology))
+println("==============================================")
+println("Isolated Elements for O1 is " + quality.IsolatedElements(sourceOntology))
+println("Isolated Elements for O2 is " + quality.IsolatedElements(targetOntology))
+println("Isolated Elements for Om is " + quality.IsolatedElements(multilingualMergedOntology))
+println("==============================================")
+println("Missing Domain Or Range for O1 is " + quality.MissingDomainOrRange(sourceOntology))
+println("Missing Domain Or Range for O2 is " + quality.MissingDomainOrRange(targetOntology))
+println("Missing Domain Or Range for Om is " + quality.MissingDomainOrRange(multilingualMergedOntology))
 
 ````
 
