@@ -15,10 +15,11 @@ Input
 ----------
 We use [SANSA](https://github.com/SANSA-Stack) readers to build a dataset of RDD[graph.Triple] for input ontologies.
 ````
-val O1 = ".../firstOntology-en.nt"
-val O2 = ".../secondOntology-de.nt"
-val offlineDictionaryForO1 = ".../firstOntology-en.csv
-val offlineDictionaryForO2 = ".../secondOntology-de.csv
+val O1 = ".../firstOntology-de.nt"
+val O2 = ".../secondOntology-en.nt"
+
+val offlineDictionaryForO1 = ".../firstOntology-de.csv
+val offlineDictionaryForO2 = ".../secondOntology-en.csv
  
 val lang = Lang.NTRIPLES
 val O1triples = spark.rdf(lang)(O1)
@@ -29,7 +30,7 @@ Example
 ----------
 
 ````
-val multilingualMergedOntology = ontoMerge.Merge(sourceOntology, targetOntology, offlineDictionaryForSource, offlineDictionaryForTarget)
+val multilingualMergedOntology = ontoMerge.Merge(O1triples, O2triples, offlineDictionaryForO1, offlineDictionaryForO2)
  
 val ontStat = new OntologyStatistics(sparkSession1)
 println("Statistics for merged ontology")

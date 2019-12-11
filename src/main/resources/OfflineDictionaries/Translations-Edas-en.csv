@@ -1,0 +1,153 @@
+review,Rezension,C
+conference session,Konferenzsitzung,C
+conference dinner,Konferenz-Dinner,C
+review form,Bewertungsformular,C
+single level conference,Single Level-Konferenz,C
+call for reviews,Anruf auf Bewertungen,C
+welcome talk,Willkommensgespräch,C
+review question,Bewertung Frage,C
+contact information,Kontakt Informationen,C
+rejected paper,abgelehnt Papier,C
+country,Land,C
+conference venue place,Tagungsort Ort,C
+week reject rating,Woche ablehnen Bewertung,C
+non academic event,Nicht akademische Veranstaltung,C
+conference event,Konferenzveranstaltung,C
+numerical review question,numerische Bewertung Frage,C
+government organization,Regierungsorganisation,C
+signal processing topic,Signalverarbeitung Thema,C
+academia organization,Wissenschaft Organisation,C
+meal menu,Mahlzeit Menü,C
+call,Anruf,C
+personal history,persönliche Geschichte,C
+computer networks measurements topic,Computer-Netzwerke Messungen Thema,C
+personal publication history,persönliche Publikation Geschichte,C
+attendee,Teilnehmer,C
+sponsorship,Patenschaft,C
+presenter,Moderator,C
+satellite and space communications topic,Satelliten- und Weltraumkommunikation Thema,C
+two level conference,zwei Level-Konferenz,C
+microelectronics topic,Mikroelektronik Thema,C
+reject rating,ablehnen Bewertung,C
+powerline transmission topic,Powerline-Übertragung Thema,C
+communications topic,Kommunikation Thema,C
+travel grant,Reisestipendium,C
+withdrawn paper,zurückgezogenes Papier,C
+computer networks management topic,Computer-Netzwerke Management Thema,C
+wireless communications topic,drahtlose Kommunikation Thema,C
+call for manuscripts,Ruf nach Manuskripten,C
+talk event,Vortrag Veranstaltung,C
+operating topicsystems,Betriebs topicsystems,C
+active paper,aktives Papier,C
+multimedia topic,Multimedia-Thema,C
+paper,Papier,C
+meal break,Essenspause,C
+communication theory topic,Kommunikationstheorie Thema,C
+dining place,Essplatz,C
+call for papers,Call for Papers,C
+published paper,publizierte Papier,C
+free time break,Freizeit Pause,C
+computer networks enterprise topic,Computernetze Unternehmen Thema,C
+paper presentation,Papier Präsentation,C
+programme,Programm,C
+parallel and distributed computing topic,parallel und verteilt Thema Rechen,C
+excursion,Ausflug,C
+conference,Konferenz,C
+ngo,ngo,C
+personal review history,Bewerten Geschichte,C
+test only topic,Test nur Thema,C
+coffee break,Kaffeepause,C
+performance topic,Performance Thema,C
+cad topic,cad Thema,C
+meeting room place,Tagungsraum Platz,C
+textual review question,Text-Überprüfung Frage,C
+accpet if room rating,accpet wenn Zimmer Bewertung,C
+cryptography topic,Kryptographie Thema,C
+computer networks sensor topic,Computernetze Sensor Thema,C
+organizational meeting,Organisationssitzung,C
+rated papers,bewertet Papiere,C
+pending paper,anhängiges Papier,C
+tpc member,tpc Mitglied,C
+review rating,Bewertung Bewertung,C
+accept rating,akzeptieren Bewertung,C
+computer networks aapplications topic,Computer-Netzwerke aapplications Thema,C
+organization,Organisation,C
+security topic,Sicherheits Thema,C
+accepted paper,akzeptiertes Papier,C
+meal event,Mahlzeit Ereignis,C
+computer networks security topic,Computer-Netzwerke Sicherheit Thema,C
+session chair,session chair,C
+academic event,akademische Veranstaltung,C
+workshop,workshop,C
+topic,Thema,C
+antennas topic,Antennen Thema,C
+place,Ort,C
+slide set,Folien-Set,C
+medicine topic,Medizin Thema,C
+reviewer,Rezensent,C
+mobile computing topic,Mobile Computing Thema,C
+social event,soziales Event,C
+radio communications topic,Funkkommunikation Thema,C
+computer networks switching topic,Computer-Netzwerke Thema Schalt,C
+reception,Rezeption,C
+computer networks optical topic,Computer-Netzwerke optisches Thema,C
+person,Person,C
+industry organization,Branchenorganisation,C
+accommodation place,Unterkunft Typ,C
+conference chair,Vorsitzender der Konferenz,C
+computer networks topic,Computer-Netzwerke Thema,C
+closing talk,Schließen Vortrag,C
+author,Autor,C
+computer architecture topic,Computerarchitektur Thema,C
+document,dokumentieren,C
+break event,Unterbrechungsereignis,C
+related to event,bezogen auf Ereignis,P
+has attendee,hat Teilnehmer,P
+has country,hat Land,P
+has submission instructions,hat die Einreichung Anweisungen,P
+has member,hat Mitglied,P
+for event,für Event,P
+has related document,hat zugehöriges Dokument,P
+has cost amount,hat Kostenbetrag,P
+has location,hat Lage,P
+initiates,Eingeweihte,P
+is member of,ist Mitglied,P
+has submission deadline,hat Einreichungsfrist,P
+paper due on,Papier fällig,P
+has first name,hat Vorname,P
+provided by,zur Verfügung gestellt von,P
+relates to,bezieht sich auf,P
+is review history of,ist Kritik Geschichte,P
+has call,hat Aufruf,P
+belongs to event,gehört zur Veranstaltung,P
+end date,Endtermin,P
+is reviewing,ist die Überprüfung,P
+has last name,hat Nachname,P
+attendee at,Teilnehmer an,P
+has menu,hat Menü,P
+has topic,hat Thema,P
+manuscript due on,Manuskript fällig,P
+has name,hat den Namen,P
+has cost currency,hat Kosten Währung,P
+has related paper,hat ähnliches Papier,P
+has email,hat E-Mail,P
+has rating,hat Bewertung,P
+is written by,geschrieben von,P
+is location of,ist die Lage der,P
+has postal code,hat Postleitzahl,P
+has street,hat die Straße,P
+is reviewed by,wird überprüft durch,P
+related to paper,bezogen auf Papier,P
+is provider of,ist Anbieter von,P
+has phone,hat Telefon,P
+has review history,hat Kritik Geschichte,P
+has start date time,hat Startdatum Zeit,P
+is menu of,ist Menü,P
+has end date time,hat Enddatum Zeit,P
+is topic of,ist Thema,P
+is initiated by,initiiert durch,P
+has city,hat Stadt,P
+start date,Anfangsdatum,P
+has biography,hat Biographie,P
+has programme,hat Programm,P
+registration due on,Anmeldung fällig,P
