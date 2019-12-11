@@ -22,23 +22,23 @@ import org.apache.spark.storage.StorageLevel
 
 //    val inputTarget = "src/main/resources/CaseStudy/SEO.nt"
 //      val inputTarget = "src/main/resources/CaseStudy/ModSci-Copy.nt"
-    val inputTarget = "src/main/resources/EvaluationDataset/English/edas-en.nt"
+//    val inputTarget = "src/main/resources/EvaluationDataset/English/edas-en.nt"
 //    val inputTarget = "src/main/resources/EvaluationDataset/English/cmt-en.nt"
-//    val inputTarget = "src/main/resources/EvaluationDataset/English/ekaw-en.nt"
+    val inputTarget = "src/main/resources/EvaluationDataset/English/ekaw-en.nt"
 
 
-//    val inputSource = "src/main/resources/EvaluationDataset/German/conference-de.nt"
-    val inputSource = "src/main/resources/EvaluationDataset/German/confOf-de.nt"
+    val inputSource = "src/main/resources/EvaluationDataset/German/conference-de.nt"
+//    val inputSource = "src/main/resources/EvaluationDataset/German/confOf-de.nt"
 //    val inputSource = "src/main/resources/EvaluationDataset/German/sigkdd-de.nt"
 
 
-//    val offlineDictionaryForSource = "src/main/resources/OfflineDictionaries/Translations-conference-de.csv"
-    val offlineDictionaryForSource = "src/main/resources/OfflineDictionaries/Translations-confOf-de.csv"
+    val offlineDictionaryForSource = "src/main/resources/OfflineDictionaries/Translations-conference-de.csv"
+//    val offlineDictionaryForSource = "src/main/resources/OfflineDictionaries/Translations-confOf-de.csv"
 
 
 //    val offlineDictionaryForTarget: String = "src/main/resources/OfflineDictionaries/Translations-SEO-en.csv"
-//    val offlineDictionaryForTarget: String = "src/main/resources/OfflineDictionaries/Translations-Ekaw-en.csv"
-    val offlineDictionaryForTarget: String = "src/main/resources/OfflineDictionaries/Translations-Edas-en.csv"
+    val offlineDictionaryForTarget: String = "src/main/resources/OfflineDictionaries/Translations-Ekaw-en.csv"
+//    val offlineDictionaryForTarget: String = "src/main/resources/OfflineDictionaries/Translations-Edas-en.csv"
 
 
     val lang1: Lang = Lang.NTRIPLES
@@ -56,6 +56,7 @@ import org.apache.spark.storage.StorageLevel
     val ontoRebuild = new OntologyRebuilding(sparkSession1)
     val p = new PreProcessing()
 
+
     val sOntology: RDD[(String, String, String)] = ontoRebuild.RebuildOntologyWithLabels(sourceOntology)
     //    println("ObjectProperty in source ontology")
     //    sOntology.filter(_._3 == "ObjectProperty").foreach(println(_))
@@ -68,12 +69,12 @@ import org.apache.spark.storage.StorageLevel
     println("======================================")
 
     // Retrieve class and relation labels for source and target ontology
-    val targetClassesWithoutCodes: RDD[String] = ontStat.RetrieveClassesWithLabels(targetOntology).map(x => p.stringPreProcessing(x)).persist(StorageLevel.MEMORY_AND_DISK) //For SEO
+    val targetClassesWithoutCodes: RDD[String] = ontStat.GetAllClasses(targetOntology).map(x => p.stringPreProcessing(x)).persist(StorageLevel.MEMORY_AND_DISK) //For SEO
     //    val targetClassesWithoutCodes: RDD[(String)] = ontStat.RetrieveClassesWithCodesAndLabels(targetOntology).map(x=>x._2).persist(StorageLevel.MEMORY_AND_DISK) //For Cmt and Multifarm dataset
     println("All classes in the target ontology:" + targetClassesWithoutCodes.count())
     targetClassesWithoutCodes.foreach(println(_))
     //    targetClassesWithoutCodes.map(x => p.stringPreProcessing(x).toLowerCase).coalesce(1, shuffle = true).saveAsTextFile("Output/TargetClasses")
-    val targetRelationsWithoutCodes: RDD[(String)] = ontStat.RetrieveRelationsWithoutCodes(targetOntology).map(x => p.stringPreProcessing(x._1))
+    val targetRelationsWithoutCodes: RDD[(String)] = ontStat.GetAllRelations(targetOntology).map(x => p.stringPreProcessing(x._1))
     println("All relations in the target ontology: " + targetRelationsWithoutCodes.count())
     targetRelationsWithoutCodes.foreach(println(_))
     //    targetRelationsWithoutCodes.map(x => p.splitCamelCase(x._1).toLowerCase).coalesce(1, shuffle = true).saveAsTextFile("Output/TargetRelations")
@@ -121,7 +122,7 @@ import org.apache.spark.storage.StorageLevel
     similarRelations.foreach(println(_))
 
     val om = new OntologyMerging(sparkSession1)
-    val multilingualMergedOntology = om.Merge(sourceClassesWithBestTranslation.map(x => (x._2, x._3)), listOfMatchedClasses, similarRelations.map(x => (x._2, x._3, x._4)), relationsWithTranslation.map(x => (x._2, x._3)), sOntology, tOntology, offlineDictionaryForTarget)
+    val multilingualMergedOntology = om.GenerateMultilingualOntology(sourceClassesWithBestTranslation.map(x => (x._2, x._3)), listOfMatchedClasses, similarRelations.map(x => (x._2, x._3, x._4)), relationsWithTranslation.map(x => (x._2, x._3)), sOntology, tOntology, offlineDictionaryForTarget)
 
     println("======================================")
     println("|         Quality Assessment         |")

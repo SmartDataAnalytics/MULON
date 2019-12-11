@@ -6,7 +6,7 @@ class OntologyMerging(sparkSession: SparkSession) extends Serializable {
   val gCreate = new GraphCreating()
 
 
-  def Merge(sourceClassesWithBestTranslation: RDD[(String, String)], listOfMatchedClasses: RDD[List[String]], similarRelations: RDD[(String, String, String)], relationsWithTranslation: RDD[(String, String)], sOntology: RDD[(String, String, String)], tOntology: RDD[(String, String, String)], offlineDictionaryForTarget: String): RDD[graph.Triple] = {
+  def GenerateMultilingualOntology(sourceClassesWithBestTranslation: RDD[(String, String)], listOfMatchedClasses: RDD[List[String]], similarRelations: RDD[(String, String, String)], relationsWithTranslation: RDD[(String, String)], sOntology: RDD[(String, String, String)], tOntology: RDD[(String, String, String)], offlineDictionaryForTarget: String): RDD[graph.Triple] = {
 
     val multilingualMatchedClasses = this.GetMultilingualMatchedClasses(sourceClassesWithBestTranslation,listOfMatchedClasses)
     val multilingualMatchedRelations = this.GetMultilingualMatchedRelations(similarRelations)

@@ -106,7 +106,7 @@ class OntologyStatistics(sparkSession: SparkSession) {
     hasCode
   }
 
-  def RetrieveClassesWithLabels(ontologyTriples: RDD[graph.Triple]): RDD[String] = { //will be applied for ontologies without codes like SEO
+  def GetAllClasses(ontologyTriples: RDD[graph.Triple]): RDD[String] = { //will be applied for ontologies without codes like SEO
     val classesWithoutURIs: RDD[String] = ontologyTriples.find(None, None, Some(NodeFactory.createURI("http://www.w3.org/2002/07/owl#Class"))).map(x => x.getSubject.getLocalName).filter(x=> x.toLowerCase!="class").distinct()
     classesWithoutURIs
   }
@@ -123,7 +123,7 @@ class OntologyStatistics(sparkSession: SparkSession) {
     classesWithoutURIs
   }
 
-  def RetrieveRelationsWithoutCodes(ontologyTriples: RDD[graph.Triple]): RDD[(String, String)] = {
+  def GetAllRelations(ontologyTriples: RDD[graph.Triple]): RDD[(String, String)] = {
     val prop: RDD[(String, String)] = ontologyTriples.filter(q => (q.getObject.isURI && q.getObject.getLocalName == "ObjectProperty") || (q.getObject.isURI && q.getObject.getLocalName == "AnnotationProperty") || (q.getObject.isURI && q.getObject.getLocalName == "DatatypeProperty") || (q.getObject.isURI && q.getObject.getLocalName == "FunctionalProperty") || (q.getObject.isURI && q.getObject.getLocalName == "InverseFunctionalProperty")).distinct(2).map(x => (x.getSubject.getLocalName, x.getObject.getLocalName)).distinct(2)
     prop
   }
