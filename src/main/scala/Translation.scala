@@ -4,7 +4,9 @@ import zhmyh.yandex.api.translate.{Language, Translate}
 object Translation extends Serializable {
   val tr = new Translate("trnsl.1.1.20190411T144635Z.594931b10ad4385a.829ff83b6878ab076f769297aea1e725f168f30a")
 
-  def YandexTranslation(sentence:String, langaugeTag:String):String={
+  /**
+    * Translate a sentence from any language to English.*/
+  def yandexTranslation(sentence:String, langaugeTag:String):String={
     var result = ""
       if (langaugeTag == "de")
         result= tr.translate(sentence, Language.GERMAN, Language.ENGLISH).get
@@ -17,16 +19,21 @@ object Translation extends Serializable {
     result
   }
 
-  def LanguageDetection(sentence:String)={
+  /**
+    * Detect a language of a sentence.*/
+  def languageDetection(sentence:String)={
     val lan = tr.detect(sentence)
     println("The detected language is: "+lan.get.toString)
   }
-//  def LanguageDetection()={
+//  def languageDetection()={
 //    val lan = tr.detect("每篇论文审稿意见数")
 //    println("The detected language is: "+lan.get.toString)
 //  }
-  def TranslateToEnglish(Oclasses: RDD[String], Orelations: RDD[String], langaugeTag:String)={
-    val classesWithTranslation = Oclasses.map(x => (x,this.YandexTranslation(x, langaugeTag)))
+
+  /**
+    * Translate classes and relations to English.*/
+  def translateToEnglish(Oclasses: RDD[String], Orelations: RDD[String], langaugeTag:String)={
+    val classesWithTranslation = Oclasses.map(x => (x,this.yandexTranslation(x, langaugeTag)))
     println("=====================")
     println("Translated classes:")
     println("=====================")
@@ -37,7 +44,7 @@ object Translation extends Serializable {
       line
     }.coalesce(1, shuffle = true).saveAsTextFile("src/main/resources/Output/Translations/classesWithTranslation")
 
-    val RelationsWithTranslation: RDD[(String, String)] = Orelations.map(x => (x,this.YandexTranslation(x, langaugeTag)))
+    val RelationsWithTranslation: RDD[(String, String)] = Orelations.map(x => (x,this.yandexTranslation(x, langaugeTag)))
     println("=====================")
     println("Translated relations:")
     println("=====================")

@@ -8,6 +8,9 @@ import info.debatty.java.stringsimilarity.Jaccard
 class GetSimilarity extends Serializable{
   val db = new NictWordNet with Serializable
   val processing = new PreProcessing()
+
+  /**
+    * Get the similarity between two sentences using Jaccard or WordNet.*/
   def getSimilarity(sentence1: String, sentence2: String): Double={
     var sent1 = processing.sentenceLemmatization(sentence1)
     var sent2 = processing.sentenceLemmatization(sentence2)
@@ -27,6 +30,9 @@ class GetSimilarity extends Serializable{
 
     sim
   }
+
+  /**
+    * Get the Jaccard similarity between two strings.*/
   def getJaccardStringSimilarity(s1: String, s2: String): Double={
     val j = new Jaccard(3)
     var jaccardSim = j.similarity(s1, s2)
@@ -56,6 +62,9 @@ class GetSimilarity extends Serializable{
 //    jaccardSim
 //
 //  }
+
+  /**
+    * Get the path similarity between two strings based on wordNet.*/
 def getPathSimilarity(word1: String, word2: String): Double={
   WS4JConfiguration.getInstance.setMFS(true)
   val path = new Path(db)
@@ -68,6 +77,8 @@ def getPathSimilarity(word1: String, word2: String): Double={
     pathSim = -1.0
   pathSim
 }
+  /**
+    * Get the similarity between two sentences using path similarity in WordNet.*/
   def sentenceSimilarity(sentence1: String, sentence2: String): Double={
     var simScoure = 0.0
     var count = 0.0

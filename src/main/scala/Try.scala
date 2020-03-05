@@ -51,7 +51,7 @@ object Try {
 
 
 
-//    Translation.TranslateToEnglish(O1Classes,O1Relations, languageTag)
+//    Translation.translateToEnglish(O1Classes,O1Relations, languageTag)
 
 
 

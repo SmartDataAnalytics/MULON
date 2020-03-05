@@ -6,6 +6,9 @@ import org.apache.spark.sql.SparkSession
 import org.apache.spark.storage.StorageLevel
 
 class OntologyMerging(sparkSession1: SparkSession) {
+  /**
+    *  Merge two ontologies in two different natural languages.
+    */
   def Merge(sourceOntology: RDD[graph.Triple], targetOntology: RDD[graph.Triple], offlineDictionaryForSource: String, offlineDictionaryForTarget: String): RDD[graph.Triple] ={
     val ontStat = new OntologyStatistics(sparkSession1)
 //    ontStat.getStatistics(sourceOntology)

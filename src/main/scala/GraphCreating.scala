@@ -4,14 +4,19 @@ import org.apache.spark.rdd.RDD
 
 class GraphCreating{
 
+  /**
+    * Create a graph of triples for English labels (with language tag "en").*/
   def CreateMultilingualEnglishLabels(resourcesWithURIs: RDD[(String, String, String)]): RDD[graph.Triple]={
-    val g = resourcesWithURIs.map{case x => graph.Triple.create(
+    val g: RDD[graph.Triple] = resourcesWithURIs.map{case x => graph.Triple.create(
       NodeFactory.createURI(x._1),
       NodeFactory.createURI("http://www.w3.org/2000/01/rdf-schema#label"),
       NodeFactory.createLiteral(x._3.toLowerCase.capitalize, "en")
     )}
     g
   }
+
+  /**
+    * Create a graph of triples for German labels (with language tag "de").*/
   def CreateMultilingualGermanLabels(resourcesWithURIs: RDD[(String, String, String)]): RDD[graph.Triple]={
     val g = resourcesWithURIs.map{case x => graph.Triple.create(
       NodeFactory.createURI(x._1),
@@ -20,6 +25,9 @@ class GraphCreating{
     )}
     g
   }
+
+  /**
+    * Create a graph of triples.*/
   def CreateGraph(ontology: RDD[(String, String, String)]): RDD[graph.Triple]={
     val g = ontology.map{case x =>
       if (x._2 == "type" && !x._3.contains("http")){
