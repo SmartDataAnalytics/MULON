@@ -12,4 +12,14 @@ import org.apache.spark.rdd.RDD
     sim
   }
 
+  def GetRelationSimilarityTest(listOfRelationsInTargetOntology: RDD[(String)], listOfRelationsInSourceOntology: RDD[(String, String)]) = {
+    var crossRelations: RDD[(String, (String, String))] = listOfRelationsInTargetOntology.cartesian(listOfRelationsInSourceOntology)
+//    println("crossRelations")
+//    crossRelations.foreach(println(_))
+    val gS = new GetSimilarity()
+    val p = new PreProcessing()
+    var sim: RDD[(String, String, String, Double)] = crossRelations.map(x => (x._1, x._2._1, x._2._2, gS.getSimilarity(p.removeStopWordsFromEnglish(p.splitCamelCase(x._1).toLowerCase), p.removeStopWordsFromEnglish(p.splitCamelCase(x._2._2).toLowerCase)))).filter(y => y._4 > 0.9)
+    sim.foreach(println(_))
+  }
+
 }

@@ -16,10 +16,23 @@ class OntologyRebuilding (sparkSession: SparkSession) {
     val Ontology: RDD[(String, String, String)] = ontoWithLabels.RecreateOntologyWithLabels(ontologyTriples)//.cache()
     Ontology
   }
-  def RebuildTargetOntologyWithoutCodes(ontologyTriples: RDD[graph.Triple]): RDD[(String, String, String)] = {
-    val p = new PreProcessing()
-    val onto: RDD[(String, String, String)] = ontologyTriples.filter(y=> y.getPredicate.getLocalName != "label").map(x => if (x.getObject.isURI)(x.getSubject.getLocalName, x.getPredicate.getLocalName, x.getObject.getLocalName)else (x.getSubject.getLocalName, x.getPredicate.getLocalName, x.getObject.toString))
+//  def RebuildTargetOntologyWithoutCodes(ontologyTriples: RDD[graph.Triple]): RDD[(String, String, String)] = {
+//    val p = new PreProcessing()
+//    val onto: RDD[(String, String, String)] = ontologyTriples.filter(y=> y.getPredicate.getLocalName != "label")
+//      .map(x => if (x.getObject.isURI)(x.getSubject.getLocalName, x.getPredicate.getLocalName, x.getObject.getLocalName)
+//      else (x.getSubject.getLocalName, x.getPredicate.getLocalName, x.getObject.toString))
+//    println("RebuildTargetOntologyWithoutCodes")
+//    onto.foreach(println(_))
+//
+//    onto
+//  }
 
+  def RebuildTargetOntologyWithoutCodes(ontologyTriples: RDD[graph.Triple]): RDD[(String, String, String)] = {//for turtle
+    val onto: RDD[(String, String, String)] = ontologyTriples.filter(y=> y.getPredicate.getLocalName != "label")
+      .map(x => if (x.getSubject.isURI && x.getObject.isURI)(x.getSubject.getLocalName, x.getPredicate.getLocalName, x.getObject.getLocalName)
+      else if (x.getSubject.isURI && !x.getObject.isURI) (x.getSubject.getLocalName, x.getPredicate.getLocalName, x.getObject.toString)
+      else if (!x.getSubject.isURI && x.getObject.isURI) (x.getSubject.toString, x.getPredicate.getLocalName, x.getObject.getLocalName)
+      else (x.getSubject.toString, x.getPredicate.getLocalName, x.getObject.toString))
     onto
   }
 
