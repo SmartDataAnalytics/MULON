@@ -1,88 +1,88 @@
+import net.sansa_stack.rdf.spark.io._
 import org.apache.jena.graph
-import org.apache.jena.graph.Node
-import org.apache.spark.broadcast.Broadcast
+import org.apache.jena.riot.Lang
+import org.apache.log4j.{Level, Logger}
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.SparkSession
-import org.apache.spark.storage.StorageLevel
+/*
+* Created by Shimaa 15.oct.2018
+* */
+object OntologyMerging {
+  def main(args: Array[String]): Unit = {
 
-class OntologyMerging(sparkSession1: SparkSession) {
-  /**
-    *  Merge two ontologies in two different natural languages.
-    */
-  def Merge(sourceOntology: RDD[graph.Triple], targetOntology: RDD[graph.Triple], offlineDictionaryForSource: String, offlineDictionaryForTarget: String): RDD[graph.Triple] ={
+    Logger.getLogger("org").setLevel(Level.OFF)
+    Logger.getLogger("akka").setLevel(Level.OFF)
+    val sparkSession1 = SparkSession.builder //      .master("spark://172.18.160.16:3090")
+      .master("local[*]").config("spark.serializer", "org.apache.spark.serializer.KryoSerializer").getOrCreate()
+
+    val O1 = "src/main/resources/EvaluationDataset/German/conference-de.ttl"
+    //    val O1 = "src/main/resources/EvaluationDataset/German/cmt-de.ttl"
+    //    val O1 = "src/main/resources/EvaluationDataset/German/confOf-de.ttl"
+    //    val O1 = "src/main/resources/EvaluationDataset/German/sigkdd-de.ttl"
+
+    //    val O2 = "src/main/resources/CaseStudy/SEO.ttl"
+    val O2 = "src/main/resources/EvaluationDataset/English/edas-en.ttl"
+    //        val O2 = "src/main/resources/EvaluationDataset/English/cmt-en.ttl"
+    //   val O2 = "src/main/resources/EvaluationDataset/English/ekaw-en.ttl"
+
+
+    val offlineDictionaryForO1: String = "src/main/resources/OfflineDictionaries/Translations-conference-de.csv" //    val offlineDictionaryForO1 = "src/main/resources/OfflineDictionaries/Translations-confOf-de.csv"
+    //        val offlineDictionaryForO2: String = "src/main/resources/OfflineDictionaries/Translations-SEO-en.csv"
+    //    val offlineDictionaryForO2: String = "src/main/resources/OfflineDictionaries/Translations-Ekaw-en.csv"
+    val offlineDictionaryForO2: String = "src/main/resources/OfflineDictionaries/Translations-Edas-en.csv"
+
+    val lang1: Lang = Lang.TURTLE
+    val O1triples: RDD[graph.Triple] = sparkSession1.rdf(lang1)(O1).distinct(2)
+    val O2triples: RDD[graph.Triple] = sparkSession1.rdf(lang1)(O2).distinct(2)
+    val runTime = Runtime.getRuntime
+
     val ontStat = new OntologyStatistics(sparkSession1)
-//    ontStat.getStatistics(sourceOntology)
-//    ontStat.getStatistics(targetOntology)
-    val ontoRebuild = new OntologyRebuilding(sparkSession1)
-    val p = new PreProcessing()
+    ontStat.getStatistics(O1triples)
+
+    val ontoMerge = new MergeOld(sparkSession1)
 
 
-    val sOntology: RDD[(String, String, String)] = ontoRebuild.RebuildOntologyWithLabels(sourceOntology)
-    val tOntology = ontoRebuild.RebuildTargetOntologyWithoutCodes(targetOntology)
-//    println("======================================")
-//    println("|     Resources Extraction Phase     |")
-//    println("======================================")
-
-    // Retrieve class and relation labels for source and target ontology
-    val targetClassesWithoutCodes: RDD[String] = ontStat.getAllClasses(targetOntology).map(x => p.stringPreProcessing(x)).persist(StorageLevel.MEMORY_AND_DISK) //For SEO
-    //    val targetClassesWithoutCodes: RDD[(String)] = ontStat.retrieveClassesWithCodesAndLabels(targetOntology).map(x=>x._2).persist(StorageLevel.MEMORY_AND_DISK) //For Cmt and Multifarm dataset
-
-    val targetRelationsWithoutCodes: RDD[(String)] = ontStat.getAllRelations(targetOntology).map(x => p.stringPreProcessing(x._1))
-    println("targetRelationsWithoutCodes")
-    targetRelationsWithoutCodes.foreach(println(_))
-
-    val sourceClassesWithCodes: RDD[(String, String)] = ontStat.retrieveClassesWithCodesAndLabels(sourceOntology) //applied for ontologies with codes like Multifarm ontologies
-
-    val sourceOntologyLabels: Map[Node, graph.Triple] = sourceOntology.filter(x => x.getPredicate.getLocalName == "label").keyBy(_.getSubject).collect().toMap
-
-    val sourceLabelBroadcasting: Broadcast[Map[Node, graph.Triple]] = sparkSession1.sparkContext.broadcast(sourceOntologyLabels)
-
-    val sourceRelations: RDD[(String, String)] = ontStat.retrieveRelationsWithCodes(sourceLabelBroadcasting, sourceOntology)
-
-//    println("======================================")
-//    println("|    Cross-lingual Matching Phase    |")
-//    println("======================================")
-    // ####################### Class Translation using offline dictionaries from Google translate #######################
-    val tc = targetClassesWithoutCodes.zipWithIndex().collect().toMap
-    val targetClassesBroadcasting: Broadcast[Map[String, Long]] = sparkSession1.sparkContext.broadcast(tc)
-    val translate = new ClassSimilarity(sparkSession1)
-
-    val availableTranslations: RDD[(String, List[String])] = translate.GettingAllAvailableTranslations(offlineDictionaryForSource)
-
-    val sourceClassesWithListOfBestTranslations = availableTranslations.map(x => (x._1, x._2, translate.GetBestTranslationForClass(x._2, targetClassesBroadcasting))).persist(StorageLevel.MEMORY_AND_DISK)
-
-    val listOfMatchedClasses: RDD[List[String]] = sourceClassesWithListOfBestTranslations.map(x => x._3.toString().toLowerCase.split(",").toList).filter(y => y.last.exists(_.isDigit)).persist(StorageLevel.MEMORY_AND_DISK)
-    println("List of matched classes: "+listOfMatchedClasses.count())
-    listOfMatchedClasses.foreach(println(_))
-
-    val sourceClassesWithBestTranslation: RDD[(String, String, String)] = sourceClassesWithListOfBestTranslations.map(x => (x._1.toLowerCase, p.stringPreProcessing(x._3.head.toString.toLowerCase.split(",").head))).keyBy(_._1).join(sourceClassesWithCodes).map({ case (u, ((uu, tt), s)) => (u, s, tt.trim.replaceAll(" +", " ")) })
-
-    // ####################### Relation Translation using offline dictionaries from Google translate #######################
-    val relationsWithTranslation: RDD[(String, String, String)] = translate.GetTranslationForRelation(availableTranslations, sourceRelations)
-    println("relationsWithTranslation")
-    relationsWithTranslation.foreach(println(_))
-
-    val relationSim = new RelationSimilarity()
-    val similarRelations: RDD[(String, String, String, String, Double)] = relationSim.GetRelationSimilarity(targetRelationsWithoutCodes, relationsWithTranslation)
-    println("list of matched relations: "+similarRelations.count())
-    similarRelations.foreach(println(_))
+    val multilingualMergedOntology = ontoMerge.MergeOntologies(O1triples, O2triples, offlineDictionaryForO1, offlineDictionaryForO2)
+    println("======================================")
+    println("|            Merged Ontology         |")
+    println("======================================")
+    multilingualMergedOntology.take(10).foreach(println(_))
 
 
-    val om = new MultilingualOntology(sparkSession1)
-    val multilingualMergedOntology: RDD[graph.Triple] = om.GenerateMultilingualOntology(sourceClassesWithBestTranslation.map(x => (x._2, x._3)), listOfMatchedClasses, similarRelations.map(x => (x._2, x._3, x._4)), relationsWithTranslation.map(x => (x._2, x._3)), sOntology, tOntology, offlineDictionaryForTarget)
+    println("Statistics for merged ontology")
+    ontStat.getStatistics(multilingualMergedOntology)
 
     println("==========================================================================")
-    println("|         Quality Assessment for the merged ontology        |")
+    println("|         Quality Assessment for each input and output ontologies        |")
     println("==========================================================================")
-
     val quality = new QualityAssessment(sparkSession1)
-    println("Class coverage for merged ontology Om is " + quality.ClassCoverage(sourceOntology, targetOntology, multilingualMergedOntology, listOfMatchedClasses.count().toInt))
-    println("Property coverage for merged ontology Om is " + quality.PropertyCoverage(sourceOntology, targetOntology, multilingualMergedOntology, similarRelations.count().toInt))
-    println("Compactness for merged ontology Om is " + quality.Compactness(sourceOntology, targetOntology, multilingualMergedOntology))
+
+    println("Relationship richness for O1 is " + quality.RelationshipRichness(O1triples))
+    println("Relationship richness for O2 is " + quality.RelationshipRichness(O2triples))
+    println("Relationship richness for Om is " + quality.RelationshipRichness(multilingualMergedOntology))
+    println("==============================================")
+    println("Attribute richness for O1 is " + quality.AttributeRichness(O1triples))
+    println("Attribute richness for O2 is " + quality.AttributeRichness(O2triples))
+    println("Attribute richness for Om is " + quality.AttributeRichness(multilingualMergedOntology))
+    println("==============================================")
+    println("Inheritance richness for O1 is " + quality.InheritanceRichness(O1triples))
+    println("Inheritance richness for O2 is " + quality.InheritanceRichness(O2triples))
+    println("Inheritance richness for Om is " + quality.InheritanceRichness(multilingualMergedOntology))
+    println("==============================================")
+    println("Readability for O1 is " + quality.Readability(O1triples))
+    println("Readability for O2 is " + quality.Readability(O2triples))
+    println("Readability for Om is " + quality.Readability(multilingualMergedOntology))
+    println("==============================================")
+    println("Isolated Elements for O1 is " + quality.IsolatedElements(O1triples))
+    println("Isolated Elements for O2 is " + quality.IsolatedElements(O2triples))
+    println("Isolated Elements for Om is " + quality.IsolatedElements(multilingualMergedOntology))
+    println("==============================================")
+    println("Missing Domain Or Range for O1 is " + quality.MissingDomainOrRange(O1triples))
+    println("Missing Domain Or Range for O2 is " + quality.MissingDomainOrRange(O2triples))
+    println("Missing Domain Or Range for Om is " + quality.MissingDomainOrRange(multilingualMergedOntology))
 
 
-    multilingualMergedOntology
+    sparkSession1.stop
   }
-
 
 }

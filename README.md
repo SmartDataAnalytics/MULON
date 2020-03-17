@@ -30,7 +30,7 @@ Example
 ----------
 
 ````
-val multilingualMergedOntology = ontoMerge.Merge(O1triples, O2triples, offlineDictionaryForO1, offlineDictionaryForO2)
+val multilingualMergedOntology = ontoMerge.MergeOld(O1triples, O2triples, offlineDictionaryForO1, offlineDictionaryForO2)
  
 val ontStat = new OntologyStatistics(sparkSession1)
 println("Statistics for merged ontology")

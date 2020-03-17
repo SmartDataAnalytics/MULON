@@ -8,7 +8,8 @@ import org.apache.spark.sql.SparkSession
 //import net.sansa_stack.ml.common.nlp.wordnet
 /*
 * Created by Shimaa 15.oct.2018
-* */ object Main {
+* */
+object Main {
 
   def main(args: Array[String]): Unit = {
 
@@ -39,10 +40,10 @@ import org.apache.spark.sql.SparkSession
     val ontStat = new OntologyStatistics(sparkSession1)
     ontStat.getStatistics(O1triples)
 
-    val ontoMerge = new OntologyMerging(sparkSession1)
+    val ontoMerge = new MergeOld(sparkSession1)
 
 
-    val multilingualMergedOntology = ontoMerge.Merge(O1triples, O2triples, offlineDictionaryForO1, offlineDictionaryForO2)
+    val multilingualMergedOntology = ontoMerge.MergeOntologies(O1triples, O2triples, offlineDictionaryForO1, offlineDictionaryForO2)
     println("======================================")
     println("|            Merged Ontology         |")
     println("======================================")
