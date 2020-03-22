@@ -39,10 +39,12 @@ object OntologyMerging {
     val ontStat = new OntologyStatistics(sparkSession1)
     ontStat.getStatistics(O1triples)
 
-    val ontoMerge = new MergeOld(sparkSession1)
+    val ontoMerge = new Merge(sparkSession1)
 
 
-    val multilingualMergedOntology = ontoMerge.MergeOntologies(O1triples, O2triples, offlineDictionaryForO1, offlineDictionaryForO2)
+//    val multilingualMergedOntology = ontoMerge.MergeOntologies(O1triples, O2triples, offlineDictionaryForO1, offlineDictionaryForO2)
+ontoMerge.MergeOntologies(O1triples, O2triples, offlineDictionaryForO1, offlineDictionaryForO2)
+/*
     println("======================================")
     println("|            Merged Ontology         |")
     println("======================================")
@@ -80,7 +82,7 @@ object OntologyMerging {
     println("Missing Domain Or Range for O1 is " + quality.MissingDomainOrRange(O1triples))
     println("Missing Domain Or Range for O2 is " + quality.MissingDomainOrRange(O2triples))
     println("Missing Domain Or Range for Om is " + quality.MissingDomainOrRange(multilingualMergedOntology))
-
+*/
 
     sparkSession1.stop
   }

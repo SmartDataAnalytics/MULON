@@ -11,14 +11,14 @@ class MergeOld(sparkSession1: SparkSession) {
     */
   def MergeOntologies(sourceOntology: RDD[graph.Triple], targetOntology: RDD[graph.Triple], offlineDictionaryForSource: String, offlineDictionaryForTarget: String): RDD[graph.Triple] ={
     val ontStat = new OntologyStatistics(sparkSession1)
-//    ontStat.getStatistics(sourceOntology)
-//    ontStat.getStatistics(targetOntology)
+//    ontStat.getStatistics(O1triples)
+//    ontStat.getStatistics(O2triples)
     val ontoRebuild = new OntologyRebuilding(sparkSession1)
     val p = new PreProcessing()
 
 
     val sOntology: RDD[(String, String, String)] = ontoRebuild.RebuildOntology(sourceOntology)
-//    val tOntology = ontoRebuild.RebuildOntologyWithoutCodes(targetOntology)
+//    val tOntology = ontoRebuild.RebuildOntologyWithoutCodes(O2triples)
 val tOntology = ontoRebuild.RebuildOntology(targetOntology)
 
       //    println("======================================")
@@ -27,9 +27,9 @@ val tOntology = ontoRebuild.RebuildOntology(targetOntology)
 
     // Retrieve class and relation labels for source and target ontology
     val targetClassesWithoutCodes: RDD[String] = ontStat.getAllClasses(targetOntology).map(x => p.stringPreProcessing(x)).persist(StorageLevel.MEMORY_AND_DISK) //For SEO
-    //    val targetClassesWithoutCodes: RDD[(String)] = ontStat.retrieveClassesWithCodesAndLabels(targetOntology).map(x=>x._2).persist(StorageLevel.MEMORY_AND_DISK) //For Cmt and Multifarm dataset
+    //    val targetClassesWithoutCodes: RDD[(String)] = ontStat.retrieveClassesWithCodesAndLabels(O2triples).map(x=>x._2).persist(StorageLevel.MEMORY_AND_DISK) //For Cmt and Multifarm dataset
 
-    val targetRelationsWithoutCodes: RDD[(String)] = ontStat.getAllRelations(targetOntology).map(x => p.stringPreProcessing(x._1))
+    val targetRelationsWithoutCodes: RDD[(String)] = ontStat.getAllRelationsOld(targetOntology).map(x => p.stringPreProcessing(x._1))
     println("targetRelationsWithoutCodes")
     targetRelationsWithoutCodes.foreach(println(_))
 
