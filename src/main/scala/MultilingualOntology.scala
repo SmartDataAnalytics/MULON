@@ -9,10 +9,16 @@ class MultilingualOntology(sparkSession: SparkSession) extends Serializable {
   def GenerateMultilingualOntology(sourceClassesWithBestTranslation: RDD[(String, String)], listOfMatchedClasses: RDD[List[String]], similarRelations: RDD[(String, String, String)], relationsWithTranslation: RDD[(String, String)], sOntology: RDD[(String, String, String)], tOntology: RDD[(String, String, String)], offlineDictionaryForTarget: String): RDD[graph.Triple] = {
 
     val multilingualMatchedClasses = this.GetMultilingualMatchedClasses(sourceClassesWithBestTranslation,listOfMatchedClasses)
+    println("multilingualMatchedClasses")
+    multilingualMatchedClasses.foreach(println(_))
     val multilingualMatchedRelations = this.GetMultilingualMatchedRelations(similarRelations)
+    println("multilingualMatchedRelations")
+    multilingualMatchedRelations.foreach(println(_))
 
 
     val sourceClassesWithMultilingualInfo = this.ResolveConflictClasses(multilingualMatchedClasses, sourceClassesWithBestTranslation)
+    println("sourceClassesWithMultilingualInfo")
+    sourceClassesWithMultilingualInfo.foreach(println(_))
 
     val sourceRelationsWithMultilingualInfo = this.ResolveConflictRelations(multilingualMatchedRelations, relationsWithTranslation)
 
@@ -59,6 +65,61 @@ class MultilingualOntology(sparkSession: SparkSession) extends Serializable {
 //    mergedOntology.coalesce(1, shuffle = true).saveAsNTriplesFile("src/main/resources/Output/mergedOntology")
     mergedOntology
   }
+
+  def GenerateMultilingualOntology2(O1ClassesWithTranslation: RDD[(String, String)], matchedClasses: RDD[(String, String, String, Double)], matchedRelations: RDD[(String, String, String, Double)], O1RelationsWithTranslation: RDD[(String, String)], O1Ontology: RDD[(String, String, String)], O2Ontology: RDD[(String, String, String)], offlineDictionaryForTarget: String): RDD[graph.Triple] = {
+
+    val multilingualMatchedClasses = matchedClasses.map(x=>(x._1,x._3))
+    val multilingualMatchedRelations = matchedRelations.map(x=>(x._1,x._3))
+
+
+    val O1ClassesWithMultilingualInfo = this.ResolveConflictClasses(multilingualMatchedClasses, O1ClassesWithTranslation)
+
+    val O1RelationsWithMultilingualInfo = this.ResolveConflictRelations(multilingualMatchedRelations, O1RelationsWithTranslation)
+
+    val O1ClassesWithURIs: RDD[(String, String, String)] = this.GenerateURIsForResources(O1ClassesWithMultilingualInfo, 'C')
+
+
+    val O1RelationsWithURIs = this.GenerateURIsForResources(O1RelationsWithMultilingualInfo, 'P')
+
+
+    val translatedO1Ontology: RDD[graph.Triple] = this.TranslateGermanOntology(O1ClassesWithURIs.union(O1RelationsWithURIs), O1Ontology)
+
+
+    val O1EnglishLabels = gCreate.CreateMultilingualEnglishLabels(O1ClassesWithURIs.union(O1RelationsWithURIs))
+
+    val O1GermanLabels = gCreate.CreateMultilingualGermanLabels(O1ClassesWithURIs.union(O1RelationsWithURIs))
+
+    val O1 = translatedO1Ontology.union(O1EnglishLabels).union(O1GermanLabels)
+
+    val O2ClassesWithMultilingualInfo = this.MultilingualInfoForTargetOntology(offlineDictionaryForTarget, 'C')
+
+    val O2RelationsWithMultilingualInfo = this.MultilingualInfoForTargetOntology(offlineDictionaryForTarget, 'P')
+
+
+    //swap english-german to german-english
+    val O2ClassesWithURIs = this.GenerateURIsForResources(this.ResolveConflictsForEnglish(O2ClassesWithMultilingualInfo,multilingualMatchedClasses), 'C')
+
+    val O2RelationsWithURIs = this.GenerateURIsForResources(this.ResolveConflictsForEnglish(O2RelationsWithMultilingualInfo,multilingualMatchedRelations), 'P')
+
+
+    val translatedO2Ontology: RDD[graph.Triple] = this.TranslateEnglishOntology(O2ClassesWithURIs.union(O2RelationsWithURIs), O2Ontology).distinct()
+
+
+    val O2EnglishLabels = gCreate.CreateMultilingualEnglishLabels(O2ClassesWithURIs.union(O2RelationsWithURIs))
+
+
+    val O2GermanLabels = gCreate.CreateMultilingualGermanLabels(O2ClassesWithURIs.union(O2RelationsWithURIs))
+
+
+    val O2 = translatedO2Ontology.union(O2EnglishLabels).union(O2GermanLabels)
+
+
+    val mergedOntology: RDD[graph.Triple] = O1.union(O2).distinct(2)
+
+    //    mergedOntology.coalesce(1, shuffle = true).saveAsNTriplesFile("src/main/resources/Output/mergedOntology")
+    mergedOntology
+  }
+
 
   def GetMultilingualMatchedClasses(sourceClassesWithBestTranslation: RDD[(String, String)], listOfMatchedClasses: RDD[List[String]]): RDD[(String, String)]={
     val p = new PreProcessing()

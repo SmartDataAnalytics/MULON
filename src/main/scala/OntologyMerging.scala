@@ -4,10 +4,10 @@ import org.apache.jena.riot.Lang
 import org.apache.log4j.{Level, Logger}
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.SparkSession
+
 /*
 * Created by Shimaa 15.oct.2018
-* */
-object OntologyMerging {
+* */ object OntologyMerging {
   def main(args: Array[String]): Unit = {
 
     Logger.getLogger("org").setLevel(Level.OFF)
@@ -15,17 +15,12 @@ object OntologyMerging {
     val sparkSession1 = SparkSession.builder //      .master("spark://172.18.160.16:3090")
       .master("local[*]").config("spark.serializer", "org.apache.spark.serializer.KryoSerializer").getOrCreate()
 
-    val O1 = "src/main/resources/EvaluationDataset/German/conference-de.ttl"
-    //    val O1 = "src/main/resources/EvaluationDataset/German/cmt-de.ttl"
+    val O1 = "src/main/resources/EvaluationDataset/German/conference-de.ttl" //    val O1 = "src/main/resources/EvaluationDataset/German/cmt-de.ttl"
     //    val O1 = "src/main/resources/EvaluationDataset/German/confOf-de.ttl"
     //    val O1 = "src/main/resources/EvaluationDataset/German/sigkdd-de.ttl"
-
     //    val O2 = "src/main/resources/CaseStudy/SEO.ttl"
-    val O2 = "src/main/resources/EvaluationDataset/English/edas-en.ttl"
-    //        val O2 = "src/main/resources/EvaluationDataset/English/cmt-en.ttl"
+    val O2 = "src/main/resources/EvaluationDataset/English/edas-en.ttl" //        val O2 = "src/main/resources/EvaluationDataset/English/cmt-en.ttl"
     //   val O2 = "src/main/resources/EvaluationDataset/English/ekaw-en.ttl"
-
-
     val offlineDictionaryForO1: String = "src/main/resources/OfflineDictionaries/Translations-conference-de.csv" //    val offlineDictionaryForO1 = "src/main/resources/OfflineDictionaries/Translations-confOf-de.csv"
     //        val offlineDictionaryForO2: String = "src/main/resources/OfflineDictionaries/Translations-SEO-en.csv"
     //    val offlineDictionaryForO2: String = "src/main/resources/OfflineDictionaries/Translations-Ekaw-en.csv"
@@ -42,9 +37,9 @@ object OntologyMerging {
     val ontoMerge = new Merge(sparkSession1)
 
 
-//    val multilingualMergedOntology = ontoMerge.MergeOntologies(O1triples, O2triples, offlineDictionaryForO1, offlineDictionaryForO2)
-ontoMerge.MergeOntologies(O1triples, O2triples, offlineDictionaryForO1, offlineDictionaryForO2)
-/*
+    //    val multilingualMergedOntology = ontoMerge.MergeOntologies(O1triples, O2triples, offlineDictionaryForO1, offlineDictionaryForO2)
+    val multilingualMergedOntology = ontoMerge.MergeOntologies(O1triples, O2triples, offlineDictionaryForO2)
+
     println("======================================")
     println("|            Merged Ontology         |")
     println("======================================")
@@ -82,7 +77,7 @@ ontoMerge.MergeOntologies(O1triples, O2triples, offlineDictionaryForO1, offlineD
     println("Missing Domain Or Range for O1 is " + quality.MissingDomainOrRange(O1triples))
     println("Missing Domain Or Range for O2 is " + quality.MissingDomainOrRange(O2triples))
     println("Missing Domain Or Range for Om is " + quality.MissingDomainOrRange(multilingualMergedOntology))
-*/
+
 
     sparkSession1.stop
   }

@@ -72,7 +72,7 @@ object Try {
            //
            //    println("Classes Similarity:")
            //    val sim = new TestClassSimilarity()
-           //    sim.GetSimilarity(O1ClassesWithTranslation,O2Classes)
+           //    sim.GetClassSimilarity(O1ClassesWithTranslation,O2Classes)
            //
            //    val O1RelationsWithTranslation = sparkSession.sparkContext.textFile("src/main/resources/Output/Conference-de/RelationsWithTranslation/RelationsWithTranslation.txt").map(x => (x.split(",").apply(0),x.split(",").apply(1)))
            ////    println("Relations with translation")

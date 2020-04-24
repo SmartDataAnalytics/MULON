@@ -18,7 +18,8 @@ object Main {
     val sparkSession1 = SparkSession.builder //      .master("spark://172.18.160.16:3090")
       .master("local[*]").config("spark.serializer", "org.apache.spark.serializer.KryoSerializer").getOrCreate()
 
-    val O1 = "src/main/resources/EvaluationDataset/German/cmt-de.nt"
+    val O1 = "src/main/resources/EvaluationDataset/German/conference-de.ttl"
+    //    val O1 = "src/main/resources/EvaluationDataset/German/cmt-de.nt"
     //    val O1 = "src/main/resources/EvaluationDataset/German/confOf-de.nt"
     //    val O1 = "src/main/resources/EvaluationDataset/German/sigkdd-de.nt"
 
