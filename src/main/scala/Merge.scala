@@ -72,7 +72,7 @@ class Merge(sparkSession1: SparkSession) {
 
 
     val om = new MultilingualOntology(sparkSession1)
-    val multilingualMergedOntology: RDD[graph.Triple] = om.GenerateMultilingualOntology2(O1ClassesWithTranslation, matchedClasses, matchedRelations, O1RelationsWithTranslation, O1Ontology, O2Ontology, offlineDictionaryForO2) /*
+    val multilingualMergedOntology: RDD[graph.Triple] = om.GenerateMultilingualOntology(O1ClassesWithTranslation, matchedClasses, matchedRelations, O1RelationsWithTranslation, O1Ontology, O2Ontology, offlineDictionaryForO2) /*
         println("==========================================================================")
         println("|         Quality Assessment for the merged ontology        |")
         println("==========================================================================")

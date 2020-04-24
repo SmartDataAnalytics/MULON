@@ -6,67 +6,70 @@ class MultilingualOntology(sparkSession: SparkSession) extends Serializable {
   val gCreate = new GraphCreating()
 
 
-  def GenerateMultilingualOntology(sourceClassesWithBestTranslation: RDD[(String, String)], listOfMatchedClasses: RDD[List[String]], similarRelations: RDD[(String, String, String)], relationsWithTranslation: RDD[(String, String)], sOntology: RDD[(String, String, String)], tOntology: RDD[(String, String, String)], offlineDictionaryForTarget: String): RDD[graph.Triple] = {
+//  def GenerateMultilingualOntology(sourceClassesWithBestTranslation: RDD[(String, String)], listOfMatchedClasses: RDD[List[String]], similarRelations: RDD[(String, String, String)], relationsWithTranslation: RDD[(String, String)], sOntology: RDD[(String, String, String)], tOntology: RDD[(String, String, String)], offlineDictionaryForTarget: String): RDD[graph.Triple] = {
+//
+//    val multilingualMatchedClasses = this.GetMultilingualMatchedClasses(sourceClassesWithBestTranslation,listOfMatchedClasses)
+//    println("multilingualMatchedClasses")
+//    multilingualMatchedClasses.foreach(println(_))
+//    val multilingualMatchedRelations = this.GetMultilingualMatchedRelations(similarRelations)
+//    println("multilingualMatchedRelations")
+//    multilingualMatchedRelations.foreach(println(_))
+//
+//
+//    val sourceClassesWithMultilingualInfo = this.ResolveConflictClasses(multilingualMatchedClasses, sourceClassesWithBestTranslation)
+//    println("sourceClassesWithMultilingualInfo")
+//    sourceClassesWithMultilingualInfo.foreach(println(_))
+//
+//    val sourceRelationsWithMultilingualInfo = this.ResolveConflictRelations(multilingualMatchedRelations, relationsWithTranslation)
+//
+//    val sourceClassesWithURIs: RDD[(String, String, String)] = this.GenerateURIsForResources(sourceClassesWithMultilingualInfo, 'C')
+//
+//
+//    val sourceRelationsWithURIs = this.GenerateURIsForResources(sourceRelationsWithMultilingualInfo, 'P')
+//
+//
+//    val translatedSourceOntology: RDD[graph.Triple] = this.TranslateGermanOntology(sourceClassesWithURIs.union(sourceRelationsWithURIs), sOntology)
+//
+//
+//    val sourceEnglishLabels = gCreate.CreateMultilingualEnglishLabels(sourceClassesWithURIs.union(sourceRelationsWithURIs))
+//
+//    val sourceGermanLabels = gCreate.CreateMultilingualGermanLabels(sourceClassesWithURIs.union(sourceRelationsWithURIs))
+//
+//    val O1 = translatedSourceOntology.union(sourceEnglishLabels).union(sourceGermanLabels)
+//
+//    val targetClassesWithMultilingualInfo = this.MultilingualInfoForTargetOntology(offlineDictionaryForTarget, 'C')
+//
+//    val targetRelationsWithMultilingualInfo = this.MultilingualInfoForTargetOntology(offlineDictionaryForTarget, 'P')
+//
+//
+//    //swap english-german to german-english
+//    val targetClassesWithURIs = this.GenerateURIsForResources(this.ResolveConflictsForEnglish(targetClassesWithMultilingualInfo,multilingualMatchedClasses), 'C')
+//
+//    val targetRelationsWithURIs = this.GenerateURIsForResources(this.ResolveConflictsForEnglish(targetRelationsWithMultilingualInfo,multilingualMatchedRelations), 'P')
+//
+//
+//    val translatedTargetOntology: RDD[graph.Triple] = this.TranslateEnglishOntology(targetClassesWithURIs.union(targetRelationsWithURIs), tOntology).distinct()
+//
+//
+//    val targetEnglishLabels = gCreate.CreateMultilingualEnglishLabels(targetClassesWithURIs.union(targetRelationsWithURIs))
+//
+//
+//    val targetGermanLabels = gCreate.CreateMultilingualGermanLabels(targetClassesWithURIs.union(targetRelationsWithURIs))
+//
+//
+//    val O2 = translatedTargetOntology.union(targetEnglishLabels).union(targetGermanLabels)
+//
+//
+//    val mergedOntology: RDD[graph.Triple] = O1.union(O2).distinct(2)
+//
+////    mergedOntology.coalesce(1, shuffle = true).saveAsNTriplesFile("src/main/resources/Output/mergedOntology")
+//    mergedOntology
+//  }
 
-    val multilingualMatchedClasses = this.GetMultilingualMatchedClasses(sourceClassesWithBestTranslation,listOfMatchedClasses)
-    println("multilingualMatchedClasses")
-    multilingualMatchedClasses.foreach(println(_))
-    val multilingualMatchedRelations = this.GetMultilingualMatchedRelations(similarRelations)
-    println("multilingualMatchedRelations")
-    multilingualMatchedRelations.foreach(println(_))
-
-
-    val sourceClassesWithMultilingualInfo = this.ResolveConflictClasses(multilingualMatchedClasses, sourceClassesWithBestTranslation)
-    println("sourceClassesWithMultilingualInfo")
-    sourceClassesWithMultilingualInfo.foreach(println(_))
-
-    val sourceRelationsWithMultilingualInfo = this.ResolveConflictRelations(multilingualMatchedRelations, relationsWithTranslation)
-
-    val sourceClassesWithURIs: RDD[(String, String, String)] = this.GenerateURIsForResources(sourceClassesWithMultilingualInfo, 'C')
-
-
-    val sourceRelationsWithURIs = this.GenerateURIsForResources(sourceRelationsWithMultilingualInfo, 'P')
-
-
-    val translatedSourceOntology: RDD[graph.Triple] = this.TranslateGermanOntology(sourceClassesWithURIs.union(sourceRelationsWithURIs), sOntology)
-
-
-    val sourceEnglishLabels = gCreate.CreateMultilingualEnglishLabels(sourceClassesWithURIs.union(sourceRelationsWithURIs))
-
-    val sourceGermanLabels = gCreate.CreateMultilingualGermanLabels(sourceClassesWithURIs.union(sourceRelationsWithURIs))
-
-    val O1 = translatedSourceOntology.union(sourceEnglishLabels).union(sourceGermanLabels)
-
-    val targetClassesWithMultilingualInfo = this.MultilingualInfoForTargetOntology(offlineDictionaryForTarget, 'C')
-
-    val targetRelationsWithMultilingualInfo = this.MultilingualInfoForTargetOntology(offlineDictionaryForTarget, 'P')
-
-
-    //swap english-german to german-english
-    val targetClassesWithURIs = this.GenerateURIsForResources(this.ResolveConflictsForEnglish(targetClassesWithMultilingualInfo,multilingualMatchedClasses), 'C')
-
-    val targetRelationsWithURIs = this.GenerateURIsForResources(this.ResolveConflictsForEnglish(targetRelationsWithMultilingualInfo,multilingualMatchedRelations), 'P')
-
-
-    val translatedTargetOntology: RDD[graph.Triple] = this.TranslateEnglishOntology(targetClassesWithURIs.union(targetRelationsWithURIs), tOntology).distinct()
-
-
-    val targetEnglishLabels = gCreate.CreateMultilingualEnglishLabels(targetClassesWithURIs.union(targetRelationsWithURIs))
-
-
-    val targetGermanLabels = gCreate.CreateMultilingualGermanLabels(targetClassesWithURIs.union(targetRelationsWithURIs))
-
-
-    val O2 = translatedTargetOntology.union(targetEnglishLabels).union(targetGermanLabels)
-
-
-    val mergedOntology: RDD[graph.Triple] = O1.union(O2).distinct(2)
-
-//    mergedOntology.coalesce(1, shuffle = true).saveAsNTriplesFile("src/main/resources/Output/mergedOntology")
-    mergedOntology
-  }
-
-  def GenerateMultilingualOntology2(O1ClassesWithTranslation: RDD[(String, String)], matchedClasses: RDD[(String, String, String, Double)], matchedRelations: RDD[(String, String, String, Double)], O1RelationsWithTranslation: RDD[(String, String)], O1Ontology: RDD[(String, String, String)], O2Ontology: RDD[(String, String, String)], offlineDictionaryForTarget: String): RDD[graph.Triple] = {
+  /**
+    * Generates the multilingual merged ontology from O1 and O2 in two different natural languages.
+    */
+  def GenerateMultilingualOntology(O1ClassesWithTranslation: RDD[(String, String)], matchedClasses: RDD[(String, String, String, Double)], matchedRelations: RDD[(String, String, String, Double)], O1RelationsWithTranslation: RDD[(String, String)], O1Ontology: RDD[(String, String, String)], O2Ontology: RDD[(String, String, String)], offlineDictionaryForTarget: String): RDD[graph.Triple] = {
 
     val multilingualMatchedClasses = matchedClasses.map(x=>(x._1,x._3))
     val multilingualMatchedRelations = matchedRelations.map(x=>(x._1,x._3))
