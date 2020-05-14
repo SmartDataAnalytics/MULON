@@ -40,6 +40,7 @@ class QualityAssessment(sparkSession: SparkSession) {
   def InheritanceRichness(ontologyTriples: RDD[graph.Triple]): Double = {
     val numOfSubClassOf = ontoStat.getNumberOfSubClasses(ontologyTriples)
     val numOfClasses = ontoStat.getNumberOfClasses(ontologyTriples)
+//    println("Number of subClassOf "+numOfSubClassOf+" Number of classes "+numOfClasses)
     ontoStat.roundNumber(numOfSubClassOf / numOfClasses)
   }
 
@@ -61,6 +62,7 @@ class QualityAssessment(sparkSession: SparkSession) {
     */
   def IsolatedElements(ontologyTriples: RDD[graph.Triple]): Double = {
     val numOfIsolatedElements = ontoStat.resourceDistribution(ontologyTriples).filter(x => x == 1).count()
+    println("numOfIsolatedElements "+numOfIsolatedElements)
     val numOfClasses = ontoStat.getNumberOfClasses(ontologyTriples)
     val numOfProperties = ontoStat.getNumberOfRelations(ontologyTriples) + ontoStat.getNumberOfAttributes(ontologyTriples)
     ontoStat.roundNumber(numOfIsolatedElements / (numOfClasses + numOfProperties))
@@ -74,6 +76,16 @@ class QualityAssessment(sparkSession: SparkSession) {
     val numOfPropertiesMissingInfo = ontoStat.missingDomainOrRange(ontologyTriples).toDouble
     val numOfAllProperties = ontoStat.getAllProperties(ontologyTriples).count().toDouble
     ontoStat.roundNumber(numOfPropertiesMissingInfo/numOfAllProperties)
+  }
+
+  /**
+    * refers to how many redundant resources exist.
+    */
+  def Redundancy(O: RDD[graph.Triple]): Double = {
+    val numOfAllClassesWithRedundancy = ontoStat.getAllClasses(O).count().toDouble
+    val numOfAllClassesWithoutRedundancy = ontoStat.getNumberOfClasses(O)
+
+    ontoStat.roundNumber(1 - (numOfAllClassesWithoutRedundancy / numOfAllClassesWithRedundancy))
   }
 
   /**

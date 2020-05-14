@@ -1,14 +1,10 @@
-import net.sansa_stack.rdf.spark.io._
-import org.apache.jena.graph
-import org.apache.jena.graph.Node
-import org.apache.jena.riot.Lang
-import org.apache.log4j.{Level, Logger}
-import org.apache.spark.broadcast.Broadcast
-import org.apache.spark.rdd.RDD
-import org.apache.spark.sql.SparkSession
+
 
 object Try {
   def main(args: Array[String]): Unit = {
+    val g = new GetSimilarity()
+    println(g.getSimilarity("Sponzorship","Sponsorship"))
+    /*
     Logger.getLogger("org").setLevel(Level.OFF)
     Logger.getLogger("akka").setLevel(Level.OFF)
     val sparkSession = SparkSession.builder.master("local[*]").config("spark.serializer", "org.apache.spark.serializer.KryoSerializer").getOrCreate()
@@ -83,6 +79,6 @@ object Try {
            //    relSim.GetRelationSimilarityTest(O2Relations,O1RelationsWithTranslation)
            */
 
-    sparkSession.stop()
+    sparkSession.stop()*/
   }
 }

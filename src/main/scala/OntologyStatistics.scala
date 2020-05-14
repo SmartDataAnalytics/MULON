@@ -21,9 +21,10 @@ class OntologyStatistics(sparkSession: SparkSession) {
     println("Number of annotation properties is " + sAnnotationProperty.count()) //    sAnnotationProperty.foreach(println(_))
     val sDatatypeProperty: RDD[graph.Triple] = ontologyTriples.filter(q => q.getObject.isURI && q.getObject.getLocalName == "DatatypeProperty").distinct(2)
     println("Number of Datatype properties is " + sDatatypeProperty.count()) //    sDatatypeProperty.foreach(println(_))
-    val sClass = ontologyTriples.find(None, None, Some(NodeFactory.createURI("http://www.w3.org/2002/07/owl#Class"))).filter(x => x.getSubject.isURI).map(x => x.getSubject.getLocalName).filter(x => x != "Class").distinct()
-//    val sClass = ontologyTriples.find(None, None, Some(NodeFactory.createURI("http://www.w3.org/2002/07/owl#Class"))).filter(x => x.getSubject.isURI).map(x => x.getSubject.getLocalName.toLowerCase).filter(x => x.toLowerCase != "class").distinct()
-    println("Number of classes is " + sClass.count())
+
+//    val sClass = ontologyTriples.find(None, None, Some(NodeFactory.createURI("http://www.w3.org/2002/07/owl#Class"))).filter(x => x.getSubject.isURI).map(x => x.getSubject.getLocalName).filter(x => x != "Class").distinct()
+    val sClass = this.getNumberOfClasses(ontologyTriples)
+    println("Number of classes is " + sClass)
 //        sClass.foreach(println(_))
     val listOfPredicates = ontologyTriples.map(x => x.getPredicate.getLocalName).distinct(2) //    println("List of predicates in the ontology: ")
     //    listOfPredicates.foreach(println(_))
@@ -33,8 +34,10 @@ class OntologyStatistics(sparkSession: SparkSession) {
     *  Get number of classes in the ontology.
     */
   def getNumberOfClasses(ontologyTriples: RDD[graph.Triple]): Double = {
-    //    val numOfClasses = ontologyTriples.filter(q => q.getSubject.isURI && q.getObject.isURI && q.getObject.getLocalName == "Class").distinct(2).count()
-    val numOfClasses = this.getAllClasses(ontologyTriples).distinct(2).count()
+//    val numOfClasses = ontologyTriples.find(None, None, Some(NodeFactory.createURI("http://www.w3.org/2002/07/owl#Class"))).filter(x => x.getSubject.isURI).map(x => x.getSubject.getLocalName).filter(x => x != "Class").distinct().count()
+val numOfClasses = ontologyTriples.find(None, None, Some(NodeFactory.createURI("http://www.w3.org/2002/07/owl#Class"))).filter(x => x.getSubject.isURI).map(x => x.getSubject.getLocalName).distinct().count()
+
+//    val numOfClasses = this.getAllClasses(ontologyTriples).distinct(2).count()
     numOfClasses
   }
 
@@ -77,8 +80,8 @@ class OntologyStatistics(sparkSession: SparkSession) {
     *  Get all classes and all properties in the ontology.
     */
   def getAllResources(ontologyTriples: RDD[graph.Triple]): RDD[String] = {
-    //    val allClasses = ontologyTriples.find(None, None, Some(NodeFactory.createURI("http://www.w3.org/2002/07/owl#Class"))).map(x => x.getSubject.getLocalName.toLowerCase).filter(x=> x.toLowerCase!="class") .distinct()
-    val allClasses = this.getAllClasses(ontologyTriples).filter(x => x.toLowerCase != "class").distinct()
+    val allClasses = ontologyTriples.find(None, None, Some(NodeFactory.createURI("http://www.w3.org/2002/07/owl#Class"))).filter(x => x.getSubject.isURI).map(x => x.getSubject.getLocalName).filter(x => x != "Class").distinct()
+//    val allClasses = this.getAllClasses(ontologyTriples).filter(x => x.toLowerCase != "class").distinct()
     val allProperties = this.getAllProperties(ontologyTriples)
     allClasses.union(allProperties)
   }
@@ -142,10 +145,10 @@ class OntologyStatistics(sparkSession: SparkSession) {
     var classesWithoutURIs = sparkSession.sparkContext.emptyRDD[String]
     if (ontologyTriples.find(None, Some(NodeFactory.createURI("http://www.w3.org/2000/01/rdf-schema#label")), None).count() > 0) {
 //      println("ontology has labels")
-      classesWithoutURIs = ontologyTriples.find(None, None, Some(NodeFactory.createURI("http://www.w3.org/2002/07/owl#Class"))).filter(x => x.getSubject.isURI).keyBy(_.getSubject.getLocalName).join(ontologyTriples.filter(x => x.getSubject.isURI).keyBy(_.getSubject.getLocalName)).filter(x => x._2._2.getPredicate.getLocalName == "label").map(y => (y._2._2.getObject.getLiteral.getLexicalForm.split("@").head)).distinct(2)
+      classesWithoutURIs = ontologyTriples.find(None, None, Some(NodeFactory.createURI("http://www.w3.org/2002/07/owl#Class"))).filter(x => x.getSubject.isURI).keyBy(_.getSubject.getLocalName).join(ontologyTriples.filter(x => x.getSubject.isURI).keyBy(_.getSubject.getLocalName)).filter(x => x._2._2.getPredicate.getLocalName == "label").map(y => (y._2._2.getObject.getLiteral.getLexicalForm.split("@").head))//.distinct(2)
     } else {
 //      println("ontology do not have labels")
-      classesWithoutURIs = ontologyTriples.find(None, None, Some(NodeFactory.createURI("http://www.w3.org/2002/07/owl#Class"))).filter(x => x.getSubject.isURI).map(x => x.getSubject.getLocalName).distinct()
+      classesWithoutURIs = ontologyTriples.find(None, None, Some(NodeFactory.createURI("http://www.w3.org/2002/07/owl#Class"))).filter(x => x.getSubject.isURI).map(x => x.getSubject.getLocalName)//.distinct()
     }
     classesWithoutURIs
   }

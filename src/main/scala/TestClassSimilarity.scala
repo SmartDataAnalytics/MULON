@@ -38,7 +38,7 @@ class TestClassSimilarity {
     val t = O1Translated.cartesian(O2)
     val tt: RDD[(String, String, String, Double)] = t.map(x => (x._1._1, x._1._2, x._2,gS.getSimilarity(x._1._2.toLowerCase,x._2.toLowerCase))).filter(y=>y._4>0.9)
 //    tt.foreach(println(_))
-    tt
+    tt.distinct(2)
   }
 
 }
