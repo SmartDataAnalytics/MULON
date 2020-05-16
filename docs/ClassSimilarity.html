@@ -45,13 +45,13 @@
         <span class="kind">class</span>
       </span>
       <span class="symbol">
-        <span class="name">ClassSimilarity</span><span class="result"> extends <span class="extype" name="scala.Serializable">Serializable</span></span>
+        <span class="name">ClassSimilarity</span><span class="result"> extends <span class="extype" name="scala.AnyRef">AnyRef</span></span>
       </span>
       </h4>
       
           <div id="comment" class="fullcommenttop"><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><span class="extype" name="scala.Serializable">Serializable</span>, <span class="extype" name="java.io.Serializable">Serializable</span>, <span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
+          <div class="superTypes hiddenContent"><span class="extype" name="scala.AnyRef">AnyRef</span>, <span class="extype" name="scala.Any">Any</span></div>
         </div></div>
         
 
@@ -69,7 +69,7 @@
                 <span class="filtertype">Inherited<br />
                 </span>
                 <ol id="linearization">
-                  <li class="in" name="ClassSimilarity"><span>ClassSimilarity</span></li><li class="in" name="scala.Serializable"><span>Serializable</span></li><li class="in" name="java.io.Serializable"><span>Serializable</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
+                  <li class="in" name="ClassSimilarity"><span>ClassSimilarity</span></li><li class="in" name="scala.AnyRef"><span>AnyRef</span></li><li class="in" name="scala.Any"><span>Any</span></li>
                 </ol>
               </div><div id="ancestors">
             <span class="filtertype"></span>
@@ -89,7 +89,7 @@
         <div id="constructors" class="members">
               <h3>Instance Constructors</h3>
               <ol><li name="ClassSimilarity#&lt;init&gt;" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="&lt;init&gt;(sparkSession:org.apache.spark.sql.SparkSession):ClassSimilarity"></a>
+      <a id="&lt;init&gt;():ClassSimilarity"></a>
       <a id="&lt;init&gt;:ClassSimilarity"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -97,10 +97,10 @@
         <span class="kind">new</span>
       </span>
       <span class="symbol">
-        <span class="name">ClassSimilarity</span><span class="params">(<span name="sparkSession">sparkSession: <span class="extype" name="org.apache.spark.sql.SparkSession">SparkSession</span></span>)</span>
+        <span class="name">ClassSimilarity</span><span class="params">()</span>
       </span>
       </h4><span class="permalink">
-      <a href="index.html#ClassSimilarity@&lt;init&gt;(sparkSession:org.apache.spark.sql.SparkSession):ClassSimilarity" title="Permalink" target="_top">
+      <a href="index.html#ClassSimilarity@&lt;init&gt;():ClassSimilarity" title="Permalink" target="_top">
         <img src="lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -182,40 +182,23 @@
       </a>
     </span>
       
-    </li><li name="ClassSimilarity#GetTranslationForRelation" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="GetTranslationForRelation(availableTranslations:org.apache.spark.rdd.RDD[(String,List[String])],sourceRelations:org.apache.spark.rdd.RDD[(String,String)]):org.apache.spark.rdd.RDD[(String,String,String)]"></a>
-      <a id="GetTranslationForRelation(RDD[(String,List[String])],RDD[(String,String)]):RDD[(String,String,String)]"></a>
+    </li><li name="ClassSimilarity#GetClassSimilarity" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="GetClassSimilarity(O1Translated:org.apache.spark.rdd.RDD[(String,String)],O2:org.apache.spark.rdd.RDD[String]):org.apache.spark.rdd.RDD[(String,String,String,Double)]"></a>
+      <a id="GetClassSimilarity(RDD[(String,String)],RDD[String]):RDD[(String,String,String,Double)]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">GetTranslationForRelation</span><span class="params">(<span name="availableTranslations">availableTranslations: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.List">List</span>[<span class="extype" name="scala.Predef.String">String</span>])]</span>, <span name="sourceRelations">sourceRelations: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>)</span><span class="result">: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>
+        <span class="name">GetClassSimilarity</span><span class="params">(<span name="O1Translated">O1Translated: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>, <span name="O2">O2: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[<span class="extype" name="scala.Predef.String">String</span>]</span>)</span><span class="result">: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Double">Double</span>)]</span>
       </span>
       </h4><span class="permalink">
-      <a href="index.html#ClassSimilarity@GetTranslationForRelation(availableTranslations:org.apache.spark.rdd.RDD[(String,List[String])],sourceRelations:org.apache.spark.rdd.RDD[(String,String)]):org.apache.spark.rdd.RDD[(String,String,String)]" title="Permalink" target="_top">
+      <a href="index.html#ClassSimilarity@GetClassSimilarity(O1Translated:org.apache.spark.rdd.RDD[(String,String)],O2:org.apache.spark.rdd.RDD[String]):org.apache.spark.rdd.RDD[(String,String,String,Double)]" title="Permalink" target="_top">
         <img src="lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="ClassSimilarity#GettingAllAvailableTranslations" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="GettingAllAvailableTranslations(filePathForOfflineTranslation:String):org.apache.spark.rdd.RDD[(String,List[String])]"></a>
-      <a id="GettingAllAvailableTranslations(String):RDD[(String,List[String])]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">GettingAllAvailableTranslations</span><span class="params">(<span name="filePathForOfflineTranslation">filePathForOfflineTranslation: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.List">List</span>[<span class="extype" name="scala.Predef.String">String</span>])]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="index.html#ClassSimilarity@GettingAllAvailableTranslations(filePathForOfflineTranslation:String):org.apache.spark.rdd.RDD[(String,List[String])]" title="Permalink" target="_top">
-        <img src="lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
+      <p class="shortcomment cmt">Get the similarity between two classes in two different ontologies.</p>
     </li><li name="scala.Any#asInstanceOf" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="asInstanceOf[T0]:T0"></a>
       <a id="asInstanceOf[T0]:T0"></a>
@@ -527,11 +510,7 @@
         </div>
 
         <div id="inheritedMembers">
-        <div class="parent" name="scala.Serializable">
-              <h3>Inherited from <span class="extype" name="scala.Serializable">Serializable</span></h3>
-            </div><div class="parent" name="java.io.Serializable">
-              <h3>Inherited from <span class="extype" name="java.io.Serializable">Serializable</span></h3>
-            </div><div class="parent" name="scala.AnyRef">
+        <div class="parent" name="scala.AnyRef">
               <h3>Inherited from <span class="extype" name="scala.AnyRef">AnyRef</span></h3>
             </div><div class="parent" name="scala.Any">
               <h3>Inherited from <span class="extype" name="scala.Any">Any</span></h3>

@@ -60,7 +60,7 @@ class Merge(sparkSession1: SparkSession) {
     val O1ClassesWithTranslation: RDD[(String, String)] = sparkSession1.sparkContext.textFile("src/main/resources/Output/"+O1Name+"/classesWithTranslation.txt").map(x => (x.split(",").apply(0), x.split(",").apply(1))) //    println("O1 classes with translation")
     //    O1ClassesWithTranslation.foreach(println(_))
     println("Classes Similarity:")
-    val sim = new TestClassSimilarity()
+    val sim = new ClassSimilarity()
     val matchedClasses: RDD[(String, String, String, Double)] = sim.GetClassSimilarity(O1ClassesWithTranslation, O2Classes)
     matchedClasses.foreach(println(_))
     numberOfMatchedClasses = matchedClasses.count().toInt

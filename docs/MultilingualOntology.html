@@ -166,7 +166,7 @@
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
     </li><li name="MultilingualOntology#GenerateMultilingualOntology" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="GenerateMultilingualOntology(O1ClassesWithTranslation:org.apache.spark.rdd.RDD[(String,String)],matchedClasses:org.apache.spark.rdd.RDD[(String,String,String,Double)],matchedRelations:org.apache.spark.rdd.RDD[(String,String,String,Double)],O1RelationsWithTranslation:org.apache.spark.rdd.RDD[(String,String)],O1Ontology:org.apache.spark.rdd.RDD[(String,String,String)],O2Ontology:org.apache.spark.rdd.RDD[(String,String,String)],offlineDictionaryForTarget:String):org.apache.spark.rdd.RDD[org.apache.jena.graph.Triple]"></a>
+      <a id="GenerateMultilingualOntology(O1ClassesWithTranslation:org.apache.spark.rdd.RDD[(String,String)],matchedClasses:org.apache.spark.rdd.RDD[(String,String,String,Double)],matchedRelations:org.apache.spark.rdd.RDD[(String,String,String,Double)],O1RelationsWithTranslation:org.apache.spark.rdd.RDD[(String,String)],O1Ontology:org.apache.spark.rdd.RDD[(String,String,String)],O2Ontology:org.apache.spark.rdd.RDD[(String,String,String)],O2translated:String):org.apache.spark.rdd.RDD[org.apache.jena.graph.Triple]"></a>
       <a id="GenerateMultilingualOntology(RDD[(String,String)],RDD[(String,String,String,Double)],RDD[(String,String,String,Double)],RDD[(String,String)],RDD[(String,String,String)],RDD[(String,String,String)],String):RDD[Triple]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
@@ -174,10 +174,10 @@
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">GenerateMultilingualOntology</span><span class="params">(<span name="O1ClassesWithTranslation">O1ClassesWithTranslation: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>, <span name="matchedClasses">matchedClasses: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Double">Double</span>)]</span>, <span name="matchedRelations">matchedRelations: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Double">Double</span>)]</span>, <span name="O1RelationsWithTranslation">O1RelationsWithTranslation: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>, <span name="O1Ontology">O1Ontology: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>, <span name="O2Ontology">O2Ontology: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>, <span name="offlineDictionaryForTarget">offlineDictionaryForTarget: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[<span class="extype" name="org.apache.jena.graph.Triple">Triple</span>]</span>
+        <span class="name">GenerateMultilingualOntology</span><span class="params">(<span name="O1ClassesWithTranslation">O1ClassesWithTranslation: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>, <span name="matchedClasses">matchedClasses: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Double">Double</span>)]</span>, <span name="matchedRelations">matchedRelations: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Double">Double</span>)]</span>, <span name="O1RelationsWithTranslation">O1RelationsWithTranslation: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>, <span name="O1Ontology">O1Ontology: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>, <span name="O2Ontology">O2Ontology: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>, <span name="O2translated">O2translated: <span class="extype" name="scala.Predef.String">String</span></span>)</span><span class="result">: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[<span class="extype" name="org.apache.jena.graph.Triple">Triple</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="index.html#MultilingualOntology@GenerateMultilingualOntology(O1ClassesWithTranslation:org.apache.spark.rdd.RDD[(String,String)],matchedClasses:org.apache.spark.rdd.RDD[(String,String,String,Double)],matchedRelations:org.apache.spark.rdd.RDD[(String,String,String,Double)],O1RelationsWithTranslation:org.apache.spark.rdd.RDD[(String,String)],O1Ontology:org.apache.spark.rdd.RDD[(String,String,String)],O2Ontology:org.apache.spark.rdd.RDD[(String,String,String)],offlineDictionaryForTarget:String):org.apache.spark.rdd.RDD[org.apache.jena.graph.Triple]" title="Permalink" target="_top">
+      <a href="index.html#MultilingualOntology@GenerateMultilingualOntology(O1ClassesWithTranslation:org.apache.spark.rdd.RDD[(String,String)],matchedClasses:org.apache.spark.rdd.RDD[(String,String,String,Double)],matchedRelations:org.apache.spark.rdd.RDD[(String,String,String,Double)],O1RelationsWithTranslation:org.apache.spark.rdd.RDD[(String,String)],O1Ontology:org.apache.spark.rdd.RDD[(String,String,String)],O2Ontology:org.apache.spark.rdd.RDD[(String,String,String)],O2translated:String):org.apache.spark.rdd.RDD[org.apache.jena.graph.Triple]" title="Permalink" target="_top">
         <img src="lib/permalink.png" alt="Permalink" />
       </a>
     </span>
@@ -198,58 +198,7 @@
         <img src="lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
-    </li><li name="MultilingualOntology#GetMultilingualMatchedClasses" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="GetMultilingualMatchedClasses(sourceClassesWithBestTranslation:org.apache.spark.rdd.RDD[(String,String)],listOfMatchedClasses:org.apache.spark.rdd.RDD[List[String]]):org.apache.spark.rdd.RDD[(String,String)]"></a>
-      <a id="GetMultilingualMatchedClasses(RDD[(String,String)],RDD[List[String]]):RDD[(String,String)]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">GetMultilingualMatchedClasses</span><span class="params">(<span name="sourceClassesWithBestTranslation">sourceClassesWithBestTranslation: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>, <span name="listOfMatchedClasses">listOfMatchedClasses: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[<span class="extype" name="scala.List">List</span>[<span class="extype" name="scala.Predef.String">String</span>]]</span>)</span><span class="result">: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="index.html#MultilingualOntology@GetMultilingualMatchedClasses(sourceClassesWithBestTranslation:org.apache.spark.rdd.RDD[(String,String)],listOfMatchedClasses:org.apache.spark.rdd.RDD[List[String]]):org.apache.spark.rdd.RDD[(String,String)]" title="Permalink" target="_top">
-        <img src="lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="MultilingualOntology#GetMultilingualMatchedRelations" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="GetMultilingualMatchedRelations(similarRelations:org.apache.spark.rdd.RDD[(String,String,String)]):org.apache.spark.rdd.RDD[(String,String)]"></a>
-      <a id="GetMultilingualMatchedRelations(RDD[(String,String,String)]):RDD[(String,String)]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">GetMultilingualMatchedRelations</span><span class="params">(<span name="similarRelations">similarRelations: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>)</span><span class="result">: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="index.html#MultilingualOntology@GetMultilingualMatchedRelations(similarRelations:org.apache.spark.rdd.RDD[(String,String,String)]):org.apache.spark.rdd.RDD[(String,String)]" title="Permalink" target="_top">
-        <img src="lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
-    </li><li name="MultilingualOntology#MultilingualInfoForTargetOntology" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="MultilingualInfoForTargetOntology(offlineDictionaryForTarget:String,resourceType:Char):org.apache.spark.rdd.RDD[(String,String)]"></a>
-      <a id="MultilingualInfoForTargetOntology(String,Char):RDD[(String,String)]"></a>
-      <h4 class="signature">
-      <span class="modifier_kind">
-        <span class="modifier"></span>
-        <span class="kind">def</span>
-      </span>
-      <span class="symbol">
-        <span class="name">MultilingualInfoForTargetOntology</span><span class="params">(<span name="offlineDictionaryForTarget">offlineDictionaryForTarget: <span class="extype" name="scala.Predef.String">String</span></span>, <span name="resourceType">resourceType: <span class="extype" name="scala.Char">Char</span></span>)</span><span class="result">: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>
-      </span>
-      </h4><span class="permalink">
-      <a href="index.html#MultilingualOntology@MultilingualInfoForTargetOntology(offlineDictionaryForTarget:String,resourceType:Char):org.apache.spark.rdd.RDD[(String,String)]" title="Permalink" target="_top">
-        <img src="lib/permalink.png" alt="Permalink" />
-      </a>
-    </span>
-      
+      <p class="shortcomment cmt">Generates new URIs for resources in the merged ontology.</p>
     </li><li name="MultilingualOntology#ResolveConflictClasses" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="ResolveConflictClasses(multilingualMatchedClasses:org.apache.spark.rdd.RDD[(String,String)],sourceClassesWithBestTranslation:org.apache.spark.rdd.RDD[(String,String)]):org.apache.spark.rdd.RDD[(String,String)]"></a>
       <a id="ResolveConflictClasses(RDD[(String,String)],RDD[(String,String)]):RDD[(String,String)]"></a>
@@ -266,7 +215,7 @@
         <img src="lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">Remove duplicated classes according to the matching results.</p>
     </li><li name="MultilingualOntology#ResolveConflictRelations" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="ResolveConflictRelations(multilingualMatchedRelations:org.apache.spark.rdd.RDD[(String,String)],relationsWithTranslation:org.apache.spark.rdd.RDD[(String,String)]):org.apache.spark.rdd.RDD[(String,String)]"></a>
       <a id="ResolveConflictRelations(RDD[(String,String)],RDD[(String,String)]):RDD[(String,String)]"></a>
@@ -283,7 +232,7 @@
         <img src="lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">Remove duplicated relations according to the matching results.</p>
     </li><li name="MultilingualOntology#ResolveConflictsForEnglish" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="ResolveConflictsForEnglish(listOfResourcesWithTranslations:org.apache.spark.rdd.RDD[(String,String)],multilingualMatchedResources:org.apache.spark.rdd.RDD[(String,String)]):org.apache.spark.rdd.RDD[(String,String)]"></a>
       <a id="ResolveConflictsForEnglish(RDD[(String,String)],RDD[(String,String)]):RDD[(String,String)]"></a>
@@ -318,19 +267,19 @@
       </a>
     </span>
       
-    </li><li name="MultilingualOntology#TranslateGermanOntology" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
-      <a id="TranslateGermanOntology(resourcesWithURIs:org.apache.spark.rdd.RDD[(String,String,String)],sOntology:org.apache.spark.rdd.RDD[(String,String,String)]):org.apache.spark.rdd.RDD[org.apache.jena.graph.Triple]"></a>
-      <a id="TranslateGermanOntology(RDD[(String,String,String)],RDD[(String,String,String)]):RDD[Triple]"></a>
+    </li><li name="MultilingualOntology#TranslateNonEnglishOntology" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="TranslateNonEnglishOntology(resourcesWithURIs:org.apache.spark.rdd.RDD[(String,String,String)],sOntology:org.apache.spark.rdd.RDD[(String,String,String)]):org.apache.spark.rdd.RDD[org.apache.jena.graph.Triple]"></a>
+      <a id="TranslateNonEnglishOntology(RDD[(String,String,String)],RDD[(String,String,String)]):RDD[Triple]"></a>
       <h4 class="signature">
       <span class="modifier_kind">
         <span class="modifier"></span>
         <span class="kind">def</span>
       </span>
       <span class="symbol">
-        <span class="name">TranslateGermanOntology</span><span class="params">(<span name="resourcesWithURIs">resourcesWithURIs: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>, <span name="sOntology">sOntology: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>)</span><span class="result">: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[<span class="extype" name="org.apache.jena.graph.Triple">Triple</span>]</span>
+        <span class="name">TranslateNonEnglishOntology</span><span class="params">(<span name="resourcesWithURIs">resourcesWithURIs: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>, <span name="sOntology">sOntology: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[(<span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>, <span class="extype" name="scala.Predef.String">String</span>)]</span>)</span><span class="result">: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[<span class="extype" name="org.apache.jena.graph.Triple">Triple</span>]</span>
       </span>
       </h4><span class="permalink">
-      <a href="index.html#MultilingualOntology@TranslateGermanOntology(resourcesWithURIs:org.apache.spark.rdd.RDD[(String,String,String)],sOntology:org.apache.spark.rdd.RDD[(String,String,String)]):org.apache.spark.rdd.RDD[org.apache.jena.graph.Triple]" title="Permalink" target="_top">
+      <a href="index.html#MultilingualOntology@TranslateNonEnglishOntology(resourcesWithURIs:org.apache.spark.rdd.RDD[(String,String,String)],sOntology:org.apache.spark.rdd.RDD[(String,String,String)]):org.apache.spark.rdd.RDD[org.apache.jena.graph.Triple]" title="Permalink" target="_top">
         <img src="lib/permalink.png" alt="Permalink" />
       </a>
     </span>
