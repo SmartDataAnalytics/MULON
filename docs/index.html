@@ -65,5 +65,51 @@
         href="https://github.com/SANSA-Stack">SANSA</a> readers to build a dataset of RDD[graph.Triple] for input
     ontologies. SANSA support different RDF serialization formats (e.g. NTRIPLES/N3, XML/RDF, TURTLE, QUAD).
 </p>
+<div style="background-color:black;color:white;padding:20px;">
+    val lang = Lang.NTRIPLES <br>
+    val O1triples = spark.rdf(lang)(O1) <br>
+    val O2triples = spark.rdf(lang)(O2) <br> <br>
+
+    val multilingualMergedOntology = ontoMerge.MergeOntologies(O1triples, O2triples) <br> <br>
+
+    val ontStat = new OntologyStatistics(sparkSession1) <br>
+    println("Statistics for merged ontology") <br>
+    ontStat.GetStatistics(multilingualMergedOntology) <br> <br>
+
+    //Assessemnt sheet <br>
+    val quality = new QualityAssessment(sparkSession1) <br>
+    println("Relationship richness for O1 is " + quality.RelationshipRichness(O1triples)) <br>
+    println("Relationship richness for O2 is " + quality.RelationshipRichness(O2triples)) <br>
+    println("Relationship richness for Om is " + quality.RelationshipRichness(multilingualMergedOntology)) <br>
+    println("==============================================") <br>
+    println("Attribute richness for O1 is " + quality.AttributeRichness(O1triples)) <br>
+    println("Attribute richness for O2 is " + quality.AttributeRichness(O2triples)) <br>
+    println("Attribute richness for Om is " + quality.AttributeRichness(multilingualMergedOntology)) <br>
+    println("==============================================") <br>
+    println("Inheritance richness for O1 is " + quality.InheritanceRichness(O1triples)) <br>
+    println("Inheritance richness for O2 is " + quality.InheritanceRichness(O2triples)) <br>
+    println("Inheritance richness for Om is " + quality.InheritanceRichness(multilingualMergedOntology)) <br>
+    println("==============================================") <br>
+    println("Readability for O1 is " + quality.Readability(O1triples)) <br>
+    println("Readability for O2 is " + quality.Readability(O2triples)) <br>
+    println("Readability for Om is " + quality.Readability(multilingualMergedOntology)) <br>
+    println("==============================================") <br>
+    println("Isolated Elements for O1 is " + quality.IsolatedElements(O1triples)) <br>
+    println("Isolated Elements for O2 is " + quality.IsolatedElements(O2triples)) <br>
+    println("Isolated Elements for Om is " + quality.IsolatedElements(multilingualMergedOntology)) <br>
+    println("==============================================") <br>
+    println("Missing Domain Or Range for O1 is " + quality.MissingDomainOrRange(O1triples)) <br>
+    println("Missing Domain Or Range for O2 is " + quality.MissingDomainOrRange(O2triples)) <br>
+    println("Missing Domain Or Range for Om is " + quality.MissingDomainOrRange(multilingualMergedOntology)) <br>
+    println("==============================================") <br>
+    println("Redundancy in O1 is " + quality.Redundancy(O1triples)) <br>
+    println("Redundancy in O2 is " + quality.Redundancy(O2triples)) <br>
+    println("Redundancy in Om is " + quality.Redundancy(multilingualMergedOntology)) <br>
+    println("==============================================") <br>
+    println("Class coverage for Om is " + quality.ClassCoverage(O1triples, O2triples, multilingualMergedOntology, ontoMerge.numberOfMatchedClasses))
+    println("Property coverage for Om is " + quality.PropertyCoverage(O1triples, O2triples, multilingualMergedOntology, ontoMerge.numberOfMatchedRelations)) <br>
+    println("Compactness for Om is " + quality.Compactness(O1triples, O2triples, multilingualMergedOntology)) <br>
+
+</div>
 </body>
 </html>
