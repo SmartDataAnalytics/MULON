@@ -59,22 +59,22 @@ object Translation extends Serializable {
     println("Translated classes:")
     println("=====================")
     classesWithTranslation.foreach(println(_))
-//    classesWithTranslation.coalesce(1, shuffle = true).saveAsTextFile("src/main/resources/Output/Translations/classesWithTranslation")
+//    classesWithTranslation.coalesce(1, shuffle = true).saveAsTextFile("src/main/resources/OfflineDictionaries/Translations/classesWithTranslation")
     classesWithTranslation.map{case(a, b) =>
       var line = a.toString + "," + b.toString
       line
-    }.coalesce(1, shuffle = true).saveAsTextFile("src/main/resources/Output/Translations/classesWithTranslation")
+    }.coalesce(1, shuffle = true).saveAsTextFile("src/main/resources/OfflineDictionaries/Translations/classesWithTranslation")
 
     val RelationsWithTranslation: RDD[(String, String)] = Orelations.map(x => (x,this.yandexTranslationToEnglish(x, langaugeTag)))
     println("=====================")
     println("Translated relations:")
     println("=====================")
     RelationsWithTranslation.foreach(println(_))
-//    RelationsWithTranslation.coalesce(1, shuffle = true).saveAsTextFile("src/main/resources/Output/Translations/RelationsWithTranslation")
+//    RelationsWithTranslation.coalesce(1, shuffle = true).saveAsTextFile("src/main/resources/OfflineDictionaries/Translations/RelationsWithTranslation")
     RelationsWithTranslation.map{case(a, b) =>
       var line = a.toString + "," + b.toString
       line
-    }.coalesce(1, shuffle = true).saveAsTextFile("src/main/resources/Output/Translations/RelationsWithTranslation")
+    }.coalesce(1, shuffle = true).saveAsTextFile("src/main/resources/OfflineDictionaries/Translations/RelationsWithTranslation")
   }
 
 
@@ -86,22 +86,22 @@ object Translation extends Serializable {
     println("Translated classes:")
     println("=====================")
     classesWithTranslation.foreach(println(_))
-    //    classesWithTranslation.coalesce(1, shuffle = true).saveAsTextFile("src/main/resources/Output/Translations/classesWithTranslation")
+    //    classesWithTranslation.coalesce(1, shuffle = true).saveAsTextFile("src/main/resources/OfflineDictionaries/Translations/classesWithTranslation")
     classesWithTranslation.map{case(a, b) =>
       var line = a.toString + "," + b.toString
       line
-    }.coalesce(1, shuffle = true).saveAsTextFile("src/main/resources/Output/Translations/classesWithTranslation")
+    }.coalesce(1, shuffle = true).saveAsTextFile("src/main/resources/OfflineDictionaries/Translations/classesWithTranslation")
 
     val RelationsWithTranslation: RDD[(String, String)] = Orelations.map(x => (x,this.yandexTranslationToGerman(x)))
     println("=====================")
     println("Translated relations:")
     println("=====================")
     RelationsWithTranslation.foreach(println(_))
-    //    RelationsWithTranslation.coalesce(1, shuffle = true).saveAsTextFile("src/main/resources/Output/Translations/RelationsWithTranslation")
+    //    RelationsWithTranslation.coalesce(1, shuffle = true).saveAsTextFile("src/main/resources/OfflineDictionaries/Translations/RelationsWithTranslation")
     RelationsWithTranslation.map{case(a, b) =>
       var line = a.toString + "," + b.toString
       line
-    }.coalesce(1, shuffle = true).saveAsTextFile("src/main/resources/Output/Translations/RelationsWithTranslation")
+    }.coalesce(1, shuffle = true).saveAsTextFile("src/main/resources/OfflineDictionaries/Translations/RelationsWithTranslation")
   }
 
   /**
@@ -112,22 +112,22 @@ object Translation extends Serializable {
     println("Translated classes:")
     println("=====================")
     classesWithTranslation.foreach(println(_))
-    //    classesWithTranslation.coalesce(1, shuffle = true).saveAsTextFile("src/main/resources/Output/Translations/classesWithTranslation")
+    //    classesWithTranslation.coalesce(1, shuffle = true).saveAsTextFile("src/main/resources/OfflineDictionaries/Translations/classesWithTranslation")
     classesWithTranslation.map{case(a, b) =>
       var line = a.toString + "," + b.toString
       line
-    }.coalesce(1, shuffle = true).saveAsTextFile("src/main/resources/Output/Translations/classesWithTranslation")
+    }.coalesce(1, shuffle = true).saveAsTextFile("src/main/resources/OfflineDictionaries/Translations/classesWithTranslation")
 
     val RelationsWithTranslation: RDD[(String, String)] = Orelations.map(x => (x,this.yandexTranslationToArabic(x)))
     println("=====================")
     println("Translated relations:")
     println("=====================")
     RelationsWithTranslation.foreach(println(_))
-    //    RelationsWithTranslation.coalesce(1, shuffle = true).saveAsTextFile("src/main/resources/Output/Translations/RelationsWithTranslation")
+    //    RelationsWithTranslation.coalesce(1, shuffle = true).saveAsTextFile("src/main/resources/OfflineDictionaries/Translations/RelationsWithTranslation")
     RelationsWithTranslation.map{case(a, b) =>
       var line = a.toString + "," + b.toString
       line
-    }.coalesce(1, shuffle = true).saveAsTextFile("src/main/resources/Output/Translations/RelationsWithTranslation")
+    }.coalesce(1, shuffle = true).saveAsTextFile("src/main/resources/OfflineDictionaries/Translations/RelationsWithTranslation")
   }
 
   /**
@@ -138,21 +138,21 @@ object Translation extends Serializable {
     println("Translated classes:")
     println("=====================")
     classesWithTranslation.foreach(println(_))
-    //    classesWithTranslation.coalesce(1, shuffle = true).saveAsTextFile("src/main/resources/Output/Translations/classesWithTranslation")
+    //    classesWithTranslation.coalesce(1, shuffle = true).saveAsTextFile("src/main/resources/OfflineDictionaries/Translations/classesWithTranslation")
     classesWithTranslation.map{case(a, b) =>
       var line = a.toString + "," + b.toString
       line
-    }.coalesce(1, shuffle = true).saveAsTextFile("src/main/resources/Output/Translations/classesWithTranslation")
+    }.coalesce(1, shuffle = true).saveAsTextFile("src/main/resources/OfflineDictionaries/Translations/classesWithTranslation")
 
     val RelationsWithTranslation: RDD[(String, String)] = Orelations.map(x => (x,this.yandexTranslationToFrench(x)))
     println("=====================")
     println("Translated relations:")
     println("=====================")
     RelationsWithTranslation.foreach(println(_))
-    //    RelationsWithTranslation.coalesce(1, shuffle = true).saveAsTextFile("src/main/resources/Output/Translations/RelationsWithTranslation")
+    //    RelationsWithTranslation.coalesce(1, shuffle = true).saveAsTextFile("src/main/resources/OfflineDictionaries/Translations/RelationsWithTranslation")
     RelationsWithTranslation.map{case(a, b) =>
       var line = a.toString + "," + b.toString
       line
-    }.coalesce(1, shuffle = true).saveAsTextFile("src/main/resources/Output/Translations/RelationsWithTranslation")
+    }.coalesce(1, shuffle = true).saveAsTextFile("src/main/resources/OfflineDictionaries/Translations/RelationsWithTranslation")
   }
 }

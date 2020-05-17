@@ -16,7 +16,7 @@ import org.apache.spark.sql.SparkSession
       .master("local[*]").config("spark.serializer", "org.apache.spark.serializer.KryoSerializer").getOrCreate()
 
     //German ontologies
-//        val O1 = "src/main/resources/EvaluationDataset/German/conference-de.ttl"
+        val O1 = "src/main/resources/EvaluationDataset/German/conference-de.ttl"
 //    val O1 = "src/main/resources/EvaluationDataset/German/cmt-de.ttl"
 //    val O1 = "src/main/resources/EvaluationDataset/German/confOf-de.ttl"
     //            val O1 = "src/main/resources/EvaluationDataset/German/iasted-de.ttl"
@@ -34,17 +34,12 @@ import org.apache.spark.sql.SparkSession
     //          val O1 = "src/main/resources/EvaluationDataset/French/cmt-fr.ttl"
     //          val O1 = "src/main/resources/EvaluationDataset/French/confOf-fr.ttl"
 //              val O1 = "src/main/resources/EvaluationDataset/French/iasted-fr.ttl"
-              val O1 = "src/main/resources/EvaluationDataset/French/sigkdd-fr.ttl"
+//              val O1 = "src/main/resources/EvaluationDataset/French/sigkdd-fr.ttl"
 
-    //    val O2 = "src/main/resources/CaseStudy/SEO.ttl"
+//        val O2 = "src/main/resources/CaseStudy/SEO.ttl"
     //        val O2 = "src/main/resources/EvaluationDataset/English/cmt-en.ttl"
 //    val O2 = "src/main/resources/EvaluationDataset/English/edas-en.ttl"
                val O2 = "src/main/resources/EvaluationDataset/English/ekaw-en.ttl"
-    //    val offlineDictionaryForO1: String = "src/main/resources/OfflineDictionaries/Translations-conference-de.csv"
-    //    val offlineDictionaryForO1 = "src/main/resources/OfflineDictionaries/Translations-confOf-de.csv"
-    //        val offlineDictionaryForO2: String = "src/main/resources/OfflineDictionaries/Translations-SEO-en.csv"
-//                val offlineDictionaryForO2: String = "src/main/resources/OfflineDictionaries/Translations-Ekaw-en.csv"
-//    val offlineDictionaryForO2: String = "src/main/resources/OfflineDictionaries/Translations-Edas-en.csv"
 
     val lang1: Lang = Lang.TURTLE
     val O1triples: RDD[graph.Triple] = sparkSession1.rdf(lang1)(O1).distinct(2)
@@ -56,7 +51,7 @@ import org.apache.spark.sql.SparkSession
 
 
     //    val multilingualMergedOntology = ontoMerge.MergeOntologies(O1triples, O2triples, offlineDictionaryForO1, offlineDictionaryForO2)
-    val multilingualMergedOntology = ontoMerge.MergeOntologies(O1triples, O2triples,"Ekaw-fr", "Sigkdd-fr")
+    val multilingualMergedOntology = ontoMerge.MergeOntologies(O1triples, O2triples,"Ekaw-de", "Conference-de")
 //val multilingualMergedOntology = ontoMerge.MergeOntologies(O1triples, O2triples,"src/main/resources/OfflineDictionaries/Translations-Edas-en.csv")
 
 
@@ -103,8 +98,9 @@ import org.apache.spark.sql.SparkSession
     println("Missing Domain Or Range for O2 is " + quality.MissingDomainOrRange(O2triples))
     println("Missing Domain Or Range for Om is " + quality.MissingDomainOrRange(multilingualMergedOntology))
     println("==============================================")
-    println("Redundancy in O1 is " + quality.Redundancy(O1triples))
-    println("Redundancy in O2 is " + quality.Redundancy(O2triples))
+    println("Redundancy for O1 is " + quality.Redundancy(O1triples))
+    println("Redundancy for O2 is " + quality.Redundancy(O2triples))
+    println("Redundancy for Om is " + quality.Redundancy(multilingualMergedOntology))
     println("==============================================")
     println("Number of matched classes is "+ ontoMerge.numberOfMatchedClasses)
     println("Number of matched relations is "+ontoMerge.numberOfMatchedRelations)

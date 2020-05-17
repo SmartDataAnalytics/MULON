@@ -102,14 +102,51 @@
     println("Missing Domain Or Range for O2 is " + quality.MissingDomainOrRange(O2triples)) <br>
     println("Missing Domain Or Range for Om is " + quality.MissingDomainOrRange(multilingualMergedOntology)) <br>
     println("==============================================") <br>
-    println("Redundancy in O1 is " + quality.Redundancy(O1triples)) <br>
-    println("Redundancy in O2 is " + quality.Redundancy(O2triples)) <br>
-    println("Redundancy in Om is " + quality.Redundancy(multilingualMergedOntology)) <br>
+    println("Redundancy for O1 is " + quality.Redundancy(O1triples)) <br>
+    println("Redundancy for O2 is " + quality.Redundancy(O2triples)) <br>
+    println("Redundancy for Om is " + quality.Redundancy(multilingualMergedOntology)) <br>
     println("==============================================") <br>
     println("Class coverage for Om is " + quality.ClassCoverage(O1triples, O2triples, multilingualMergedOntology, ontoMerge.numberOfMatchedClasses))
     println("Property coverage for Om is " + quality.PropertyCoverage(O1triples, O2triples, multilingualMergedOntology, ontoMerge.numberOfMatchedRelations)) <br>
     println("Compactness for Om is " + quality.Compactness(O1triples, O2triples, multilingualMergedOntology)) <br>
-
 </div>
+<h2>Sample Output</h2>
+<p>A sample output, in NTriple format, for merging the Conference ontology in German, from the <a href="https://www.irit.fr/recherches/MELODI/multifarm/">MultiFarm</a> dataset, with the <a href="http://kddste.sda.tech/SEOontology/Documentation/">Scientific Event Ontology</a> in English.
+<img src="PICs/SampleOutput.jpg" alt="MergedOntology" class="center">
+    Assessment sheet for the merged ontology:
+    <div style="background-color:black;color:white;padding:20px;">
+    Relationship richness for O1 is 0.48<br>
+    Relationship richness for O2 is 0.51<br>
+    Relationship richness for Om is 0.5<br>
+    ==============================================<br>
+    Attribute richness for O1 is 0.78<br>
+    Attribute richness for O2 is 0.58<br>
+    Attribute richness for Om is 0.65<br>
+    ==============================================<br>
+    Inheritance richness for O1 is 0.83<br>
+    Inheritance richness for O2 is 0.55<br>
+    Inheritance richness for Om is 0.66<br>
+    ==============================================<br>
+    Readability for O1 is 0.99<br>
+    Readability for O2 is 0.63<br>
+    Readability for Om is 2.22<br>
+    ==============================================<br>
+    Isolated Elements for O1 is 0.11<br>
+    Isolated Elements for O2 is 0.44<br>
+    Isolated Elements for Om is 0.21<br>
+    ==============================================<br>
+    Missing Domain Or Range for O1 is 0.02<br>
+    Missing Domain Or Range for O2 is 0.29<br>
+    Missing Domain Or Range for Om is 0.19<br>
+    ==============================================<br>
+    Redundancy for O1 is 0.03<br>
+    Redundancy for O2 is 0.00<br>
+    Redundancy for Om is 0.00<br>
+    ==============================================<br>
+    Class coverage for merged ontology Om is 1.00<br>
+    Property coverage for merged ontology Om is 0.99<br>
+    Compactness for merged ontology Om is 0.97
+</div>
+</p>
 </body>
 </html>

@@ -22,6 +22,10 @@ Missing Domain Or Range for O1 is 0.02
 Missing Domain Or Range for O2 is 0.29
 Missing Domain Or Range for Om is 0.19
 ==============================================
-Class coverage for merged ontology Om is 0.97
-Property coverage for merged ontology Om is 0.95
-Compactness for merged ontology Om is 0.94
+Redundancy for O1 is 0.03
+Redundancy for O2 is 0.00
+Redundancy for Om is 0.00
+==============================================
+Class coverage for merged ontology Om is 1.00
+Property coverage for merged ontology Om is 0.99
+Compactness for merged ontology Om is 0.97

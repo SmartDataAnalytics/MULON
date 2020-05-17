@@ -55,9 +55,9 @@ class Merge(sparkSession1: SparkSession) {
     //    val languageTag1: String = O1triples.filter(x=> x.getPredicate.getLocalName == "label").first().getObject.getLiteralLanguage
     //    println("language tag for O1 is "+languageTag1)
     //        Translation.translateToEnglish(O1Classes,O1Relations, languageTag1)
-//    Translation.translateToFrench(O2Classes,O2Relations)
+//    Translation.translateToGerman(O2Classes,O2Relations)
 
-    val O1ClassesWithTranslation: RDD[(String, String)] = sparkSession1.sparkContext.textFile("src/main/resources/Output/"+O1Name+"/classesWithTranslation.txt").map(x => (x.split(",").apply(0), x.split(",").apply(1))) //    println("O1 classes with translation")
+    val O1ClassesWithTranslation: RDD[(String, String)] = sparkSession1.sparkContext.textFile("src/main/resources/OfflineDictionaries/"+O1Name+"/classesWithTranslation.txt").map(x => (x.split(",").apply(0), x.split(",").apply(1))) //    println("O1 classes with translation")
     //    O1ClassesWithTranslation.foreach(println(_))
     println("Classes Similarity:")
     val sim = new ClassSimilarity()
@@ -66,7 +66,7 @@ class Merge(sparkSession1: SparkSession) {
     numberOfMatchedClasses = matchedClasses.count().toInt
 
 
-    val O1RelationsWithTranslation: RDD[(String, String)] = sparkSession1.sparkContext.textFile("src/main/resources/Output/"+O1Name+"/RelationsWithTranslation.txt").map(x => (x.split(",").apply(0), x.split(",").apply(1))) //        println("O1 relations with translation")
+    val O1RelationsWithTranslation: RDD[(String, String)] = sparkSession1.sparkContext.textFile("src/main/resources/OfflineDictionaries/"+O1Name+"/RelationsWithTranslation.txt").map(x => (x.split(",").apply(0), x.split(",").apply(1))) //        println("O1 relations with translation")
     //        O1RelationsWithTranslation.foreach(println(_))
     println("Relations Similarity:")
     val relSim = new RelationSimilarity()

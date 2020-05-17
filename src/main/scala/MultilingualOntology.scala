@@ -34,8 +34,8 @@ class MultilingualOntology(sparkSession: SparkSession) extends Serializable {
     val O1 = translatedO1Ontology.union(O1EnglishLabels).union(O1GermanLabels)
 
 
-    var O2ClassesWithMultilingualInfo: RDD[(String, String)] = sparkSession.sparkContext.textFile("src/main/resources/Output/" + O2translated + "/classesWithTranslation.txt").map(x => (x.split(",").apply(0).toLowerCase, x.split(",").apply(1).toLowerCase))
-    var O2RelationsWithMultilingualInfo: RDD[(String, String)] = sparkSession.sparkContext.textFile("src/main/resources/Output/" + O2translated + "/RelationsWithTranslation.txt").map(x => (x.split(",").apply(0).toLowerCase, x.split(",").apply(1).toLowerCase))
+    var O2ClassesWithMultilingualInfo: RDD[(String, String)] = sparkSession.sparkContext.textFile("src/main/resources/OfflineDictionaries/" + O2translated + "/classesWithTranslation.txt").map(x => (x.split(",").apply(0).toLowerCase, x.split(",").apply(1).toLowerCase))
+    var O2RelationsWithMultilingualInfo: RDD[(String, String)] = sparkSession.sparkContext.textFile("src/main/resources/OfflineDictionaries/" + O2translated + "/RelationsWithTranslation.txt").map(x => (x.split(",").apply(0).toLowerCase, x.split(",").apply(1).toLowerCase))
 
 
     println("Numbers of classes and properties in " + O2translated + " are " + O2ClassesWithMultilingualInfo.count() + " " + O2RelationsWithMultilingualInfo.count())
@@ -61,7 +61,7 @@ class MultilingualOntology(sparkSession: SparkSession) extends Serializable {
 
     val mergedOntology: RDD[graph.Triple] = O1.union(O2).distinct(2)
 
-    //    mergedOntology.coalesce(1, shuffle = true).saveAsNTriplesFile("src/main/resources/Output/mergedOntology")
+    //    mergedOntology.coalesce(1, shuffle = true).saveAsNTriplesFile("src/main/resources/OfflineDictionaries/mergedOntology")
     mergedOntology
   }
 
