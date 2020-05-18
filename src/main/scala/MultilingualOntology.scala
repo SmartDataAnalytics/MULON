@@ -93,12 +93,18 @@ class MultilingualOntology(sparkSession: SparkSession) extends Serializable {
     allRelationsWithMultilingualInfo
   }
 
+  /**
+    * Get the translation from the matched terms
+    * */
   def TranslateResourceToEnglish(listOfResourcesWithTranslations: RDD[(String, String)], multilingualMatchedResources: RDD[(String, String)]): RDD[(String, String)] = {
     val allResources: RDD[(String, String)] = listOfResourcesWithTranslations.keyBy(_._1).leftOuterJoin(multilingualMatchedResources.keyBy(_._1)).map { case x => if (x._2._2.isEmpty) (x._1, x._2._1._2) else (x._1, x._2._2.last._2) }
     allResources
 
   }
 
+  /**
+    * Resolve conflict betwwen classes of the two ontologies based on the matching results.
+    * */
   def ResolveConflictsForEnglish(listOfResourcesWithTranslations: RDD[(String, String)], multilingualMatchedResources: RDD[(String, String)]): RDD[(String, String)] = {
     val allResources: RDD[(String, String)] = listOfResourcesWithTranslations.keyBy(_._1).leftOuterJoin(multilingualMatchedResources.keyBy(_._2)).map { case x => if (!x._2._2.isEmpty) (x._2._2.last._1, x._1) else (x._2._1._2, x._1) }.distinct().subtract(multilingualMatchedResources)
 
@@ -118,6 +124,9 @@ class MultilingualOntology(sparkSession: SparkSession) extends Serializable {
     resourcesWithURIs
   }
 
+  /**
+    * Translate Non-English ontologies to English based on the offline dictionaries and the matching results.
+    * */
   def TranslateNonEnglishOntology(resourcesWithURIs: RDD[(String, String, String)], sOntology: RDD[(String, String, String)]): RDD[graph.Triple] = {
     val sub = sOntology.keyBy(_._1).join(resourcesWithURIs.keyBy(_._2)).map { case (gr1, ((gr2, label, typ), ((uri, gr3, en)))) => (uri, label, typ) }
     val translatedOntology: RDD[(String, String, String)] = sub.keyBy(_._3).leftOuterJoin(resourcesWithURIs.keyBy(_._2)).map { case (gr1, ((uri1, label, typ), list)) => if (!list.isEmpty) (uri1, label, list.last._1) else (uri1, label, typ) }
@@ -125,6 +134,9 @@ class MultilingualOntology(sparkSession: SparkSession) extends Serializable {
     gCreate.CreateGraph(translatedOntology)
   }
 
+  /**
+    * Translate English ontologies to the other language.
+    * */
   def TranslateEnglishOntology(resourcesWithURIs: RDD[(String, String, String)], sOntology: RDD[(String, String, String)]): RDD[graph.Triple] = {
     val p = new PreProcessing()
     val sub = sOntology.keyBy(x => p.stringPreProcessing(p.splitCamelCase(x._1).toLowerCase.replaceAll("\\s{2,}", " ").trim())).leftOuterJoin(resourcesWithURIs.keyBy(_._3.toLowerCase)).filter(x => !x._2._2.isEmpty).map { case (en1, ((en2, relation, obj), Some((uri, gr, en3)))) => (uri, relation, obj) }

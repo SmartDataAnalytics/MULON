@@ -70,7 +70,7 @@ class Merge(sparkSession1: SparkSession) {
     //        O1RelationsWithTranslation.foreach(println(_))
     println("Relations Similarity:")
     val relSim = new RelationSimilarity()
-    val matchedRelations: RDD[(String, String, String, Double)] = relSim.GetRelationSimilarityTest(O2Relations, O1RelationsWithTranslation)
+    val matchedRelations: RDD[(String, String, String, Double)] = relSim.GetRelationSimilarity(O2Relations, O1RelationsWithTranslation)
     matchedRelations.foreach(println(_))
     numberOfMatchedRelations = matchedRelations.count().toInt
 

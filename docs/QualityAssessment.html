@@ -222,6 +222,23 @@ the number of attributes for all classes divided by the number of classes (C).
 The smaller size of merged ontology, themore the ontology is compacted,
 e.g. if some resources are removed in order to avoid redundant resources in the merged ontology.
 </p></div></div>
+    </li><li name="QualityAssessment#GetQualityAssessmentSheet" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="GetQualityAssessmentSheet(O1:org.apache.spark.rdd.RDD[org.apache.jena.graph.Triple],O2:org.apache.spark.rdd.RDD[org.apache.jena.graph.Triple],Om:org.apache.spark.rdd.RDD[org.apache.jena.graph.Triple]):Unit"></a>
+      <a id="GetQualityAssessmentSheet(RDD[Triple],RDD[Triple],RDD[Triple]):Unit"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">def</span>
+      </span>
+      <span class="symbol">
+        <span class="name">GetQualityAssessmentSheet</span><span class="params">(<span name="O1">O1: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[<span class="extype" name="org.apache.jena.graph.Triple">Triple</span>]</span>, <span name="O2">O2: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[<span class="extype" name="org.apache.jena.graph.Triple">Triple</span>]</span>, <span name="Om">Om: <span class="extype" name="org.apache.spark.rdd.RDD">RDD</span>[<span class="extype" name="org.apache.jena.graph.Triple">Triple</span>]</span>)</span><span class="result">: <span class="extype" name="scala.Unit">Unit</span></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="index.html#QualityAssessment@GetQualityAssessmentSheet(O1:org.apache.spark.rdd.RDD[org.apache.jena.graph.Triple],O2:org.apache.spark.rdd.RDD[org.apache.jena.graph.Triple],Om:org.apache.spark.rdd.RDD[org.apache.jena.graph.Triple]):Unit" title="Permalink" target="_top">
+        <img src="lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      <p class="shortcomment cmt">Get the quality assessment sheet for the input and merged ontologies.</p>
     </li><li name="QualityAssessment#InheritanceRichness" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="InheritanceRichness(ontologyTriples:org.apache.spark.rdd.RDD[org.apache.jena.graph.Triple]):Double"></a>
       <a id="InheritanceRichness(RDD[Triple]):Double"></a>
@@ -295,7 +312,7 @@ The less of missing information about properties, the more the ontology is compl
         <img src="lib/permalink.png" alt="Permalink" />
       </a>
     </span>
-      
+      <p class="shortcomment cmt">refers  to  how  many  relations  in  the  input  ontologies P1+P2 are preserved in the merged ontology Pm excluding matched properties Pmatch.</p>
     </li><li name="QualityAssessment#Readability" visbl="pub" data-isabs="false" fullComment="yes" group="Ungrouped">
       <a id="Readability(ontologyTriples:org.apache.spark.rdd.RDD[org.apache.jena.graph.Triple]):Double"></a>
       <a id="Readability(RDD[Triple]):Double"></a>
@@ -551,6 +568,23 @@ The more relations the ontology has (except \texttt{rdfs:subClassOf} relation), 
       </a>
     </span>
       <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li name="QualityAssessment#ontoMerge" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
+      <a id="ontoMerge:Merge"></a>
+      <a id="ontoMerge:Merge"></a>
+      <h4 class="signature">
+      <span class="modifier_kind">
+        <span class="modifier"></span>
+        <span class="kind">val</span>
+      </span>
+      <span class="symbol">
+        <span class="name">ontoMerge</span><span class="result">: <a href="Merge.html" class="extype" name="Merge">Merge</a></span>
+      </span>
+      </h4><span class="permalink">
+      <a href="index.html#QualityAssessment@ontoMerge:Merge" title="Permalink" target="_top">
+        <img src="lib/permalink.png" alt="Permalink" />
+      </a>
+    </span>
+      
     </li><li name="QualityAssessment#ontoStat" visbl="pub" data-isabs="false" fullComment="no" group="Ungrouped">
       <a id="ontoStat:OntologyStatistics"></a>
       <a id="ontoStat:OntologyStatistics"></a>

@@ -153,11 +153,11 @@ val numOfClasses = ontologyTriples.find(None, None, Some(NodeFactory.createURI("
     classesWithoutURIs
   }
 
-  def retrieveClassesWithCodesAndLabels(ontologyTriples: RDD[graph.Triple]): RDD[(String, String)] = {
-    //will be applied for ontologies with codes like Multifarm ontologies
-    var classes = ontologyTriples.find(None, None, Some(NodeFactory.createURI("http://www.w3.org/2002/07/owl#Class"))).filter(x => x.getSubject.isURI).keyBy(_.getSubject.getLocalName).join(ontologyTriples.filter(x => x.getSubject.isURI).keyBy(_.getSubject.getLocalName)).filter(x => x._2._2.getPredicate.getLocalName == "label").map(y => (y._1, y._2._2.getObject.getLiteral.getLexicalForm.split("@").head)).distinct(2)
-    classes
-  }
+//  def retrieveClassesWithCodesAndLabels(ontologyTriples: RDD[graph.Triple]): RDD[(String, String)] = {
+//    //will be applied for ontologies with codes like Multifarm ontologies
+//    var classes = ontologyTriples.find(None, None, Some(NodeFactory.createURI("http://www.w3.org/2002/07/owl#Class"))).filter(x => x.getSubject.isURI).keyBy(_.getSubject.getLocalName).join(ontologyTriples.filter(x => x.getSubject.isURI).keyBy(_.getSubject.getLocalName)).filter(x => x._2._2.getPredicate.getLocalName == "label").map(y => (y._1, y._2._2.getObject.getLiteral.getLexicalForm.split("@").head)).distinct(2)
+//    classes
+//  }
 
 //  def retrieveClassesWithoutLabels(o: RDD[graph.Triple]): RDD[String] = { //for classes with local names ex:ekaw-en, edas and SEO ontologies
 //    val p = new PreProcessing()
@@ -182,13 +182,13 @@ val numOfClasses = ontologyTriples.find(None, None, Some(NodeFactory.createURI("
   relations
   }
 
-  def retrieveRelationsWithCodes(sourceLabelBroadcasting: Broadcast[Map[Node, graph.Triple]], ontologyTriples: RDD[graph.Triple]): RDD[(String, String)] = {
-    val prop: RDD[graph.Triple] = ontologyTriples.filter(q => (q.getObject.isURI && q.getObject.getLocalName == "ObjectProperty") || (q.getObject.isURI && q.getObject.getLocalName == "AnnotationProperty") || (q.getObject.isURI && q.getObject.getLocalName == "DatatypeProperty") || (q.getObject.isURI && q.getObject.getLocalName == "FunctionalProperty") || (q.getObject.isURI && q.getObject.getLocalName == "InverseFunctionalProperty")).distinct(2)
-    //    println("prop =============>")
-    //    prop.foreach(println(_))
-    val relations: RDD[(String, String)] = prop.map(x => if (sourceLabelBroadcasting.value.contains(x.getSubject)) (x.getSubject.getLocalName, sourceLabelBroadcasting.value(x.getSubject).getObject.getLiteral.toString().split("@").head) else (x.getSubject.getLocalName, x.getObject.getLocalName)).distinct(2)
-    relations
-  }
+//  def retrieveRelationsWithCodes(sourceLabelBroadcasting: Broadcast[Map[Node, graph.Triple]], ontologyTriples: RDD[graph.Triple]): RDD[(String, String)] = {
+//    val prop: RDD[graph.Triple] = ontologyTriples.filter(q => (q.getObject.isURI && q.getObject.getLocalName == "ObjectProperty") || (q.getObject.isURI && q.getObject.getLocalName == "AnnotationProperty") || (q.getObject.isURI && q.getObject.getLocalName == "DatatypeProperty") || (q.getObject.isURI && q.getObject.getLocalName == "FunctionalProperty") || (q.getObject.isURI && q.getObject.getLocalName == "InverseFunctionalProperty")).distinct(2)
+//    //    println("prop =============>")
+//    //    prop.foreach(println(_))
+//    val relations: RDD[(String, String)] = prop.map(x => if (sourceLabelBroadcasting.value.contains(x.getSubject)) (x.getSubject.getLocalName, sourceLabelBroadcasting.value(x.getSubject).getObject.getLiteral.toString().split("@").head) else (x.getSubject.getLocalName, x.getObject.getLocalName)).distinct(2)
+//    relations
+//  }
 
   def roundNumber(num: Double): Double = {
     (num * 100).round / 100.toDouble

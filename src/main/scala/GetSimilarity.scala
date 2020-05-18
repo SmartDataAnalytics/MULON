@@ -104,6 +104,9 @@ def getPathSimilarity(word1: String, word2: String): Double={
     //    println(sentence1 + " ##### "+ sentence2 +" = "+ simScoure)
     simScoure
   }
+
+  /**
+    * Calculate the symmetric similarity between two sentences.*/
   def symmetricSentenceSimilarity(sentence1: String, sentence2: String): Double ={
 //    var sent1 = processing.sentenceLemmatization(sentence1)
 //    var sent2 = processing.sentenceLemmatization(sentence2)
@@ -111,6 +114,9 @@ def getPathSimilarity(word1: String, word2: String): Double={
 //    var sim = (sentenceSimilarity(sent1,sent2) + sentenceSimilarity(sent2,sent1))/2
     sim
   }
+
+  /**
+    * Get the maximum value from a list of numbers.*/
   def max(lst: List[Double]): Double={
     var maxValue = lst.max
     if (maxValue == lst.head && maxValue == lst.last)

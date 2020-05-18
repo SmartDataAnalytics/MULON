@@ -41,8 +41,6 @@ class QualityAssessment(sparkSession: SparkSession) {
     println("Redundancy for O2 is " + this.Redundancy(O2))
     println("Redundancy for Om is " + this.Redundancy(Om))
     println("==============================================")
-    println("Number of matched classes is "+ ontoMerge.numberOfMatchedClasses)
-    println("Number of matched relations is "+ontoMerge.numberOfMatchedRelations)
     println("Class coverage for Om is " + this.ClassCoverage(O1, O2, Om, ontoMerge.numberOfMatchedClasses))
     println("Property coverage for Om is " + this.PropertyCoverage(O1, O2, Om, ontoMerge.numberOfMatchedRelations))
     println("Compactness for Om is " + this.Compactness(O1, O2, Om))
@@ -103,7 +101,7 @@ class QualityAssessment(sparkSession: SparkSession) {
     */
   def IsolatedElements(ontologyTriples: RDD[graph.Triple]): Double = {
     val numOfIsolatedElements = ontoStat.resourceDistribution(ontologyTriples).filter(x => x == 1).count()
-    println("numOfIsolatedElements "+numOfIsolatedElements)
+//    println("numOfIsolatedElements "+numOfIsolatedElements)
     val numOfClasses = ontoStat.getNumberOfClasses(ontologyTriples)
     val numOfProperties = ontoStat.getNumberOfRelations(ontologyTriples) + ontoStat.getNumberOfAttributes(ontologyTriples)
     ontoStat.roundNumber(numOfIsolatedElements / (numOfClasses + numOfProperties))
@@ -139,6 +137,9 @@ class QualityAssessment(sparkSession: SparkSession) {
     ontoStat.roundNumber(numOfMergedClasses / (numOfClassesO1 + numOfClassesO2 - numberOfMatchedClasses))
   }
 
+  /**
+    * refers  to  how  many  relations  in  the  input  ontologies P1+P2 are preserved in the merged ontology Pm excluding matched properties Pmatch.
+    */
   def PropertyCoverage(O1: RDD[graph.Triple], O2: RDD[graph.Triple], Om: RDD[graph.Triple], numberOfMatchedProperties: Int): Double = {
     val numOfMergedProperties = ontoStat.getAllProperties(Om).count().toDouble
     val numOfPropertiesO1 = ontoStat.getAllProperties(O1).count().toDouble

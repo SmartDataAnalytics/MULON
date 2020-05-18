@@ -4,6 +4,10 @@ import org.apache.spark.broadcast.Broadcast
 import org.apache.spark.rdd.RDD
 
 class OntologyWithLabels(labelBroadcasting: Broadcast[Map[Node, graph.Triple]])extends Serializable {
+
+  /**
+    * Substitute local names with their labels in the ontology.
+    * */
   def RecreateOntologyWithLabels(ontologyTriples: RDD[graph.Triple]): RDD[(String, String, String)] = {
     val processing = new PreProcessing()
     val ontologyWithSubjectLabels: RDD[(Node, Node, Node)] = ontologyTriples.filter(x=>x.getPredicate.getLocalName != "label")
