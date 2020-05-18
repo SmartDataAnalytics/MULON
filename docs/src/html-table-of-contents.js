@@ -20,7 +20,8 @@
 function htmlTableOfContents (documentRef) {
     var documentRef = documentRef || document;
     var toc = documentRef.getElementById('toc');
-    var headings = [].slice.call(documentRef.body.querySelectorAll('h1, h2, h3, h4, h5, h6'));
+    // var headings = [].slice.call(documentRef.body.querySelectorAll('h1, h2, h3, h4, h5, h6'));
+    var headings = [].slice.call(documentRef.body.querySelectorAll('h2, h3, h4, h5, h6'));
     headings.forEach(function (heading, index) {
         var anchor = documentRef.createElement('a');
         anchor.setAttribute('name', 'toc' + index);
