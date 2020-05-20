@@ -6,7 +6,7 @@
     <script src="./src/html-table-of-contents.js"
             type="text/javascript">
     </script>
-    <link rel="stylesheet" type="text/css" href="html-table-of-contents.css"/>
+    <link rel="stylesheet" type="text/css" href="MULONstyle.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         img {
@@ -25,30 +25,48 @@
 <div id="toc">
 </div>
 <h2>Overview</h2>
-<p>MULON is an open-source software framework, for merging monolingual ontologies in different natural languages
-    producing a multilingual ontology. Merging means creating a single ontology to provide a unified view of the input
-    ontologies by maintaining all information contained in them.</p>
+<p>MULON is an open-source software framework, for merging monolingual ontologies in different natural languages producing a multilingual ontology. In a multilingual ontology, resources (classes and properties) can be published in a language-independent way, associated with language-dependent (linguistic) information, which supports access across various natural languages. Merging means creating a single ontology to provide a unified view of the input ontologies by maintaining all information contained in them.
+    There are two types of ontology merging: a) <I>Symmetric merging</I>; which aims to integrate all resources (classes and properties) in the input ontologies to a single ontology, i.e. preserves all input resources (which is used in MULON), and b) <I>Asymmetric merging</I>; which considers one of the input ontologies as the target ontology and merges the remaining non-redundant resources of the input ontologies into the target ontology.
+<br>
+
+    The creation of such ontology is a complex task and requires considerable adaptation and rigorous techniques to control various steps of the creation, especially when merging ontologies in different natural languages. Identification of mappings between multilingual input ontologies, the first step in the merging process, plays a vital role in the ontology merging process.
+    As an illustration example, first, MULON identifies cross-lingual matches between input ontologies using cross-lingual matching techniques, then adds them to the merged multilingual ontology by adding <I>rdfs:label</I> for each language (using language-tagged strings) as shown in Figure 1.
+    Cross-lingual matching helps to lower redundancy in the merged ontology.
+</p>
+<figure>
+    <img src="PICs/IllustrationExample.jpg" alt="Example" class="center">
+    <figcaption>Fig.1. An illustration of generating a multilingual ontology (with double line nodes)from merging German and English ontologies.</figcaption>
+</figure>
 <h2>Architecture</h2>
-<p>The following figure shows MULON’s software architecture:</p>
-<img src="PICs/MULON-Architecture.jpg" alt="Architecture" class="center">
+<p>The following figure shows MULON’s architecture:</p>
+<figure>
+    <img src="PICs/MULON-Architecture.jpg" alt="Architecture" class="center">
+    <figcaption>Fig.2. MULON Architecture</figcaption>
+</figure>
 <p>The input to MULAN is the two ontologies in two different natural languages. The output is a multilingual in addition
     to an assessment sheet presenting the quality of the merged ontology.</p>
-<p>MULON has three modules:</p>
+<p>MULON is comprised of three modules:</p>
 <ul>
-    <li>Preparation Module: extracts and processes resources of the input ontologies.</li>
-    <li>Merging Module
+    <li><b>Preparation Module</b>: extracts resources (classes and properties) of the input ontologies and processes them by employing a variety of NLP techniques.</li>
+    <li><b>Merging Module</b>: symmetrically merges the two input ontologies into a new multilingual one. This module has two components:
         <ul>
-            <li>Cross-lingual matching: identifies potential matches between the input ontologies.</li>
-            <li>Ontology production: produces the merged multilingual ontology.</li>
+            <li><I>Cross-lingual matching</I>: identifies potential matches between the input ontologies using machine translation tools and similarity measures (lexical and semantic similarity).</li>
+            <li><I>Ontology production</I>: eliminates redundancy that might occur in the merged ontology and associate each resource with two labels with the corresponding languages tags.</li>
         </ul>
     </li>
-    <li>Assessment Module: validates and assesses the quality of the merged ontology.</li>
+    <li><b>Assessment Module</b>: validates and assesses the quality of the merged ontology. It has two components:
+        <ul>
+            <li><I>Validation</I>: validates the merged ontology, which is a crucial step to detect inconsistencies and syntax errors, which might be introduced during the merging process.</li>
+            <li><I>Quality Assessment</I>: assess the quality of the two input ontologies and the resulting merged ontology by adapting and reformulating ten  quality metrics.</li>
+        </ul>
+    </li>
 </ul>
-<h2>Source code</h2>
-<p>The latest code is available in a public repository in <a href="https://github.com/shmkhaled/MULON">GitHub</a>.</p>
-<h2>Documentation</h2>
-<p>A description for each configurable parameter and function can be found <a href="DocumentationIndex.html">here</a>.
-</p>
+<h2>Source code and documentation</h2>
+<p>The latest code is available in a public repository in <a href="https://github.com/shmkhaled/MULON">GitHub</a>.
+    A description for each configurable parameter and function can be found <a href="DocumentationIndex.html">here</a>.</p>
+<!--<h2>Documentation</h2>-->
+<!--<p>A description for each configurable parameter and function can be found <a href="DocumentationIndex.html">here</a>.-->
+<!--</p>-->
 
 <h2>Installation</h2>
 <p>All implementations are based on <a href="https://www.scala-lang.org/download/2.11.11.html">Scala 2.11.11</a> and <a
@@ -86,7 +104,7 @@
 <p>A sample output (Om), in NTriple format, for merging the Conference ontology in German (O1), from the <a
         href="https://www.irit.fr/recherches/MELODI/multifarm/">MultiFarm</a> dataset, with the <a
         href="http://kddste.sda.tech/SEOontology/Documentation/">Scientific Event Ontology</a> in English (O2). </p>
-<img src="PICs/SampleOutput.jpg" alt="MergedOntology" class="center">
+<img src="PICs/MergingOutput.jpg" alt="MergedOntology" class="center">
 <p> Assessment sheet for the merged ontology:
 <div style="background-color:black;color:white;padding:20px;">
     Relationship richness for O1 is 0.48<br>

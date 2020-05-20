@@ -16,3 +16,20 @@
 #toc .h6 {
     text-indent: 1.5in;
 }
+figure figcaption {
+    /*border: 1px dotted blue;*/
+    text-align: center;
+}
+p {
+    text-align: justify;
+    text-justify: inter-word;
+}
+body {
+    color: black;
+}
+h1 {
+    color: #183377;
+}
+h2 {
+    color: #183377;
+}
