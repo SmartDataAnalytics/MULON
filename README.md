@@ -6,14 +6,14 @@ All implementations are based on Scala 2.11.11 and Apache Spark 2.3.1.
 How to use
 ----------
 ````
-git clone https://github.com/shmkhaled/MULON.git
+git clone https://github.com/SmartDataAnalytics/MULON.git
 cd MULON
 
 mvn clean package
 ````
 Input
 ----------
-We use [SANSA](https://github.com/SANSA-Stack) readers to build a dataset of RDD[graph.Triple] for input ontologies.
+MULON reads input ontologies in Turtle and uses [SANSA](https://github.com/SANSA-Stack) readers to build a dataset of RDD[graph.Triple] for each ontology.
 ````
 val O1 = ".../firstOntology-de.ttl"
 val O2 = ".../secondOntology-en.ttl"
@@ -21,8 +21,8 @@ val O2 = ".../secondOntology-en.ttl"
 
 Documentation
 ----------
-A brief description of MULON can be found [here](https://shmkhaled.github.io/MULON/). 
-Furthermore, a description for each configurable parameter and function can be found [here](https://shmkhaled.github.io/MULON/DocumentationIndex.html#package).
+A brief description of MULON can be found [here](https://smartdataanalytics.github.io/MULON/). 
+Furthermore, a description for each configurable parameter and function can be found [here](https://smartdataanalytics.github.io/MULON/DocumentationIndex.html#package).
 
 
 
