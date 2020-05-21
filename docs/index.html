@@ -78,34 +78,56 @@
 <p>After you are done with the configurations mentioned above, you will be able to open the project. The following
     figure shows MULON
     in <a href="https://www.jetbrains.com/idea">intelliJ</a></p>
-<img src="PICs/MULONinIntillij.jpg" alt="Intillij" class="center">
+<figure>
+    <img src="PICs/MULONinIntillij.jpg" alt="Intillij" class="center">
+    <figcaption>Fig.3. MULON in Intilij</figcaption>
+</figure>
+
 
 <h2>Example</h2>
-<p>Read two ontologies in turtle into NTRIPLES format and generate RDD representation of it. We use <a
+<p>The following example describing merging two ontologies: Conference ontology in German (O1), from the <a
+        href="https://www.irit.fr/recherches/MELODI/multifarm/">MultiFarm</a> dataset, and the <a
+        href="http://kddste.sda.tech/SEOontology/Documentation/">Scientific Events Ontology</a> in English (O2). First, MULON reads the two input ontologies in Turtle (line 1 and 2) and convert them into N-Triples format and generates RDD representation of them (line 4 and 5). MULON uses <a
         href="https://github.com/SANSA-Stack">SANSA</a> readers to build a dataset of RDD[graph.Triple] for input
-    ontologies. SANSA support different RDF serialization formats (e.g. NTRIPLES/N3, XML/RDF, TURTLE, QUAD).
+    ontologies. SANSA support different RDF serialization formats (e.g. NTRIPLES/N3, XML/RDF, TURTLE, QUAD). Second, MULON generates the multilingual merged ontology (line 6) and gets its statistics (line 9) such as number of classes, number of object properties, number of  annotation properties, and number of  datatype properties. Finally, MULON creates the assessment sheet for the input and output ontologies (line 12).
 </p>
 <div style="background-color:black;color:white;padding:20px;">
-    val lang = Lang.NTRIPLES <br>
-    val O1triples = spark.rdf(lang)(O1) <br>
-    val O2triples = spark.rdf(lang)(O2) <br> <br>
+<pre class="code">
+    <code>val O1 = ".../conference-de.ttl"</code>
+    <code>val O2 = ".../SEO.ttl"</code>
 
-    val multilingualMergedOntology = ontoMerge.MergeOntologies(O1triples, O2triples) <br> <br>
+    <code>val lang = Lang.NTRIPLES </code>
+    <code>val O1triples = spark.rdf(lang)(O1) </code>
+    <code>val O2triples = spark.rdf(lang)(O2) </code>
 
-    val ontStat = new OntologyStatistics(sparkSession1) <br>
-    println("Statistics for merged ontology") <br>
-    ontStat.GetStatistics(multilingualMergedOntology) <br> <br>
+    <code>val multilingualMergedOntology = ontoMerge.MergeOntologies(O1triples, O2triples) </code>
 
-    //Assessemnt sheet <br>
-    val quality = new QualityAssessment(sparkSession1) <br>
-    quality.GetQualityAssessmentSheet(O1triples, O2triples, multilingualMergedOntology)
+    <code>val ontStat = new OntologyStatistics(sparkSession1) </code>
+    <code>println("Statistics for merged ontology") </code>
+    <code>ontStat.GetStatistics(multilingualMergedOntology) </code>
+
+    <code>//Assessemnt sheet </code>
+    <code>val quality = new QualityAssessment(sparkSession1) </code>
+    <code>quality.GetQualityAssessmentSheet(O1triples, O2triples, multilingualMergedOntology)</code>
+</pre>
 </div>
-<h2>Sample Output</h2>
-<p>A sample output (Om), in NTriple format, for merging the Conference ontology in German (O1), from the <a
-        href="https://www.irit.fr/recherches/MELODI/multifarm/">MultiFarm</a> dataset, with the <a
-        href="http://kddste.sda.tech/SEOontology/Documentation/">Scientific Event Ontology</a> in English (O2). </p>
-<img src="PICs/MergingOutput.jpg" alt="MergedOntology" class="center">
-<p> Assessment sheet for the merged ontology:
+
+<!--<h2>Sample Output</h2>-->
+<p>A sample output for the merged ontology, in N-Triples format, is presented in the following script where every resource has English and German labels. For example  "ConferenceProceedings" is a class with German label "Fortschritte der konferenz".</p>
+
+<div style="background-color:black;color:white;padding:20px;">
+<pre class="example"><script type="application/n-triples">
+<https://merged-ontology#ConferenceProceedings> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#ConferenceProceedings> <http://www.w3.org/2000/01/rdf-schema#label> "Fortschritte der konferenz"@de .
+<https://merged-ontology#ConferenceProceedings> <http://www.w3.org/2000/01/rdf-schema#label> "Conference proceedings"@en .
+<https://merged-ontology#notificationDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://merged-ontology#notificationDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
+<https://merged-ontology#notificationDate> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#ImportantDates> .
+<https://merged-ontology#notificationDate> <http://www.w3.org/2000/01/rdf-schema#label> "Notification date"@en .
+<https://merged-ontology#notificationDate> <http://www.w3.org/2000/01/rdf-schema#label> "Datum der akzeptanz-mitteilung ist"@de .
+</script></pre>
+</div>
+<p> Quality assessment sheet for the input and merged ontologies where O1 is the Conference ontology in German, O2 is the SEO ontology in English, and Om is the multilingual merged ontology.
 <div style="background-color:black;color:white;padding:20px;">
     Relationship richness for O1 is 0.48<br>
     Relationship richness for O2 is 0.51<br>
