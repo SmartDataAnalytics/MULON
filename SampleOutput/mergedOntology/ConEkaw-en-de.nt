@@ -1,0 +1,1204 @@
+<https://merged-ontology#OrganizationCommittee> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#Co-authorOfAContribution> <http://www.w3.org/2000/01/rdf-schema#label> "Co-author of a contribution"@en .
+<https://merged-ontology#ResearchInstitute> <http://www.w3.org/2000/01/rdf-schema#label> "Research institute"@en .
+<https://merged-ontology#ResearchInstitute> <http://www.w3.org/2000/01/rdf-schema#label> "Research institute"@de .
+<https://merged-ontology#Print-readyContribution> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#TheAssumedContribution> .
+<https://merged-ontology#Chairman> <http://www.w3.org/2000/01/rdf-schema#label> "Vorsitzender"@de .
+<https://merged-ontology#published> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#Proceedings> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <67771b9fe09f36d92982604cef0748b1> .
+<https://merged-ontology#published> <http://www.w3.org/2000/01/rdf-schema#label> "Veröffentlicht"@de .
+<https://merged-ontology#theFirstPartOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> .
+<https://merged-ontology#hasPart> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#CommitteeOfTheConference> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#PreferenceOrAreaOfExpertiseOfTheExpert> <http://www.w3.org/2000/01/rdf-schema#label> "Preference or area of expertise of the expert"@en .
+<https://merged-ontology#hasContribution> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#section> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#ConferenceSeries> .
+<https://merged-ontology#WorkshopChair> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#CallForContributions> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#ConferenceDocument> .
+<https://merged-ontology#CallForParticipation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#topicCoveredBy> <http://www.w3.org/2000/01/rdf-schema#label> "Topic covered by"@en .
+<https://merged-ontology#Abstract> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#isTheEndDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://merged-ontology#Peer-reviewedContribution> <http://www.w3.org/2000/01/rdf-schema#label> "Peer-reviewed contribution"@en .
+<https://merged-ontology#ResearchInstitute> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#section> <http://www.w3.org/2000/01/rdf-schema#label> "Hat abschnitt"@de .
+<https://merged-ontology#E-mailAddress> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://merged-ontology#holdsPresentation> <http://www.w3.org/2000/01/rdf-schema#label> "Hält präsentation"@de .
+<https://merged-ontology#hasWorkshop> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#ConferenceSeries> .
+<https://merged-ontology#holdsPresentation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#isPartOfTheConferenceSeries> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#ConferenceSeries> .
+<https://merged-ontology#TheSteeringCommitteeOfTheConferenceIs> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#ConferenceSeries> .
+<https://merged-ontology#theFirstPartOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#RejectedContribution> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#references> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#referencedIn> .
+<https://merged-ontology#hasEvent> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#Event> .
+<https://merged-ontology#TutorialChair> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#PcMember> .
+<https://merged-ontology#ProgramCommittee> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#ConferenceFees> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#locationOf> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#Event> .
+<https://merged-ontology#Reviewers> <http://www.w3.org/2000/01/rdf-schema#label> "Gutachter"@de .
+<https://merged-ontology#AssignedPaper> <http://www.w3.org/2000/01/rdf-schema#label> "Zugewiesen papier"@de .
+<https://merged-ontology#NumberOfProgressOfTheConference> <http://www.w3.org/2000/01/rdf-schema#label> "Anzahl der fortschritte der konferenz"@de .
+<https://merged-ontology#PositiveReview> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#NeutralReview> .
+<https://merged-ontology#ConferencePaper> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#Paper> .
+<https://merged-ontology#PcChair> <http://www.w3.org/2002/07/owl#disjointWith> <Workshop_Chair> .
+<https://merged-ontology#hasAuthor> <http://www.w3.org/2000/01/rdf-schema#label> "Has author"@en .
+<https://merged-ontology#Session> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#ContributedTalk> .
+<https://merged-ontology#hasReview> <http://www.w3.org/2000/01/rdf-schema#label> "Has review"@en .
+<https://merged-ontology#paperPresentedAs> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#IndividualPresentation> .
+<https://merged-ontology#EarlyRegisteredParticipant> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#LateRegisteredParticipant> .
+<https://merged-ontology#Co-authorOfAContribution> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#hasTheDeputyCommitteeChairman> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#isTheDeputyChairmanOfTheCommittee> .
+<https://merged-ontology#reviewOfPaper> <http://www.w3.org/2000/01/rdf-schema#label> "Bewertung von papier"@de .
+<https://merged-ontology#organisedBy> <http://www.w3.org/2000/01/rdf-schema#label> "Organisiert von"@de .
+<https://merged-ontology#SocialEvent> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#ContributedTalk> .
+<https://merged-ontology#Session> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#Tutorial> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#Workshop> .
+<https://merged-ontology#reviewWrittenBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#OcChair> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#ConferenceBanquet> <http://www.w3.org/2000/01/rdf-schema#label> "Konferenz-bankett"@de .
+<https://merged-ontology#Location> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#OcMember> <http://www.w3.org/2000/01/rdf-schema#label> "Oc member"@en .
+<https://merged-ontology#SubmittedPaper> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#CameraReadyPaper> .
+<https://merged-ontology#programCommitteeOfTheConference> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> .
+<https://merged-ontology#controlCommitteeOfTheConference> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://merged-ontology#CommitteeOfTheConference> .
+<https://merged-ontology#SubmittedPaper> <http://www.w3.org/2000/01/rdf-schema#label> "Submitted paper"@en .
+<https://merged-ontology#Event> <http://www.w3.org/2000/01/rdf-schema#label> "Event"@en .
+<https://merged-ontology#AuthorARegularContribution> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#Committee> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#CameraReadyPaper> <http://www.w3.org/2000/01/rdf-schema#label> "Kamera bereit papier"@de .
+<https://merged-ontology#theConferencePortionIsTheSubjectOf> <http://www.w3.org/2000/01/rdf-schema#label> "Ist thema ein konferenzabschnittes"@de .
+<https://merged-ontology#CommitteeOfTheConferenceIs> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#CommitteeOfTheConference> .
+<https://merged-ontology#Event> <http://www.w3.org/2000/01/rdf-schema#label> "Event"@de .
+<https://merged-ontology#ConferenceSession> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#NumberOfProgressOfTheConference> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://merged-ontology#coversTopic> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#ResearchTopic> .
+<https://merged-ontology#AuthorARegularContribution> <http://www.w3.org/2000/01/rdf-schema#label> "Author eines regulären beitrags"@de .
+<https://merged-ontology#ScientificEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#AnyContribution> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <85721584f55337a04ad155a305e7bc64> .
+<https://merged-ontology#InvitedTalkAbstract> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#contributionSubmittedHas> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#AnyContribution> .
+<https://merged-ontology#Workshop-management> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#SectionsOfTheConference> .
+<https://merged-ontology#members> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#AcceptedPaper> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#ThePrimaryAuthorOfAContribution> <http://www.w3.org/2000/01/rdf-schema#label> "Primärer author eines beitrags"@de .
+<https://merged-ontology#ProceedingsPublisher> <http://www.w3.org/2000/01/rdf-schema#label> "Proceedings publisher"@en .
+<https://merged-ontology#ScMember> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#hasWorkshop> <http://www.w3.org/2000/01/rdf-schema#label> "Hat workshop"@de .
+<https://merged-ontology#E-mailAddress> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#Person> .
+<https://merged-ontology#hasTheDeputyCommitteeChairman> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#Vice-Chairman> .
+<https://merged-ontology#authorOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#PosterSession> <http://www.w3.org/2000/01/rdf-schema#label> "Poster session"@en .
+<https://merged-ontology#NegativeReview> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#PositiveReview> .
+<https://merged-ontology#DegreeOfTheExpert'sPreference> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#int> .
+<https://merged-ontology#presentedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#ChairmanOfTheCommittee> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#Chairman> .
+<https://merged-ontology#MultiAuthorVolume> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#Flyer> .
+<https://merged-ontology#DegreeInTheSubjectAreaOfTheExpert> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#259392fea6df48f1af8b382b6aecb15e> .
+<https://merged-ontology#members> <http://www.w3.org/2000/01/rdf-schema#label> "Members"@en .
+<https://merged-ontology#SocialEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#hasLastName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://merged-ontology#providesConferenceContribution> <http://www.w3.org/2000/01/rdf-schema#label> "Provides conference contribution"@en .
+<https://merged-ontology#hasUpdatedVersion> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#updatedVersionOf> .
+<https://merged-ontology#EvaluatedPaper> <http://www.w3.org/2000/01/rdf-schema#label> "Ausgewertet papier"@de .
+<https://merged-ontology#programCommitteeOfTheConference> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#inverseOfPartOf7> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://merged-ontology#hasPart> .
+<https://merged-ontology#University> <http://www.w3.org/2000/01/rdf-schema#label> "Universität"@de .
+<https://merged-ontology#holdsPresentation> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#ActiveParticipantsInTheConference> .
+<https://merged-ontology#isSubmittedFor> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#ConferenceSeries> .
+<https://merged-ontology#AuthorARegularContribution> <equivalentClass> <3e2eb9fdd897b109be1b76ac42b76b84> .
+<https://merged-ontology#hasWorkshop> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://merged-ontology#section> .
+<https://merged-ontology#Location> <http://www.w3.org/2002/07/owl#disjointWith> <Person> .
+<https://merged-ontology#WorkshopChair> <equivalentClass> <0fc74e10336c5547a92e9e8c8be94c02> .
+<https://merged-ontology#invitedReviewer> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#Reviewers> .
+<https://merged-ontology#Abstract> <http://www.w3.org/2000/01/rdf-schema#label> "Zusammenfassung"@de .
+<https://merged-ontology#InformationForParticipants> <http://www.w3.org/2000/01/rdf-schema#label> "Informationen für teilnehmer"@de .
+<https://merged-ontology#ExtendedSummary> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#presentationOfPaper> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#paperPresentedAs> .
+<https://merged-ontology#InformationForParticipants> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#PublisherOfTheConferenceProgress> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#published> .
+<https://merged-ontology#Abstract> <http://www.w3.org/2000/01/rdf-schema#label> "Abstract"@en .
+<https://merged-ontology#Organizer> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+<https://merged-ontology#PositiveReview> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#locationOf> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#heldIn> .
+<https://merged-ontology#RegisteredCandidates> <http://www.w3.org/2000/01/rdf-schema#label> "Registered candidates"@en .
+<https://merged-ontology#section> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#isSubmittedFor> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#hasContribution> .
+<https://merged-ontology#ScientificEvent> <http://www.w3.org/2000/01/rdf-schema#label> "Scientific event"@en .
+<https://merged-ontology#EvaluatedPaper> <http://www.w3.org/2000/01/rdf-schema#label> "Evaluated paper"@en .
+<https://merged-ontology#isTheEndDate> <http://www.w3.org/2000/01/rdf-schema#label> "Is the end date"@en .
+<https://merged-ontology#CameraReadyPaper> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#Session> <http://www.w3.org/2002/07/owl#disjointWith> <Workshop> .
+<https://merged-ontology#ScientificEvent> <http://www.w3.org/2000/01/rdf-schema#label> "Wissenschaftliche veranstaltung"@de .
+<https://merged-ontology#EarlyRegisteredParticipant> <http://www.w3.org/2000/01/rdf-schema#label> "Early registered participant"@en .
+<https://merged-ontology#expertOpinionHas> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> .
+<https://merged-ontology#published> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> .
+<https://merged-ontology#ConferenceApplicantHasPaidLate> <http://www.w3.org/2000/01/rdf-schema#label> "Konferenzbewerber spät gezahlt hat"@de .
+<https://merged-ontology#Workshop-management> <http://www.w3.org/2000/01/rdf-schema#label> "Workshop-management"@en .
+<https://merged-ontology#reviewWrittenBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://merged-ontology#writtenBy> .
+<https://merged-ontology#RejectedPaper> <http://www.w3.org/2000/01/rdf-schema#label> "Abgelehnt papier"@de .
+<https://merged-ontology#expertOpinionHas> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#AnyContribution> .
+<https://merged-ontology#E-mailAddress> <http://www.w3.org/2000/01/rdf-schema#label> "Hat e-mailadresse"@de .
+<https://merged-ontology#PositiveReview> <http://www.w3.org/2000/01/rdf-schema#label> "Positive review"@en .
+<https://merged-ontology#authorOf> <http://www.w3.org/2000/01/rdf-schema#label> "Autor"@de .
+<https://merged-ontology#ProceedingsPublisher> <http://www.w3.org/2000/01/rdf-schema#label> "Verfahren publisher"@de .
+<https://merged-ontology#scientificallyOrganisedBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#AcademicInstitution> .
+<https://merged-ontology#reviewWrittenBy> <http://www.w3.org/2000/01/rdf-schema#domain> <Review> .
+<https://merged-ontology#programCommitteeOfTheConference> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://merged-ontology#CommitteeOfTheConference> .
+<https://merged-ontology#hasImportantDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://merged-ontology#AreaOfExpertiseOfTheEvaluator> <http://www.w3.org/2000/01/rdf-schema#label> "Area of expertise of the evaluator"@en .
+<https://merged-ontology#PossibleReviewer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#IndustrialSession> <http://www.w3.org/2000/01/rdf-schema#label> "Industrie-session"@de .
+<https://merged-ontology#PaperAuthor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <Person> .
+<https://merged-ontology#controlCommitteeOfTheConference> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#SteeringCommittee> .
+<https://merged-ontology#WorkshopPaper> <http://www.w3.org/2000/01/rdf-schema#label> "Workshop papier"@de .
+<https://merged-ontology#NegativeReview> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#ExtendedSummary> <http://www.w3.org/2000/01/rdf-schema#label> "Erweitertes zusammenfassung"@de .
+<https://merged-ontology#hasAuthor> <http://www.w3.org/2000/01/rdf-schema#label> "Hat author"@de .
+<https://merged-ontology#providesConferenceContribution> <http://www.w3.org/2000/01/rdf-schema#label> "Liefert konferenzbeitrag"@de .
+<https://merged-ontology#RejectedContribution> <http://www.w3.org/2000/01/rdf-schema#label> "Abgelehnter beitrag"@de .
+<https://merged-ontology#presentedBy> <http://www.w3.org/2000/01/rdf-schema#label> "Präsentiert von"@de .
+<https://merged-ontology#providesConferenceContribution> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#PreferenceOfTheEvaluator> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+<https://merged-ontology#Presenter> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <Conference_Participant> .
+<https://merged-ontology#AcceptedPaper> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#RejectedPaper> .
+<https://merged-ontology#SubmittedPaper> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#MembersOfTheCommittee> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#Person> .
+<https://merged-ontology#isTheDeputyChairmanOfTheCommittee> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://merged-ontology#isAMemberOf> .
+<https://merged-ontology#RejectedPaper> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#AcceptedPaper> .
+<https://merged-ontology#reviewerOfPaper> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#Paper> .
+<https://merged-ontology#InvitedTalkAbstract> <http://www.w3.org/2000/01/rdf-schema#label> "Eingeladener vortrag abstract"@de .
+<https://merged-ontology#heldIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#OcChair> <http://www.w3.org/2000/01/rdf-schema#label> "Oc chair"@en .
+<https://merged-ontology#Chairman> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#updatedVersionOf> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#hasUpdatedVersion> .
+<https://merged-ontology#AreaOfExpertiseOfTheEvaluator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#isTheStartDate> <http://www.w3.org/2000/01/rdf-schema#label> "Is the start date"@en .
+<https://merged-ontology#WorkshopPaper> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#ProgramCommitteeOfTheConferenceIs> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#ProgramCommittee> .
+<https://merged-ontology#DemoChair> <http://www.w3.org/2000/01/rdf-schema#label> "Demo-stuhl"@de .
+<https://merged-ontology#NegativeReview> <http://www.w3.org/2000/01/rdf-schema#label> "Negative review"@en .
+<https://merged-ontology#TheAssumedContribution> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#Peer-reviewedContribution> .
+<https://merged-ontology#NumberOfProgressOfTheConference> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://merged-ontology#Chairman> <http://www.w3.org/2000/01/rdf-schema#label> "Chairman"@en .
+<https://merged-ontology#NeutralReview> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <Review> .
+<https://merged-ontology#ConferenceSeries> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#Conference> .
+<https://merged-ontology#NumberOfProgressOfTheConference> <http://www.w3.org/2000/01/rdf-schema#label> "Number of progress of the conference"@en .
+<https://merged-ontology#CommitteeOfTheConference> <http://www.w3.org/2000/01/rdf-schema#label> "Committee of the conference"@en .
+<https://merged-ontology#ConferenceFees> <http://www.w3.org/2000/01/rdf-schema#label> "Conference fees"@en .
+<https://merged-ontology#assessedContribution> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#Peer-reviewedContribution> .
+<https://merged-ontology#PosterSession> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#RegularSession> .
+<https://merged-ontology#DemoChair> <http://www.w3.org/2000/01/rdf-schema#label> "Demo chair"@en .
+<https://merged-ontology#Workshop-management> <http://www.w3.org/2000/01/rdf-schema#label> "Hat workshop-leitung"@de .
+<https://merged-ontology#IndustrialSession> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#PcChair> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#SocialEvent> <http://www.w3.org/2000/01/rdf-schema#label> "Social event"@en .
+<https://merged-ontology#ConferenceSession> <http://www.w3.org/2000/01/rdf-schema#label> "Konferenz-session"@de .
+<https://merged-ontology#RegularContribution> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#WrittenContribution> .
+<https://merged-ontology#SocialEvent> <http://www.w3.org/2000/01/rdf-schema#label> "Social event"@de .
+<https://merged-ontology#RejectedContribution> <http://www.w3.org/2000/01/rdf-schema#label> "Rejected contribution"@en .
+<https://merged-ontology#TheSteeringCommitteeOfTheConferenceIs> <http://www.w3.org/2000/01/rdf-schema#label> "Steuerungsausschuss der konferenz ist"@de .
+<https://merged-ontology#PcMember> <http://www.w3.org/2000/01/rdf-schema#label> "Pc-mitglied"@de .
+<https://merged-ontology#RegularSession> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#TheDateOfTheAcceptanceNoticeIs> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
+<https://merged-ontology#expertOpinionHas> <http://www.w3.org/2000/01/rdf-schema#label> "Expert opinion has"@en .
+<https://merged-ontology#listsEvent> <http://www.w3.org/2000/01/rdf-schema#domain> <cf9b17141d6b60464481936a897de307> .
+<https://merged-ontology#ConferenceApplicants> <http://www.w3.org/2000/01/rdf-schema#label> "Koferenzbewerber"@de .
+<https://merged-ontology#PreferenceOfTheEvaluator> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <f157f0d0baaa3d707202689922a9f72e> .
+<https://merged-ontology#hasContribution> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#ConferenceSeries> .
+<https://merged-ontology#inverseOfPartOf7> <http://www.w3.org/2000/01/rdf-schema#label> "Inversen"@de .
+<https://merged-ontology#writtenBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#Document> .
+<https://merged-ontology#published> <http://www.w3.org/2000/01/rdf-schema#label> "Published"@en .
+<https://merged-ontology#DateOfPrint-readySubmission> <http://www.w3.org/2000/01/rdf-schema#label> "Datum der druckfertigen einreichung ist"@de .
+<https://merged-ontology#LateRegisteredParticipant> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <Conference_Participant> .
+<https://merged-ontology#Session> <http://www.w3.org/2002/07/owl#disjointWith> <Conference> .
+<https://merged-ontology#WrittenContribution> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#ConferenceParticipation> .
+<https://merged-ontology#programCommitteeOfTheConference> <http://www.w3.org/2000/01/rdf-schema#label> "Ist programmausschuss der konferenz"@de .
+<https://merged-ontology#contributionSubmittedHas> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#expertOpinionHas> .
+<https://merged-ontology#isTheDeputyChairmanOfTheCommittee> <http://www.w3.org/2000/01/rdf-schema#label> "Is the deputy chairman of the committee"@en .
+<https://merged-ontology#scientificallyOrganisedBy> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#scientificallyOrganises> .
+<https://merged-ontology#hasReview> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#Peer-reviewedContribution> .
+<https://merged-ontology#isTheStartDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://merged-ontology#EarlyRegisteredParticipant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#ISBNProgress> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://merged-ontology#ContributedTalk> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#IndividualPresentation> .
+<https://merged-ontology#ThePrimaryAuthorOfAContribution> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#University> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#ProgrammeBrochure> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#Document> .
+<https://merged-ontology#Location> <http://www.w3.org/2000/01/rdf-schema#label> "Location"@en .
+<https://merged-ontology#AssignedPaper> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#DemoPaper> <http://www.w3.org/2000/01/rdf-schema#label> "Demo-papier"@de .
+<https://merged-ontology#topicCoveredBy> <http://www.w3.org/2000/01/rdf-schema#label> "Thema"@de .
+<https://merged-ontology#ConferenceApplicantHasPaid> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#RegisteredCandidates> .
+<https://merged-ontology#ConferenceApplicants> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#MultiAuthorVolume> <http://www.w3.org/2000/01/rdf-schema#label> "Multi volume autor"@de .
+<https://merged-ontology#Committee> <equivalentClass> <66113be854ffcab4a2f5888f662cd9cd> .
+<https://merged-ontology#WorkshopChair> <http://www.w3.org/2000/01/rdf-schema#label> "Workshop chair"@en .
+<https://merged-ontology#organizationCommitteeOfTheConference> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#ConferenceSeries> .
+<https://merged-ontology#Proceedings> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <af9875197cc5ac6001275e4a80163646> .
+<https://merged-ontology#isAPreferredTopicOrSubjectAreaOfAnAssessor> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#PreferenceOrAreaOfExpertiseOfTheExpert> .
+<https://merged-ontology#WorkshopTheme> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#controlCommitteeOfTheConference> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> .
+<https://merged-ontology#hasUpdatedVersion> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#Document> .
+<https://merged-ontology#WorkshopPaper> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#ConferencePaper> .
+<https://merged-ontology#hasWorkshop> <http://www.w3.org/2000/01/rdf-schema#label> "Has workshop"@en .
+<https://merged-ontology#heldIn> <http://www.w3.org/2000/01/rdf-schema#label> "Statt in"@de .
+<https://merged-ontology#Vice-Chairman> <http://www.w3.org/2000/01/rdf-schema#label> "Vice-chairman"@en .
+<https://merged-ontology#hasReview> <http://www.w3.org/2000/01/rdf-schema#label> "Hat gutachten"@de .
+<https://merged-ontology#partOfEvent> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#Event> .
+<https://merged-ontology#partOf> <http://www.w3.org/2000/01/rdf-schema#label> "Teil"@de .
+<https://merged-ontology#presentedBy> <http://www.w3.org/2000/01/rdf-schema#label> "Presented by"@en .
+<https://merged-ontology#WorkshopPaper> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#IndustrialPaper> .
+<https://merged-ontology#WrittenContribution> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <f3a765533af11a5870fe8d4586f16b52> .
+<https://merged-ontology#PlaceOfTheConference> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://merged-ontology#isTheDeputyChairmanOfTheCommittee> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#Vice-Chairman> .
+<https://merged-ontology#PossibleReviewer> <http://www.w3.org/2000/01/rdf-schema#label> "Possible reviewer"@en .
+<https://merged-ontology#aAssignedToReviewerPreferenceHas> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#PreferenceOfTheEvaluator> .
+<https://merged-ontology#DateOfPrint-readySubmission> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://merged-ontology#hasAuthor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#RegularSession> <http://www.w3.org/2000/01/rdf-schema#label> "Regular session"@en .
+<https://merged-ontology#RegularSession> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#PosterSession> .
+<https://merged-ontology#IndustrialSession> <http://www.w3.org/2000/01/rdf-schema#label> "Industrial session"@en .
+<https://merged-ontology#ConferenceApplicantHasPaidLate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#PcChair> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#TutorialChair> .
+<https://merged-ontology#isTheChairmanOfTheCommittee> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#Committee> .
+<https://merged-ontology#ProgramCommittee> <http://www.w3.org/2000/01/rdf-schema#label> "Program committee"@en .
+<https://merged-ontology#isAMemberOf> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#Committee> .
+<https://merged-ontology#ConferenceApplicants> <http://www.w3.org/2000/01/rdf-schema#label> "Conference applicants"@en .
+<https://merged-ontology#isAPreferredTopicOfAnAssessor> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#PreferenceOfTheEvaluator> .
+<https://merged-ontology#hasContribution> <http://www.w3.org/2000/01/rdf-schema#label> "Hat beitrag"@de .
+<https://merged-ontology#PosterSession> <http://www.w3.org/2000/01/rdf-schema#label> "Poster-session"@de .
+<https://merged-ontology#InternetConference> <http://www.w3.org/2000/01/rdf-schema#label> "Internet der konferenz"@de .
+<https://merged-ontology#writtenBy> <http://www.w3.org/2000/01/rdf-schema#label> "Geschrieben von"@de .
+<https://merged-ontology#programCommitteeOfTheConference> <http://www.w3.org/2000/01/rdf-schema#label> "Program committee of the conference"@en .
+<https://merged-ontology#paperInVolume> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#volumeContainsPaper> .
+<https://merged-ontology#PreferenceOrAreaOfExpertiseOfTheExpert> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#Reviewers> .
+<https://merged-ontology#OrganizationCommittee> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#ProgramCommittee> .
+<https://merged-ontology#RejectedPaper> <http://www.w3.org/2000/01/rdf-schema#label> "Rejected paper"@en .
+<https://merged-ontology#technicallyOrganises> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#technicallyOrganisedBy> .
+<https://merged-ontology#ConferenceParticipation> <http://www.w3.org/2000/01/rdf-schema#label> "Conference participation"@en .
+<https://merged-ontology#NegativeReview> <http://www.w3.org/2000/01/rdf-schema#label> "Negative bewertung"@de .
+<https://merged-ontology#RegularSession> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#DemoSession> .
+<https://merged-ontology#Tutorial> <http://www.w3.org/2000/01/rdf-schema#label> "Tutorial"@en .
+<https://merged-ontology#hasSequence> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#TheExpirationOfTheConference> .
+<https://merged-ontology#Review> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <a21631d8d6c59513cf11db111a9e89bb> .
+<https://merged-ontology#presentedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#Presentation> .
+<https://merged-ontology#PossibleReviewer> <http://www.w3.org/2000/01/rdf-schema#label> "Möglich rezensent"@de .
+<https://merged-ontology#SocialEvent> <http://www.w3.org/2002/07/owl#disjointWith> <Conference> .
+<https://merged-ontology#Event> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#writtenBy> <http://www.w3.org/2000/01/rdf-schema#label> "Written by"@en .
+<https://merged-ontology#CameraReadyPaper> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#AcceptedPaper> .
+<https://merged-ontology#OrganizationCommittee> <http://www.w3.org/2000/01/rdf-schema#label> "Organization committee"@en .
+<https://merged-ontology#reviewOfPaper> <http://www.w3.org/2000/01/rdf-schema#domain> <Review> .
+<https://merged-ontology#authorOf> <http://www.w3.org/2000/01/rdf-schema#label> "Author of"@en .
+<https://merged-ontology#Peer-reviewedContribution> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#organises> <http://www.w3.org/2000/01/rdf-schema#domain> <fc37b3bb922f8f5b94272e1c2a208bc9> .
+<https://merged-ontology#isTheStartDate> <http://www.w3.org/2000/01/rdf-schema#label> "Ist anfangsdatum"@de .
+<https://merged-ontology#holdsPresentation> <http://www.w3.org/2000/01/rdf-schema#label> "Holds presentation"@en .
+<https://merged-ontology#PosterPaper> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#Paper> .
+<https://merged-ontology#IndustrialPaper> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#Paper> .
+<https://merged-ontology#technicallyOrganisedBy> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#technicallyOrganises> .
+<https://merged-ontology#invitesMitgutachter> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#Reviewers> .
+<https://merged-ontology#InvitedTalk> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#Presentation> .
+<https://merged-ontology#hasPart> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#TransitiveProperty> .
+<https://merged-ontology#programCommitteeOfTheConference> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#ProgramCommittee> .
+<https://merged-ontology#TheSteeringCommitteeOfTheConferenceIs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#EvaluatedPaper> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#CameraReadyPaper> .
+<https://merged-ontology#CommitteeOfTheConference> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#Committee> .
+<https://merged-ontology#Session> <http://www.w3.org/2002/07/owl#disjointWith> <Invited_Talk> .
+<https://merged-ontology#hasEvent> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#partOfEvent> .
+<https://merged-ontology#PreferenceOfTheEvaluator> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <9778f56fea10d90da5678107550d6acd> .
+<https://merged-ontology#AcceptedPaper> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#CameraReadyPaper> .
+<https://merged-ontology#Vice-Chairman> <http://www.w3.org/2000/01/rdf-schema#label> "Stellvertretender vorsitzender"@de .
+<https://merged-ontology#IndividualPresentation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#ScientificEvent> .
+<https://merged-ontology#controlCommitteeOfTheConference> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#Notice> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#ConferenceParticipation> .
+<https://merged-ontology#University> <http://www.w3.org/2000/01/rdf-schema#label> "University"@en .
+<https://merged-ontology#Peer-reviewedContribution> <http://www.w3.org/2000/01/rdf-schema#label> "Begutachteter beitrag"@de .
+<https://merged-ontology#ConferenceParticipation> <http://www.w3.org/2000/01/rdf-schema#label> "Konferenzbeteiligung"@de .
+<https://merged-ontology#hasReview> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> .
+<https://merged-ontology#paperPresentedAs> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#presentationOfPaper> .
+<https://merged-ontology#OcMember> <http://www.w3.org/2000/01/rdf-schema#label> "Oc mitglied"@de .
+<https://merged-ontology#hasSex> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#df7fc0a3942e14c9c2a11d82f2261ff0> .
+<https://merged-ontology#reviewWrittenBy> <http://www.w3.org/2000/01/rdf-schema#label> "Bewertung gemacht von"@de .
+<https://merged-ontology#WorkshopTheme> <http://www.w3.org/2000/01/rdf-schema#label> "Workshop theme"@en .
+<https://merged-ontology#WorkshopSession> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#Session> .
+<https://merged-ontology#hasImportantDate> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#ConferenceSeries> .
+<https://merged-ontology#presentationOfPaper> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#fbe0959391de10909bc396db76238cce> .
+<https://merged-ontology#Session> <http://www.w3.org/2000/01/rdf-schema#label> "Session"@en .
+<https://merged-ontology#ProceedingsPublisher> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#ConferenceAnnouncement> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#ConferenceDocument> .
+<https://merged-ontology#Session> <http://www.w3.org/2002/07/owl#disjointWith> <Tutorial> .
+<https://merged-ontology#InternetConference> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#referencedIn> <http://www.w3.org/2000/01/rdf-schema#label> "Referenced in"@en .
+<https://merged-ontology#hasSummary> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#Abstract> .
+<https://merged-ontology#AcademicInstitution> <http://www.w3.org/2000/01/rdf-schema#label> "Academic institution"@en .
+<https://merged-ontology#AcademicInstitution> <http://www.w3.org/2000/01/rdf-schema#label> "Akademischen institution"@de .
+<https://merged-ontology#AcceptedPaper> <http://www.w3.org/2000/01/rdf-schema#label> "Akzeptiert papier"@de .
+<https://merged-ontology#ScMember> <http://www.w3.org/2000/01/rdf-schema#label> "Sc-mitglied"@de .
+<https://merged-ontology#TheSteeringCommitteeOfTheConferenceIs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://merged-ontology#ConferenceParticipant> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#Person> .
+<https://merged-ontology#isTheHeadOfTheWorkshops> <http://www.w3.org/2000/01/rdf-schema#label> "Ist leiter des workshops"@de .
+<https://merged-ontology#ActiveParticipantsInTheConference> <http://www.w3.org/2000/01/rdf-schema#label> "Active participants in the conference"@en .
+<https://merged-ontology#organisedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#hasAuthor> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#ConferenceDocument> .
+<https://merged-ontology#CameraReadyPaper> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#EvaluatedPaper> .
+<https://merged-ontology#DemoPaper> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#IndustrialPaper> .
+<https://merged-ontology#Session> <http://www.w3.org/2000/01/rdf-schema#label> "Sitzung"@de .
+<https://merged-ontology#TutorialAbstract> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <Abstract> .
+<https://merged-ontology#section> <http://www.w3.org/2000/01/rdf-schema#label> "Section"@en .
+<https://merged-ontology#reviewOfPaper> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#heldIn> <http://www.w3.org/2000/01/rdf-schema#label> "Held in"@en .
+<https://merged-ontology#writtenBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#PcMember> <http://www.w3.org/2000/01/rdf-schema#label> "Pc member"@en .
+<https://merged-ontology#hasContribution> <http://www.w3.org/2000/01/rdf-schema#label> "Has contribution"@en .
+<https://merged-ontology#MultiAuthorVolume> <http://www.w3.org/2000/01/rdf-schema#label> "Multi author volume"@en .
+<https://merged-ontology#ConferenceBanquet> <http://www.w3.org/2000/01/rdf-schema#label> "Conference banquet"@en .
+<https://merged-ontology#reviewWrittenBy> <http://www.w3.org/2000/01/rdf-schema#label> "Review written by"@en .
+<https://merged-ontology#theConferencePortionIsTheSubjectOf> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#Topic> .
+<https://merged-ontology#Committee> <http://www.w3.org/2000/01/rdf-schema#label> "Ausschuss"@de .
+<https://merged-ontology#Review> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#ConferenceDocument> .
+<https://merged-ontology#ConferenceFees> <http://www.w3.org/2000/01/rdf-schema#label> "Konferenzgebühren"@de .
+<https://merged-ontology#Co-authorOfAContribution> <http://www.w3.org/2000/01/rdf-schema#label> "Mitverfasser eines beitrags"@de .
+<https://merged-ontology#Track> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#ScientificEvent> .
+<https://merged-ontology#Paper> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#Document> .
+<https://merged-ontology#topicCoveredBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#coversTopic> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#topicCoveredBy> .
+<https://merged-ontology#hasImportantDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#CallForParticipation> <http://www.w3.org/2000/01/rdf-schema#label> "Call for participation"@en .
+<https://merged-ontology#SocialEvent> <http://www.w3.org/2002/07/owl#disjointWith> <Invited_Talk> .
+<https://merged-ontology#TutorialChair> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <Conference_Participant> .
+<https://merged-ontology#ConferenceApplicantHasPaidLate> <http://www.w3.org/2000/01/rdf-schema#label> "Conference applicant has paid late"@en .
+<https://merged-ontology#PcChair> <http://www.w3.org/2000/01/rdf-schema#label> "Pc stuhl"@de .
+<https://merged-ontology#expertOpinionHas> <http://www.w3.org/2000/01/rdf-schema#label> "Hat fachgutachten"@de .
+<https://merged-ontology#Workshop-management> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://merged-ontology#hasImportantDate> <http://www.w3.org/2000/01/rdf-schema#label> "Hat wichtiges datum"@de .
+<https://merged-ontology#TheExpirationOfTheConference> <http://www.w3.org/2000/01/rdf-schema#label> "The expiration of the conference"@en .
+<https://merged-ontology#ChairmanOfTheCommittee> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#isTheChairmanOfTheCommittee> .
+<https://merged-ontology#isTheStartDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://merged-ontology#MultiAuthorVolume> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#WebSite> .
+<https://merged-ontology#Reviewers> <http://www.w3.org/2000/01/rdf-schema#label> "Reviewers"@en .
+<https://merged-ontology#WebSite> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#Document> .
+<https://merged-ontology#Tutorial> <http://www.w3.org/2000/01/rdf-schema#label> "Tutorium"@de .
+<https://merged-ontology#DateOfPrint-readySubmission> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://merged-ontology#URLOfTheConferenceIs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://merged-ontology#hasAFirstName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://merged-ontology#heldIn> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#Event> .
+<https://merged-ontology#updatedVersionOf> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#Document> .
+<https://merged-ontology#ConferenceParticipantContributionHas> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#Person> .
+<https://merged-ontology#PcMember> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#SocialEvent> <http://www.w3.org/2002/07/owl#disjointWith> <Tutorial> .
+<https://merged-ontology#isTheHeadOfTheWorkshops> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#hasReviewer> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#PossibleReviewer> .
+<https://merged-ontology#URLOfTheConferenceIs> <http://www.w3.org/2000/01/rdf-schema#label> "Url of the conference is"@en .
+<https://merged-ontology#RejectedPaper> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#Chairman> <equivalentClass> <caa19842976ce99dcd7b330dd9e546e2> .
+<https://merged-ontology#hasReviewer> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#reviewerOfPaper> .
+<https://merged-ontology#hasBeenPublishedOnTheFollowingDate> <http://www.w3.org/2000/01/rdf-schema#label> "Has been published on the following date"@en .
+<https://merged-ontology#CameraReadyPaper> <http://www.w3.org/2000/01/rdf-schema#label> "Camera ready paper"@en .
+<https://merged-ontology#InvitedTalkAbstract> <http://www.w3.org/2000/01/rdf-schema#label> "Invited talk abstract"@en .
+<https://merged-ontology#reviewerOfPaper> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#hasReviewer> .
+<https://merged-ontology#TheSteeringCommitteeOfTheConferenceIs> <http://www.w3.org/2000/01/rdf-schema#label> "The steering committee of the conference is"@en .
+<https://merged-ontology#AuthorARegularContribution> <http://www.w3.org/2000/01/rdf-schema#label> "Author a regular contribution"@en .
+<https://merged-ontology#ActiveParticipantsInTheConference> <http://www.w3.org/2000/01/rdf-schema#label> "Aktiver konferenzteilnehmer"@de .
+<https://merged-ontology#authorOf> <http://www.w3.org/2000/01/rdf-schema#domain> <Person> .
+<https://merged-ontology#eventOnList> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#0ea403686eaa37255d12ed817a7a4128> .
+<https://merged-ontology#RegisteredCandidates> <http://www.w3.org/2000/01/rdf-schema#label> "Registrierter bewerber"@de .
+<https://merged-ontology#ExtendedSummary> <http://www.w3.org/2000/01/rdf-schema#label> "Extended summary"@en .
+<https://merged-ontology#AgencyStaffMember> <http://www.w3.org/2000/01/rdf-schema#label> "Agency staff member"@en .
+<https://merged-ontology#eventOnList> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#listsEvent> .
+<https://merged-ontology#DemoPaper> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#InternetConference> <http://www.w3.org/2000/01/rdf-schema#label> "Internet conference"@en .
+<https://merged-ontology#AgencyStaffMember> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#Workshop> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#SectionsOfTheConference> .
+<https://merged-ontology#ProgramCommittee> <http://www.w3.org/2000/01/rdf-schema#label> "Programmausschuss"@de .
+<https://merged-ontology#theFirstPartOf> <http://www.w3.org/2000/01/rdf-schema#label> "The first part of"@en .
+<https://merged-ontology#Presentation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#members> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#Committee> .
+<https://merged-ontology#hasName> <http://www.w3.org/2000/01/rdf-schema#domain> <accf8f40c4e9f00c42a4f0fc3f0151f7> .
+<https://merged-ontology#AcceptedPaper> <http://www.w3.org/2000/01/rdf-schema#label> "Accepted paper"@en .
+<https://merged-ontology#reviewOfPaper> <http://www.w3.org/2000/01/rdf-schema#label> "Review of paper"@en .
+<https://merged-ontology#Committee> <http://www.w3.org/2000/01/rdf-schema#label> "Committee"@en .
+<https://merged-ontology#Person> <http://www.w3.org/2000/01/rdf-schema#label> "Person"@en .
+<https://merged-ontology#Person> <http://www.w3.org/2000/01/rdf-schema#label> "Person"@de .
+<https://merged-ontology#controlCommitteeOfTheConference> <http://www.w3.org/2000/01/rdf-schema#label> "Control committee of the conference"@en .
+<https://merged-ontology#AssignedPaper> <http://www.w3.org/2000/01/rdf-schema#label> "Assigned paper"@en .
+<https://merged-ontology#CameraReadyPaper> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#SubmittedPaper> .
+<https://merged-ontology#TheExpirationOfTheConference> <http://www.w3.org/2000/01/rdf-schema#label> "Ablauf der konferenz"@de .
+<https://merged-ontology#hasWorkshop> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#ConferenceParticipation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#AnyContribution> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#WrittenContribution> .
+<https://merged-ontology#DateOfSubmissionOfTheSummaries> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
+<https://merged-ontology#isTheDeputyChairmanOfTheCommittee> <http://www.w3.org/2000/01/rdf-schema#label> "Ist stellvertretender vorsitzender des ausschusses"@de .
+<https://merged-ontology#PosterSession> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#DemoSession> .
+<https://merged-ontology#Location> <http://www.w3.org/2000/01/rdf-schema#label> "Lage"@de .
+<https://merged-ontology#ActiveParticipantsInTheConference> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#DemoPaper> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#PosterPaper> .
+<https://merged-ontology#InformationForParticipants> <http://www.w3.org/2000/01/rdf-schema#label> "Information for participants"@en .
+<https://merged-ontology#URLOfTheConferenceIs> <http://www.w3.org/2000/01/rdf-schema#label> "Url der konferenz ist"@de .
+<https://merged-ontology#isTheHeadOfTheWorkshops> <http://www.w3.org/2000/01/rdf-schema#label> "Is the head of the workshops"@en .
+<https://merged-ontology#AreaOfExpertiseOfTheEvaluator> <http://www.w3.org/2000/01/rdf-schema#label> "Fachgebiet des gutachters"@de .
+<https://merged-ontology#MultiAuthorVolume> <http://www.w3.org/2002/07/owl#disjointWith> <Review> .
+<https://merged-ontology#Student> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <Person> .
+<https://merged-ontology#WorkshopTheme> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#SectionsOfTheConference> .
+<https://merged-ontology#listsEvent> <http://www.w3.org/2000/01/rdf-schema#label> "Listen veranstaltung"@de .
+<https://merged-ontology#AcademicInstitution> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#TheExpirationOfTheConference> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#isAPreferredTopicOrSubjectAreaOfAnAssessor> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#Reviewers> .
+<https://merged-ontology#listsEvent> <http://www.w3.org/2000/01/rdf-schema#label> "Lists event"@en .
+<https://merged-ontology#ConferenceTrip> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#PreferenceOrAreaOfExpertiseOfTheExpert> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#TheOrganizingCommitteeOfTheConferenceIs> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#OrganizationCommittee> .
+<https://merged-ontology#organizationCommitteeOfTheConference> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#TheOrganizingCommitteeOfTheConferenceIs> .
+<https://merged-ontology#hasBeenPublishedOnTheFollowingDate> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#ConferenceDocument> .
+<https://merged-ontology#Organizer> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <b155ce4e78000ad00b6749f9fc38c226> .
+<https://merged-ontology#isTheHeadOfTheWorkshops> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> .
+<https://merged-ontology#OcChair> <http://www.w3.org/2000/01/rdf-schema#label> "Oc-lehrstuhl"@de .
+<https://merged-ontology#hasTheTopicOrPostSubmitted> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#6286f351381bbe131cfd3315c4c67fe6> .
+<https://merged-ontology#MultiAuthorVolume> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#Paper> .
+<https://merged-ontology#PublisherOfTheConferenceProgress> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#Publisher> .
+<https://merged-ontology#scientificallyOrganises> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#scientificallyOrganisedBy> .
+<https://merged-ontology#DemoPaper> <http://www.w3.org/2000/01/rdf-schema#label> "Demo paper"@en .
+<https://merged-ontology#ContributedTalk> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <f901d81bcfdc53b799a1bb750aa2bb95> .
+<https://merged-ontology#isTheEndDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://merged-ontology#Flyer> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#Document> .
+<https://merged-ontology#organises> <http://www.w3.org/2000/01/rdf-schema#label> "Organisiert"@de .
+<https://merged-ontology#topicCoveredBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#ResearchTopic> .
+<https://merged-ontology#Co-authorOfAContribution> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#ThePrimaryAuthorOfAContribution> .
+<https://merged-ontology#theConferencePortionIsTheSubjectOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#SessionChair> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#PcMember> .
+<https://merged-ontology#SessionChair> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <Conference_Participant> .
+<https://merged-ontology#partOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#Vice-Chairman> <equivalentClass> <7f5ff429f60464db9ac08fb14c6ff0c9> .
+<https://merged-ontology#RegularPaper> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#Paper> .
+<https://merged-ontology#E-mailAddress> <http://www.w3.org/2000/01/rdf-schema#label> "E-mail address"@en .
+<https://merged-ontology#hasBeenPublishedOnTheFollowingDate> <http://www.w3.org/2000/01/rdf-schema#label> "Ist am folgenden datum veröffentlicht worden"@de .
+<https://merged-ontology#partOfEvent> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#hasEvent> .
+<https://merged-ontology#referencedIn> <http://www.w3.org/2000/01/rdf-schema#label> "Verwiesen wird"@de .
+<https://merged-ontology#CallForParticipation> <http://www.w3.org/2000/01/rdf-schema#label> "Aufruf zu teilnahme"@de .
+<https://merged-ontology#Workshop-management> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#PassiveConferenceParticipants> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#ConferenceParticipant> .
+<https://merged-ontology#OrganizationCommittee> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#SteeringCommittee> .
+<https://merged-ontology#ConferenceSession> <http://www.w3.org/2000/01/rdf-schema#label> "Conference session"@en .
+<https://merged-ontology#CommitteeOfTheConference> <http://www.w3.org/2000/01/rdf-schema#label> "Ist ausschuss der konferenz"@de .
+<https://merged-ontology#ScMember> <http://www.w3.org/2000/01/rdf-schema#label> "Sc member"@en .
+<https://merged-ontology#Vice-Chairman> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#URLOfTheConferenceIs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://merged-ontology#inverseOfPartOf7> <http://www.w3.org/2000/01/rdf-schema#label> "Inverse of part of 7"@en .
+<https://merged-ontology#NegativeReview> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#NeutralReview> .
+<https://merged-ontology#NumberOfProgressOfTheConference> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#ConferenceProceedings> .
+<https://merged-ontology#Proceedings> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#MultiAuthorVolume> .
+<https://merged-ontology#hasTheTopicOrPostSubmitted> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#aAssignedToReviewerPreferenceHas> .
+<https://merged-ontology#URLOfTheConferenceIs> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#InternetConference> .
+<https://merged-ontology#isTheStartDate> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#ImportantDate> .
+<https://merged-ontology#volumeContainsPaper> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#paperInVolume> .
+<https://merged-ontology#Tutorial> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#TheExpirationOfTheConference> .
+<https://merged-ontology#DemoSession> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#Session> .
+<https://merged-ontology#invitesMitgutachter> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#invitedReviewer> .
+<https://merged-ontology#theFirstPartOf> <http://www.w3.org/2000/01/rdf-schema#label> "Ist der erst teil von"@de .
+<https://merged-ontology#MultiAuthorVolume> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#ProgrammeBrochure> .
+<https://merged-ontology#isAnImportantDateForAConferenceSeries> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#ConferenceSeries> .
+<https://merged-ontology#Presentation> <http://www.w3.org/2000/01/rdf-schema#label> "Präsentation"@de .
+<https://merged-ontology#providesConferenceContribution> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#Person> .
+<https://merged-ontology#Person> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#hasName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://merged-ontology#organises> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#CommitteeOfTheConferenceIs> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#Committee> .
+<https://merged-ontology#hasName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://merged-ontology#Reviewers> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#PcChair> <http://www.w3.org/2000/01/rdf-schema#label> "Pc chair"@en .
+<https://merged-ontology#SteeringCommittee> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#Committee> .
+<https://merged-ontology#hasReview> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#Tutorial> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#hasPart> <http://www.w3.org/2000/01/rdf-schema#label> "Hat teil"@de .
+<https://merged-ontology#Presentation> <http://www.w3.org/2000/01/rdf-schema#label> "Presentation"@en .
+<https://merged-ontology#WorkshopTheme> <http://www.w3.org/2000/01/rdf-schema#label> "Hat workshop-thema"@de .
+<https://merged-ontology#Session> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#Track> .
+<https://merged-ontology#hasBeenPublishedOnTheFollowingDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://merged-ontology#published> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#Publisher> .
+<https://merged-ontology#expertOpinionHas> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#hasImportantDate> <http://www.w3.org/2000/01/rdf-schema#label> "Has important date"@en .
+<https://merged-ontology#members> <http://www.w3.org/2000/01/rdf-schema#label> "Hat mitglieder"@de .
+<https://merged-ontology#organisedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#Event> .
+<https://merged-ontology#EarlyRegisteredParticipant> <http://www.w3.org/2000/01/rdf-schema#label> "Frühzeitig angemeldete teilnehmer"@de .
+<https://merged-ontology#SubmittedPaper> <http://www.w3.org/2000/01/rdf-schema#label> "Eingereicht papier"@de .
+<https://merged-ontology#OrganisingAgency> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <Organization> .
+<https://merged-ontology#isTheDeputyChairmanOfTheCommittee> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#DemoPaper> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#RegularPaper> .
+<https://merged-ontology#SocialEvent> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#Track> .
+<https://merged-ontology#listsEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#WorkshopPaper> <http://www.w3.org/2000/01/rdf-schema#label> "Workshop paper"@en .
+<https://merged-ontology#DemoChair> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#RejectedContribution> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#TheAssumedContribution> .
+<https://merged-ontology#Peer-reviewedContribution> <equivalentClass> <521607a3d55c83eb805fb437bd65eaab> .
+<https://merged-ontology#OrganizationCommittee> <http://www.w3.org/2000/01/rdf-schema#label> "Organisationsausschuss"@de .
+<https://merged-ontology#isTheEndDate> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#ImportantDate> .
+<https://merged-ontology#InvitedSpeaker> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#ConferenceParticipantContributionHas> .
+<https://merged-ontology#PosterSession> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#TheSteeringCommitteeOfTheConferenceIs> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://merged-ontology#CommitteeOfTheConferenceIs> .
+<https://merged-ontology#WorkshopChair> <http://www.w3.org/2000/01/rdf-schema#label> "Leiter der workshops"@de .
+<https://merged-ontology#ConferenceTrip> <http://www.w3.org/2000/01/rdf-schema#label> "Conference trip"@en .
+<https://merged-ontology#isTheEndDate> <http://www.w3.org/2000/01/rdf-schema#label> "Ist enddatum"@de .
+<https://merged-ontology#PositiveReview> <http://www.w3.org/2000/01/rdf-schema#label> "Positive bewertung"@de .
+<https://merged-ontology#organisedBy> <http://www.w3.org/2000/01/rdf-schema#label> "Organised by"@en .
+<https://merged-ontology#PreferenceOrAreaOfExpertiseOfTheExpert> <http://www.w3.org/2000/01/rdf-schema#label> "Präferenz oder fachgebiet des gutachters ist"@de .
+<https://merged-ontology#AgencyStaffMember> <http://www.w3.org/2000/01/rdf-schema#label> "Agentur-mitarbeiter"@de .
+<https://merged-ontology#ConferenceApplicantHasPaidEarly> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#ConferenceApplicantHasPaid> .
+<https://merged-ontology#EvaluatedPaper> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#OcMember> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#RegisteredCandidates> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#ConferenceBanquet> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#RegularSession> <http://www.w3.org/2000/01/rdf-schema#label> "Reguläre sitzung"@de .
+<https://merged-ontology#hasName> <http://www.w3.org/2000/01/rdf-schema#label> "Has name"@en .
+<https://merged-ontology#partOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#TransitiveProperty> .
+<https://merged-ontology#hasName> <http://www.w3.org/2000/01/rdf-schema#label> "Hat name"@de .
+<https://merged-ontology#AcademicInstitution> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#OrganisingAgency> .
+<https://merged-ontology#publisherOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#32ea1300fea93ffd0d421baef42f8882> .
+<https://merged-ontology#ConferenceSession> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#WorkshopSession> .
+<https://merged-ontology#hasSummary> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#theFirstPartOf> .
+<https://merged-ontology#DateOfSubmissionOfTheCompleteContributionIs> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
+<https://merged-ontology#hasTutorial> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#Tutorial> .
+<https://merged-ontology#inverseOfPartOf7> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#SocialEvent> <http://www.w3.org/2002/07/owl#disjointWith> <Workshop> .
+<https://merged-ontology#theConferencePortionIsTheSubjectOf> <http://www.w3.org/2000/01/rdf-schema#label> "The conference portion is the subject of"@en .
+<https://merged-ontology#MultiAuthorVolume> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#Event> <http://www.w3.org/2002/07/owl#disjointWith> <Person> .
+<https://merged-ontology#ConferenceParticipation> <equivalentClass> <6432a32d75f41693f1a1bd44beb428dd> .
+<https://merged-ontology#DateOfPrint-readySubmission> <http://www.w3.org/2000/01/rdf-schema#label> "Date of print-ready submission"@en .
+<https://merged-ontology#ThePrimaryAuthorOfAContribution> <http://www.w3.org/2000/01/rdf-schema#label> "The primary author of a contribution"@en .
+<https://merged-ontology#DateOfPrint-readySubmission> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#ImportantDate> .
+<https://merged-ontology#hasPart> <http://www.w3.org/2000/01/rdf-schema#label> "Has part"@en .
+<https://merged-ontology#partOf> <http://www.w3.org/2000/01/rdf-schema#label> "Part of"@en .
+<https://merged-ontology#controlCommitteeOfTheConference> <http://www.w3.org/2000/01/rdf-schema#label> "Ist steuerungsausschuss der konferenz"@de .
+<https://merged-ontology#PositiveReview> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#NegativeReview> .
+<https://merged-ontology#ContributedTalk> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <f08e44f2f998165b5c1d9ff783ff0728> .
+<https://merged-ontology#ConferenceParticipation> <equivalentClass> <5b45e9adf9426ad9f36e4517d413460d> .
+<https://merged-ontology#isTheHeadOfTheWorkshops> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#WorkshopChair> .
+<https://merged-ontology#ConferenceContribution> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#RegularContribution> .
+<https://merged-ontology#organises> <http://www.w3.org/2000/01/rdf-schema#label> "Organises"@en .
+<https://merged-ontology#theFirstPartOf> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#Abstract> .
+<https://merged-ontology#ConferenceTrip> <http://www.w3.org/2000/01/rdf-schema#label> "Konferenz-reise"@de .
+<https://merged-ontology#referencedIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#hasBeenPublishedOnTheFollowingDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://merged-ontology#ContributedTalk> <http://www.w3.org/2000/01/rdf-schema#label> "Contributed talk"@en .
+<https://merged-ontology#Proceedings> <http://www.w3.org/2000/01/rdf-schema#label> "Verfahren"@de .
+<https://merged-ontology#aAssignedToReviewerPreferenceHas> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> .
+<https://merged-ontology#organises> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#organisedBy> .
+<https://merged-ontology#ThePrimaryAuthorOfAContribution> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#AuthorARegularContribution> .
+<https://merged-ontology#IndustrialPaper> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#IndustrialPaper> <http://www.w3.org/2000/01/rdf-schema#label> "Industrie-papier"@de .
+<https://merged-ontology#ChairmanOfTheCommittee> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://merged-ontology#members> .
+<https://merged-ontology#ISBNProgress> <http://www.w3.org/2000/01/rdf-schema#label> "Isbn der fortschritte ist"@de .
+<https://merged-ontology#RegularContribution> <http://www.w3.org/2000/01/rdf-schema#label> "Regulärer beitrag"@de .
+<https://merged-ontology#theConferencePortionIsTheSubjectOf> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#SectionsOfTheConference> .
+<https://merged-ontology#assessedContribution> <http://www.w3.org/2000/01/rdf-schema#label> "Assessed contribution"@en .
+<https://merged-ontology#Organizer> <http://www.w3.org/2000/01/rdf-schema#label> "Organisator"@de .
+<https://merged-ontology#isAMemberOf> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#MembersOfTheCommittee> .
+<https://merged-ontology#hasPart> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#partOf> .
+<https://merged-ontology#hasEvent> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://merged-ontology#hasPart> .
+<https://merged-ontology#Track> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#SocialEvent> .
+<https://merged-ontology#ContributedTalk> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#Track> .
+<https://merged-ontology#SteeringCommittee> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#ProgramCommittee> .
+<https://merged-ontology#DateOfSubmissionOfTheSummaries> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://merged-ontology#LateRegisteredParticipant> <http://www.w3.org/2000/01/rdf-schema#label> "Late registered participant"@en .
+<https://merged-ontology#ContributedTalk> <http://www.w3.org/2002/07/owl#disjointWith> <Invited_Talk> .
+<https://merged-ontology#DegreeOfTheExpert'sPreference> <http://www.w3.org/2000/01/rdf-schema#label> "Grad der gutachterpräferenz"@de .
+<https://merged-ontology#ResearchTopic> <http://www.w3.org/2000/01/rdf-schema#label> "Thema"@de .
+<https://merged-ontology#hasEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#NeutralReview> <http://www.w3.org/2000/01/rdf-schema#label> "Neutrale bewertung"@de .
+<https://merged-ontology#ConferenceApplicantHasPaidEarly> <http://www.w3.org/2000/01/rdf-schema#label> "Conference applicant has paid early"@en .
+<https://merged-ontology#organizationCommitteeOfTheConference> <http://www.w3.org/2000/01/rdf-schema#label> "Organization committee of the conference"@en .
+<https://merged-ontology#Topic> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#publisherOf> <http://www.w3.org/2000/01/rdf-schema#domain> <Organization> .
+<https://merged-ontology#technicallyOrganises> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://merged-ontology#organises> .
+<https://merged-ontology#heldIn> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#Location> .
+<https://merged-ontology#PaperAuthor> <http://www.w3.org/2000/01/rdf-schema#label> "Paper author"@en .
+<https://merged-ontology#inverseOfPartOf7> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#Event> .
+<https://merged-ontology#Notice> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#InvitedTalk> .
+<https://merged-ontology#ProgrammeBrochure> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#Proceedings> .
+<https://merged-ontology#CameraReadyPaper> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <32b70f82f161fb85b5b0f4f048c6a28b> .
+<https://merged-ontology#RejectedPaper> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#EvaluatedPaper> .
+<https://merged-ontology#Notice> <http://www.w3.org/2000/01/rdf-schema#label> "Aushang"@de .
+<https://merged-ontology#CallForContributions> <http://www.w3.org/2000/01/rdf-schema#label> "Aufruf für beiträge"@de .
+<https://merged-ontology#volumeContainsPaper> <http://www.w3.org/2000/01/rdf-schema#label> "Band enthält papier"@de .
+<https://merged-ontology#PreferenceOrAreaOfExpertiseOfTheExpert> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#7ba9dcaafe38b424cdffb68573ef0d1a> .
+<https://merged-ontology#reviewWrittenBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#PossibleReviewer> .
+<https://merged-ontology#MembersOfTheCommittee> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#PlaceOfTheConference> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://merged-ontology#ISBNProgress> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#ConferenceProceedings> .
+<https://merged-ontology#isTheChairmanOfTheCommittee> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#Conference> <http://www.w3.org/2000/01/rdf-schema#label> "Conference"@en .
+<https://merged-ontology#hasSequence> <http://www.w3.org/2000/01/rdf-schema#label> "Has sequence"@en .
+<https://merged-ontology#DegreeOfTheExpert'sPreference> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#PreferenceOfTheEvaluator> .
+<https://merged-ontology#DegreeOfTheExpert'sPreference> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://merged-ontology#OrganisingAgency> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#hasTheDeputyCommitteeChairman> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#Committee> .
+<https://merged-ontology#hasSummary> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#organizationCommitteeOfTheConference> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#OrganizationCommittee> .
+<https://merged-ontology#DateOfSubmissionOfTheSummaries> <http://www.w3.org/2000/01/rdf-schema#label> "Date of submission of the summaries"@en .
+<https://merged-ontology#Chairman> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#MembersOfTheCommittee> .
+<https://merged-ontology#IndustrialPaper> <http://www.w3.org/2000/01/rdf-schema#label> "Industrial paper"@en .
+<https://merged-ontology#isPartOfTheConferenceSeries> <http://www.w3.org/2000/01/rdf-schema#label> "Ist teil der konferenzreihe"@de .
+<https://merged-ontology#presentationOfPaper> <http://www.w3.org/2000/01/rdf-schema#label> "Präsentation von papier"@de .
+<https://merged-ontology#OrganisingAgency> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#AcademicInstitution> .
+<https://merged-ontology#TutorialAbstract> <http://www.w3.org/2000/01/rdf-schema#label> "Tutorial abstract"@en .
+<https://merged-ontology#RegisteredCandidates> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#ConferenceApplicants> .
+<https://merged-ontology#WorkshopTheme> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#theConferencePortionIsTheSubjectOf> .
+<https://merged-ontology#InvitedSpeaker> <http://www.w3.org/2000/01/rdf-schema#label> "Eingeladener referent"@de .
+<https://merged-ontology#references> <http://www.w3.org/2000/01/rdf-schema#label> "Referenzen"@de .
+<https://merged-ontology#RegularPaper> <http://www.w3.org/2000/01/rdf-schema#label> "Normalen papier"@de .
+<https://merged-ontology#contributionSubmittedHas> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://merged-ontology#Track> <http://www.w3.org/2000/01/rdf-schema#label> "Track"@en .
+<https://merged-ontology#Track> <http://www.w3.org/2000/01/rdf-schema#label> "Track"@de .
+<https://merged-ontology#ConferenceProceedings> <http://www.w3.org/2000/01/rdf-schema#label> "Fortschritte der konferenz"@de .
+<https://merged-ontology#PcChair> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#PcMember> .
+<https://merged-ontology#isAPreferredTopicOrSubjectAreaOfAnAssessor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#updatedVersionOf> <http://www.w3.org/2000/01/rdf-schema#label> "Aktualisierte version"@de .
+<https://merged-ontology#organises> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#Event> .
+<https://merged-ontology#DemoSession> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#isAnImportantDateForAConferenceSeries> <http://www.w3.org/2000/01/rdf-schema#label> "Is an important date for a conference series"@en .
+<https://merged-ontology#Conference> <http://www.w3.org/2000/01/rdf-schema#label> "Konferenz"@de .
+<https://merged-ontology#TheAssumedContribution> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#DateOfPrint-readySubmission> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
+<https://merged-ontology#CallForParticipation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#ConferenceDocument> .
+<https://merged-ontology#writtenBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#Person> .
+<https://merged-ontology#volumeContainsPaper> <http://www.w3.org/2000/01/rdf-schema#label> "Volume contains paper"@en .
+<https://merged-ontology#ContributedTalk> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#SocialEvent> .
+<https://merged-ontology#isSubmittedFor> <http://www.w3.org/2000/01/rdf-schema#label> "Is submitted for"@en .
+<https://merged-ontology#ConferencePaper> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#WorkshopPaper> .
+<https://merged-ontology#isAnImportantDateForAConferenceSeries> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#references> <http://www.w3.org/2000/01/rdf-schema#label> "References"@en .
+<https://merged-ontology#hasEvent> <http://www.w3.org/2000/01/rdf-schema#label> "Hat event"@de .
+<https://merged-ontology#ProceedingsPublisher> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <Organization> .
+<https://merged-ontology#DemoPaper> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#Paper> .
+<https://merged-ontology#hasSummary> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://merged-ontology#InvitedTalk> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#eventOnList> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#Event> .
+<https://merged-ontology#Proceedings> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#ConferenceParticipant> <equivalentClass> <634758cba04d5179099c6bb1c7fa9a2f> .
+<https://merged-ontology#members> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#MembersOfTheCommittee> .
+<https://merged-ontology#DateOfSubmissionOfTheCompleteContributionIs> <http://www.w3.org/2000/01/rdf-schema#label> "Datum der einreichung des kompletten beitrags ist"@de .
+<https://merged-ontology#SectionsOfTheConference> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#TheDateOfTheAcceptanceNoticeIs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://merged-ontology#TheAssumedContribution> <http://www.w3.org/2000/01/rdf-schema#label> "Angenommener beitrag"@de .
+<https://merged-ontology#isSubmittedFor> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#ConferenceParticipation> .
+<https://merged-ontology#TutorialChair> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#WebSite> <http://www.w3.org/2000/01/rdf-schema#label> "Web site"@en .
+<https://merged-ontology#PcMember> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#PossibleReviewer> .
+<https://merged-ontology#paperInVolume> <http://www.w3.org/2000/01/rdf-schema#label> "Paper in volume"@en .
+<https://merged-ontology#ContributedTalk> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#PossibleReviewer> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <Person> .
+<https://merged-ontology#WorkshopSession> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#technicallyOrganisedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://merged-ontology#organisedBy> .
+<https://merged-ontology#ConferenceApplicantHasPaidLate> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#ConferenceApplicantHasPaid> .
+<https://merged-ontology#hasBeenPublishedOnTheFollowingDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
+<https://merged-ontology#LateRegisteredParticipant> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#EarlyRegisteredParticipant> .
+<https://merged-ontology#MembersOfTheCommittee> <equivalentClass> <47c8442e5acca4835221cb72e01f3709> .
+<https://merged-ontology#NumberOfProgressOfTheConference> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#int> .
+<https://merged-ontology#ConferenceParticipantContributionHas> <http://www.w3.org/2000/01/rdf-schema#label> "Conference participant contribution has"@en .
+<https://merged-ontology#ProgramCommitteeOfTheConferenceIs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#Review> <http://www.w3.org/2000/01/rdf-schema#label> "Review"@en .
+<https://merged-ontology#NeutralReview> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#eventOnList> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#ActiveParticipantsInTheConference> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#ConferenceParticipant> .
+<https://merged-ontology#AreaOfExpertiseOfTheEvaluator> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/2002/07/owl#Thing> .
+<https://merged-ontology#ConferenceApplicantHasPaid> <http://www.w3.org/2000/01/rdf-schema#label> "Konferenzbewerber gezahlt hat"@de .
+<https://merged-ontology#reviewerOfPaper> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#PossibleReviewer> .
+<https://merged-ontology#OrganisingAgency> <http://www.w3.org/2000/01/rdf-schema#label> "Die organisation agentur"@de .
+<https://merged-ontology#IndividualPresentation> <http://www.w3.org/2002/07/owl#disjointWith> <Workshop> .
+<https://merged-ontology#reviewerOfPaper> <http://www.w3.org/2000/01/rdf-schema#label> "Rezensent papier"@de .
+<https://merged-ontology#partOfEvent> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://merged-ontology#partOf> .
+<https://merged-ontology#invitesMitgutachter> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#Reviewers> .
+<https://merged-ontology#Vice-Chairman> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#MembersOfTheCommittee> .
+<https://merged-ontology#TutorialChair> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#PcChair> .
+<https://merged-ontology#ConferenceContribution> <http://www.w3.org/2000/01/rdf-schema#label> "Conference contribution"@en .
+<https://merged-ontology#Notice> <http://www.w3.org/2000/01/rdf-schema#label> "Notice"@en .
+<https://merged-ontology#WebSite> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#ProgrammeBrochure> .
+<https://merged-ontology#Paper> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#ProgrammeBrochure> .
+<https://merged-ontology#Flyer> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#Paper> .
+<https://merged-ontology#Paper> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#Proceedings> .
+<https://merged-ontology#TheSteeringCommitteeOfTheConferenceIs> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#controlCommitteeOfTheConference> .
+<https://merged-ontology#Publisher> <http://www.w3.org/2000/01/rdf-schema#label> "Publisher"@en .
+<https://merged-ontology#contributionSubmittedHas> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#CommitteeOfTheConferenceIs> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#ConferenceSeries> .
+<https://merged-ontology#hasLastName> <http://www.w3.org/2000/01/rdf-schema#label> "Has last name"@en .
+<https://merged-ontology#ProgrammeBrochure> <http://www.w3.org/2000/01/rdf-schema#label> "Programm-broschüre"@de .
+<https://merged-ontology#TheAssumedContribution> <http://www.w3.org/2000/01/rdf-schema#label> "The assumed contribution"@en .
+<https://merged-ontology#Paper> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#WebSite> .
+<https://merged-ontology#Document> <http://www.w3.org/2000/01/rdf-schema#label> "Document"@en .
+<https://merged-ontology#Proceedings> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#Flyer> .
+<https://merged-ontology#IndustrialPaper> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#RegularPaper> .
+<https://merged-ontology#hasReview> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#Review> .
+<https://merged-ontology#scientificallyOrganises> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#WebSite> <http://www.w3.org/2000/01/rdf-schema#label> "Website"@de .
+<https://merged-ontology#isPartOfTheConferenceSeries> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#SectionsOfTheConference> .
+<https://merged-ontology#TheOrganizingCommitteeOfTheConferenceIs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://merged-ontology#Organization> <http://www.w3.org/2000/01/rdf-schema#label> "Organization"@en .
+<https://merged-ontology#topicCoveredBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#0fb562adb4156129ead94f6e47841ff4> .
+<https://merged-ontology#aAssignedToReviewerPreferenceHas> <http://www.w3.org/2000/01/rdf-schema#label> "Hat eine zugewiesene gutachterpräferenz"@de .
+<https://merged-ontology#PublisherOfTheConferenceProgress> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#ConferenceProceedings> .
+<https://merged-ontology#invitesMitgutachter> <http://www.w3.org/2000/01/rdf-schema#label> "Lädt mitgutachter ein"@de .
+<https://merged-ontology#Student> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#programCommitteeOfTheConference> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#ProgramCommitteeOfTheConferenceIs> .
+<https://merged-ontology#RejectedContribution> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#Peer-reviewedContribution> .
+<https://merged-ontology#Paper> <http://www.w3.org/2000/01/rdf-schema#label> "Paper"@en .
+<https://merged-ontology#isAnImportantDateForAConferenceSeries> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#ImportantDate> .
+<https://merged-ontology#Publisher> <http://www.w3.org/2000/01/rdf-schema#label> "Herausgeber"@de .
+<https://merged-ontology#SocialEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#Event> .
+<https://merged-ontology#ContributedTalk> <http://www.w3.org/2000/01/rdf-schema#label> "Beigetragen zu sprechen"@de .
+<https://merged-ontology#hasName> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://merged-ontology#hasReviewer> <http://www.w3.org/2000/01/rdf-schema#label> "Has reviewer"@en .
+<https://merged-ontology#DemoSession> <http://www.w3.org/2000/01/rdf-schema#label> "Demo session"@en .
+<https://merged-ontology#WebSite> <http://www.w3.org/2002/07/owl#disjointWith> <Review> .
+<https://merged-ontology#isAPreferredTopicOfAnAssessor> <http://www.w3.org/2000/01/rdf-schema#label> "Is a preferred topic of an assessor"@en .
+<https://merged-ontology#Review> <http://www.w3.org/2000/01/rdf-schema#label> "Gutachten"@de .
+<https://merged-ontology#partOf> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#hasPart> .
+<https://merged-ontology#PreferenceOfTheEvaluator> <http://www.w3.org/2000/01/rdf-schema#label> "Preference of the evaluator"@en .
+<https://merged-ontology#WrittenContribution> <http://www.w3.org/2000/01/rdf-schema#label> "Geschriebener beitrag"@de .
+<https://merged-ontology#presentedBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#ActiveParticipantsInTheConference> .
+<https://merged-ontology#invitesMitgutachter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#ConferenceSession> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <14aa79fdc868cbb563ef4aff45105736> .
+<https://merged-ontology#Document> <http://www.w3.org/2000/01/rdf-schema#label> "Dokument"@de .
+<https://merged-ontology#Paper> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#Flyer> .
+<https://merged-ontology#Organization> <http://www.w3.org/2000/01/rdf-schema#label> "Organisation"@de .
+<https://merged-ontology#OcChair> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#OcMember> .
+<https://merged-ontology#Print-readyContribution> <http://www.w3.org/2000/01/rdf-schema#label> "Print-ready contribution"@en .
+<https://merged-ontology#DateOfSubmissionOfTheCompleteContributionIs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://merged-ontology#invitedReviewer> <http://www.w3.org/2000/01/rdf-schema#label> "Eingeladen von gutachter"@de .
+<https://merged-ontology#hasTheTopicOrPostSubmitted> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#PreferenceOfTheEvaluator> .
+<https://merged-ontology#coversTopic> <http://www.w3.org/2000/01/rdf-schema#domain> <2e767d5d31d477bf380a99809e411720> .
+<https://merged-ontology#AcceptedPaper> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <5f3c7918887a9e00322c7696ddef53d0> .
+<https://merged-ontology#PositiveReview> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <Review> .
+<https://merged-ontology#Session> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <3c87f616908ad5949e63846dec18c530> .
+<https://merged-ontology#scientificallyOrganises> <http://www.w3.org/2000/01/rdf-schema#label> "Wissenschaftlich organisiert"@de .
+<https://merged-ontology#Flyer> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#ProgrammeBrochure> .
+<https://merged-ontology#coversTopic> <http://www.w3.org/2000/01/rdf-schema#label> "Duckt thema"@de .
+<https://merged-ontology#holdsPresentation> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#presentedBy> .
+<https://merged-ontology#AcademicInstitution> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <Organization> .
+<https://merged-ontology#CommitteeOfTheConferenceIs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#ContributedTalk> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#Session> .
+<https://merged-ontology#ConferenceParticipant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#PreferenceOfTheEvaluator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#Flyer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#isSubmittedFor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#ConferenceDocument> <http://www.w3.org/2000/01/rdf-schema#label> "Koferenzdokument"@de .
+<https://merged-ontology#RegularPaper> <http://www.w3.org/2000/01/rdf-schema#label> "Regular paper"@en .
+<https://merged-ontology#PassiveConferenceParticipants> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#ActiveParticipantsInTheConference> .
+<https://merged-ontology#updatedVersionOf> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#Document> .
+<https://merged-ontology#CommitteeOfTheConferenceIs> <http://www.w3.org/2000/01/rdf-schema#label> "Ausschuss der konferenz ist"@de .
+<https://merged-ontology#Session> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#ScientificEvent> .
+<https://merged-ontology#InvitedTalk> <http://www.w3.org/2000/01/rdf-schema#label> "Invited talk"@en .
+<https://merged-ontology#providesConferenceContribution> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#ConferenceDocument> .
+<https://merged-ontology#SectionsOfTheConference> <http://www.w3.org/2000/01/rdf-schema#label> "Sections of the conference"@en .
+<https://merged-ontology#assessedContribution> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://merged-ontology#ConferenceContribution> <http://www.w3.org/2000/01/rdf-schema#label> "Konferenzbeitrag"@de .
+<https://merged-ontology#ProgramCommitteeOfTheConferenceIs> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://merged-ontology#CommitteeOfTheConferenceIs> .
+<https://merged-ontology#hasTheTopicOrPostSubmitted> <http://www.w3.org/2000/01/rdf-schema#label> "Has the topic or post submitted"@en .
+<https://merged-ontology#heldIn> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#locationOf> .
+<https://merged-ontology#ConferenceContribution> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#ExtendedSummary> .
+<https://merged-ontology#scientificallyOrganises> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://merged-ontology#organises> .
+<https://merged-ontology#ExtendedSummary> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#RegularContribution> .
+<https://merged-ontology#ConferenceParticipant> <http://www.w3.org/2000/01/rdf-schema#label> "Konferenzteilnehmer"@de .
+<https://merged-ontology#EarlyRegisteredParticipant> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <Conference_Participant> .
+<https://merged-ontology#PosterSession> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#Session> .
+<https://merged-ontology#TheSteeringCommitteeOfTheConferenceIs> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#SteeringCommittee> .
+<https://merged-ontology#RegularContribution> <equivalentClass> <ebe747d73117e985a010fd516b68d0c1> .
+<https://merged-ontology#Presentation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#ConferenceParticipation> .
+<https://merged-ontology#ConferenceAnnouncement> <http://www.w3.org/2000/01/rdf-schema#label> "Conference announcement"@en .
+<https://merged-ontology#CameraReadyPaper> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#Paper> .
+<https://merged-ontology#Document> <http://www.w3.org/2002/07/owl#disjointWith> <Person> .
+<https://merged-ontology#AssignedPaper> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <0984cf95bbe64e7c0ba5118551910165> .
+<https://merged-ontology#ConferenceDocument> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#AreaOfExpertiseOfTheEvaluator> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <7ec8f7b9571a6c4d72924151781e9b1b> .
+<https://merged-ontology#ScMember> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#PcMember> .
+<https://merged-ontology#Paper> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#Proceedings> <http://www.w3.org/2000/01/rdf-schema#label> "Proceedings"@en .
+<https://merged-ontology#TutorialAbstract> <http://www.w3.org/2000/01/rdf-schema#label> "Tutorial abstrakte"@de .
+<https://merged-ontology#paperInVolume> <http://www.w3.org/2000/01/rdf-schema#label> "Papier im volumen"@de .
+<https://merged-ontology#technicallyOrganises> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#organizationCommitteeOfTheConference> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> .
+<https://merged-ontology#InvitedSpeaker> <equivalentClass> <9e1e01313ae2d74b5377cbdf4ba523d1> .
+<https://merged-ontology#hasTheTopicOrPostSubmitted> <http://www.w3.org/2000/01/rdf-schema#label> "Hat thema oder beitrag eingereicht"@de .
+<https://merged-ontology#Track> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#Track> <http://www.w3.org/2002/07/owl#disjointWith> <Tutorial> .
+<https://merged-ontology#writtenBy> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#authorOf> .
+<https://merged-ontology#WorkshopChair> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#Person> .
+<https://merged-ontology#paperInVolume> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#Flyer> <http://www.w3.org/2002/07/owl#disjointWith> <Review> .
+<https://merged-ontology#ConferenceDocument> <http://www.w3.org/2000/01/rdf-schema#label> "Conference document"@en .
+<https://merged-ontology#Print-readyContribution> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#isTheHeadOfTheWorkshops> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#SectionsOfTheConference> .
+<https://merged-ontology#DegreeOfTheExpert'sPreference> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://merged-ontology#ImportantDate> <http://www.w3.org/2000/01/rdf-schema#label> "Wichtiges datum"@de .
+<https://merged-ontology#isTheDeputyChairmanOfTheCommittee> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#Committee> .
+<https://merged-ontology#WebSite> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#MultiAuthorVolume> .
+<https://merged-ontology#WebSite> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#Flyer> .
+<https://merged-ontology#Proceedings> <http://www.w3.org/2002/07/owl#disjointWith> <Review> .
+<https://merged-ontology#Review> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#URLOfTheConferenceIs> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://merged-ontology#InvitedTalk> <http://www.w3.org/2000/01/rdf-schema#label> "Eingeladener vortrag"@de .
+<https://merged-ontology#technicallyOrganisedBy> <http://www.w3.org/2000/01/rdf-schema#label> "Technisch organisiert"@de .
+<https://merged-ontology#SectionsOfTheConference> <http://www.w3.org/2000/01/rdf-schema#label> "Abschnitte der konferenz"@de .
+<https://merged-ontology#coversTopic> <http://www.w3.org/2000/01/rdf-schema#label> "Covers topic"@en .
+<https://merged-ontology#EvaluatedPaper> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <5fba8e90a391382d270267125ca3d6b2> .
+<https://merged-ontology#isPartOfTheConferenceSeries> <http://www.w3.org/2000/01/rdf-schema#label> "Is part of the conference series"@en .
+<https://merged-ontology#hasReviewer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#ConferenceApplicantHasPaidEarly> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#ConferenceApplicantHasPaidLate> .
+<https://merged-ontology#DateOfSubmissionOfTheSummaries> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://merged-ontology#ActiveParticipantsInTheConference> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#ConferenceParticipantContributionHas> .
+<https://merged-ontology#isAMemberOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#Paper> <http://www.w3.org/2000/01/rdf-schema#label> "Papier"@de .
+<https://merged-ontology#ProgrammeBrochure> <http://www.w3.org/2000/01/rdf-schema#label> "Programme brochure"@en .
+<https://merged-ontology#ISBNProgress> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://merged-ontology#hasSummary> <http://www.w3.org/2000/01/rdf-schema#label> "Hat zusammenfassung"@de .
+<https://merged-ontology#isAnImportantDateForAConferenceSeries> <http://www.w3.org/2000/01/rdf-schema#label> "Ist ein wichtiges datum einer konferenzreihe"@de .
+<https://merged-ontology#contributionSubmittedHas> <http://www.w3.org/2000/01/rdf-schema#label> "Contribution submitted has "@en .
+<https://merged-ontology#WebSite> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#AreaOfExpertiseOfTheEvaluator> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <c3f54f2642626aa4a49cfe9d933c5b32> .
+<https://merged-ontology#ConferenceParticipation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#ConferenceDocument> .
+<https://merged-ontology#CommitteeOfTheConferenceIs> <http://www.w3.org/2000/01/rdf-schema#label> "Committee of the conference is"@en .
+<https://merged-ontology#PlaceOfTheConference> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#ConferenceSeries> .
+<https://merged-ontology#ChairmanOfTheCommittee> <http://www.w3.org/2000/01/rdf-schema#label> "Chairman of the committee"@en .
+<https://merged-ontology#aAssignedToReviewerPreferenceHas> <http://www.w3.org/2000/01/rdf-schema#domain> <7f729a978dc5e9801c864c495be86624> .
+<https://merged-ontology#isAPreferredTopicOrSubjectAreaOfAnAssessor> <http://www.w3.org/2000/01/rdf-schema#label> "Is a preferred topic or subject area of an assessor"@en .
+<https://merged-ontology#TheOrganizingCommitteeOfTheConferenceIs> <http://www.w3.org/2000/01/rdf-schema#label> "Organisationsausschuss der konferenz ist"@de .
+<https://merged-ontology#partOfEvent> <http://www.w3.org/2000/01/rdf-schema#label> "Teil der veranstaltung"@de .
+<https://merged-ontology#TheDateOfTheAcceptanceNoticeIs> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#ImportantDate> .
+<https://merged-ontology#isAPreferredTopicOfAnAssessor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#controlCommitteeOfTheConference> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#ConferenceSeries> .
+<https://merged-ontology#section> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#SectionsOfTheConference> .
+<https://merged-ontology#hasTheDeputyCommitteeChairman> <http://www.w3.org/2000/01/rdf-schema#label> "Has the deputy committee chairman"@en .
+<https://merged-ontology#ConferenceSeries> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#AgencyStaffMember> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <Person> .
+<https://merged-ontology#CameraReadyPaper> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <483f4f0de8bbcddf2f5e6d0d6771e83d> .
+<https://merged-ontology#hasSummary> <http://www.w3.org/2000/01/rdf-schema#label> "Has summary"@en .
+<https://merged-ontology#Paper> <http://www.w3.org/2002/07/owl#disjointWith> <Review> .
+<https://merged-ontology#WorkshopSession> <http://www.w3.org/2000/01/rdf-schema#label> "Workshop-sitzung"@de .
+<https://merged-ontology#TheExpirationOfTheConference> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#SectionsOfTheConference> .
+<https://merged-ontology#scientificallyOrganisedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://merged-ontology#organisedBy> .
+<https://merged-ontology#ProgrammeBrochure> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#ConferenceBanquet> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#SocialEvent> .
+<https://merged-ontology#PosterPaper> <http://www.w3.org/2000/01/rdf-schema#label> "Poster paper"@en .
+<https://merged-ontology#DegreeInTheSubjectAreaOfTheExpert> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://merged-ontology#hasReviewer> <http://www.w3.org/2000/01/rdf-schema#label> "Hat rezensent"@de .
+<https://merged-ontology#hasAFirstName> <http://www.w3.org/2000/01/rdf-schema#label> "Has a first name"@en .
+<https://merged-ontology#hasUpdatedVersion> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#hasTutorial> <http://www.w3.org/2000/01/rdf-schema#label> "Has tutorial"@en .
+<https://merged-ontology#CallForContributions> <http://www.w3.org/2000/01/rdf-schema#label> "Call for contributions"@en .
+<https://merged-ontology#invitedReviewer> <http://www.w3.org/2000/01/rdf-schema#label> "Invited reviewer"@en .
+<https://merged-ontology#technicallyOrganises> <http://www.w3.org/2000/01/rdf-schema#label> "Technically organises"@en .
+<https://merged-ontology#hasAFirstName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://merged-ontology#WrittenContribution> <http://www.w3.org/2000/01/rdf-schema#label> "Written contribution"@en .
+<https://merged-ontology#PosterPaper> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#RegularPaper> .
+<https://merged-ontology#ChairmanOfTheCommittee> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#Committee> .
+<https://merged-ontology#volumeContainsPaper> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#paperPresentedAs> <http://www.w3.org/2000/01/rdf-schema#label> "Paper presented as"@en .
+<https://merged-ontology#assessedContribution> <http://www.w3.org/2000/01/rdf-schema#label> "Begutachtet beitrag"@de .
+<https://merged-ontology#hasSex> <http://www.w3.org/2000/01/rdf-schema#label> "Has sex"@en .
+<https://merged-ontology#ProgrammeBrochure> <http://www.w3.org/2002/07/owl#disjointWith> <Review> .
+<https://merged-ontology#hasTheDeputyCommitteeChairman> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#IndustrialSession> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#ConferenceSession> .
+<https://merged-ontology#reviewOfPaper> <http://www.w3.org/2002/07/owl#inverseOf> <hasReview> .
+<https://merged-ontology#WrittenContribution> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#hasSummary> <http://www.w3.org/2000/01/rdf-schema#domain> <e378a5305b947db574b6319fb353fe8a> .
+<https://merged-ontology#Track> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#Session> .
+<https://merged-ontology#publisherOf> <http://www.w3.org/2000/01/rdf-schema#label> "Publisher of"@en .
+<https://merged-ontology#DateOfSubmissionOfTheCompleteContributionIs> <http://www.w3.org/2000/01/rdf-schema#label> "Date of submission of the complete contribution is"@en .
+<https://merged-ontology#PassiveConferenceParticipants> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#organisedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#dc6166cae043af623f20300e55357826> .
+<https://merged-ontology#DateOfSubmissionOfTheSummaries> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#ImportantDate> .
+<https://merged-ontology#LateRegisteredParticipant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#ImportantDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#reviewerOfPaper> <http://www.w3.org/2000/01/rdf-schema#label> "Reviewer of paper"@en .
+<https://merged-ontology#WorkshopPaper> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#Paper> .
+<https://merged-ontology#ConferenceProceedings> <http://www.w3.org/2000/01/rdf-schema#label> "Conference proceedings"@en .
+<https://merged-ontology#ConferenceApplicantHasPaidEarly> <http://www.w3.org/2000/01/rdf-schema#label> "Konferenzbewerber früh gezahlt hat"@de .
+<https://merged-ontology#TheOrganizingCommitteeOfTheConferenceIs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#Document> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#Organizer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#SubmittedPaper> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#Paper> .
+<https://merged-ontology#updatedVersionOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#ConferencePaper> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#RegularPaper> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#PosterPaper> .
+<https://merged-ontology#hasTutorial> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#Student> <http://www.w3.org/2000/01/rdf-schema#label> "Student"@en .
+<https://merged-ontology#section> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#isPartOfTheConferenceSeries> .
+<https://merged-ontology#WorkshopTheme> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#Topic> .
+<https://merged-ontology#PlaceOfTheConference> <http://www.w3.org/2000/01/rdf-schema#label> "Place of the conference"@en .
+<https://merged-ontology#isTheHeadOfTheWorkshops> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#Workshop-management> .
+<https://merged-ontology#hasLastName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://merged-ontology#Workshop> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#TheExpirationOfTheConference> .
+<https://merged-ontology#Tutorial> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#SectionsOfTheConference> .
+<https://merged-ontology#isTheEndDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
+<https://merged-ontology#InternetConference> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#ConferenceDocument> .
+<https://merged-ontology#ProgramCommitteeOfTheConferenceIs> <http://www.w3.org/2000/01/rdf-schema#label> "Programmausschuss der konferenz ist"@de .
+<https://merged-ontology#InvitedSpeaker> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#hasReview> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#assessedContribution> .
+<https://merged-ontology#holdsPresentation> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#Presentation> .
+<https://merged-ontology#ConferenceParticipantContributionHas> <http://www.w3.org/2000/01/rdf-schema#label> "Konferenzteilnehmer beitrag hat"@de .
+<https://merged-ontology#organizationCommitteeOfTheConference> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://merged-ontology#CommitteeOfTheConference> .
+<https://merged-ontology#AcceptedPaper> <http://www.w3.org/2000/01/rdf-schema#comment> "Accepted paper to become part of proceedings. \nNote that camera-ready paper is not considered as 'accepted paper', as it was accepted in a different form!^^http://www.w3.org/2001/XMLSchema#string"@en .
+<https://merged-ontology#TheOrganizingCommitteeOfTheConferenceIs> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://merged-ontology#CommitteeOfTheConferenceIs> .
+<https://merged-ontology#NeutralReview> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#PositiveReview> .
+<https://merged-ontology#isTheChairmanOfTheCommittee> <http://www.w3.org/2000/01/rdf-schema#label> "Is the chairman of the committee"@en .
+<https://merged-ontology#ActiveParticipantsInTheConference> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <01a340b2721d275883fdea3aa63d9785> .
+<https://merged-ontology#PublisherOfTheConferenceProgress> <http://www.w3.org/2000/01/rdf-schema#label> "Publisher of the conference progress"@en .
+<https://merged-ontology#ChairmanOfTheCommittee> <http://www.w3.org/2000/01/rdf-schema#label> "Hat ausschussvorsitzender"@de .
+<https://merged-ontology#RegularPaper> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#DemoPaper> .
+<https://merged-ontology#SteeringCommittee> <http://www.w3.org/2000/01/rdf-schema#label> "Steering committee"@en .
+<https://merged-ontology#hasAFirstName> <http://www.w3.org/2000/01/rdf-schema#label> "Hat vornamen"@de .
+<https://merged-ontology#members> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#isAMemberOf> .
+<https://merged-ontology#isTheChairmanOfTheCommittee> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> .
+<https://merged-ontology#ProgramCommitteeOfTheConferenceIs> <http://www.w3.org/2000/01/rdf-schema#label> "Program committee of the conference is"@en .
+<https://merged-ontology#NeutralReview> <http://www.w3.org/2000/01/rdf-schema#label> "Neutral review"@en .
+<https://merged-ontology#hasSequence> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#hasSex> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#Person> .
+<https://merged-ontology#Publisher> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#DateOfSubmissionOfTheCompleteContributionIs> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#ImportantDate> .
+<https://merged-ontology#AnyContribution> <http://www.w3.org/2000/01/rdf-schema#label> "Any contribution"@en .
+<https://merged-ontology#isAMemberOf> <http://www.w3.org/2000/01/rdf-schema#label> "Ist mitglied von"@de .
+<https://merged-ontology#paperPresentedAs> <http://www.w3.org/2000/01/rdf-schema#label> "Paper präsentiert als"@de .
+<https://merged-ontology#technicallyOrganisedBy> <http://www.w3.org/2000/01/rdf-schema#label> "Technically organised by"@en .
+<https://merged-ontology#PosterPaper> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#IndustrialPaper> .
+<https://merged-ontology#DegreeInTheSubjectAreaOfTheExpert> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://merged-ontology#Workshop> <http://www.w3.org/2000/01/rdf-schema#label> "Workshop"@en .
+<https://merged-ontology#RegularContribution> <http://www.w3.org/2000/01/rdf-schema#label> "Regular contribution"@en .
+<https://merged-ontology#partOfEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#TransitiveProperty> .
+<https://merged-ontology#Workshop> <http://www.w3.org/2000/01/rdf-schema#label> "Workshop"@de .
+<https://merged-ontology#RegularSession> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#Session> .
+<https://merged-ontology#Student> <http://www.w3.org/2000/01/rdf-schema#label> "Student"@de .
+<https://merged-ontology#Track> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#ContributedTalk> .
+<https://merged-ontology#Workshop> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#ChairmanOfTheCommittee> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://merged-ontology#DemoSession> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#RegularSession> .
+<https://merged-ontology#ChairmanOfTheCommittee> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#DegreeInTheSubjectAreaOfTheExpert> <http://www.w3.org/2000/01/rdf-schema#label> "Grad des fachgebiets des gutachters ist"@de .
+<https://merged-ontology#Organization> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#Peer-reviewedContribution> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#AnyContribution> .
+<https://merged-ontology#InformationForParticipants> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#ConferenceDocument> .
+<https://merged-ontology#Flyer> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#WebSite> .
+<https://merged-ontology#Paper> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#MultiAuthorVolume> .
+<https://merged-ontology#RegularPaper> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#technicallyOrganises> <http://www.w3.org/2000/01/rdf-schema#label> "Technisch organisiert"@de .
+<https://merged-ontology#ProgramCommittee> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#Committee> .
+<https://merged-ontology#technicallyOrganisedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#eventOnList> <http://www.w3.org/2000/01/rdf-schema#label> "Event on list"@en .
+<https://merged-ontology#hasTheDeputyCommitteeChairman> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://merged-ontology#members> .
+<https://merged-ontology#Proceedings> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#WebSite> .
+<https://merged-ontology#WorkshopSession> <http://www.w3.org/2000/01/rdf-schema#label> "Workshop session"@en .
+<https://merged-ontology#hasUpdatedVersion> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#Document> .
+<https://merged-ontology#hasEvent> <http://www.w3.org/2000/01/rdf-schema#label> "Has event"@en .
+<https://merged-ontology#Presenter> <http://www.w3.org/2000/01/rdf-schema#label> "Presenter"@en .
+<https://merged-ontology#TheOrganizingCommitteeOfTheConferenceIs> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#ConferenceSeries> .
+<https://merged-ontology#PublisherOfTheConferenceProgress> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://merged-ontology#ConferenceApplicantHasPaidEarly> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#Track> <http://www.w3.org/2002/07/owl#disjointWith> <Workshop> .
+<https://merged-ontology#isTheChairmanOfTheCommittee> <http://www.w3.org/2000/01/rdf-schema#label> "Ist vorsitzender des ausschusses"@de .
+<https://merged-ontology#OrganizationCommittee> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#Committee> .
+<https://merged-ontology#DateOfSubmissionOfTheCompleteContributionIs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://merged-ontology#TutorialChair> <http://www.w3.org/2000/01/rdf-schema#label> "Tutorial chair"@en .
+<https://merged-ontology#SteeringCommittee> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#RegularContribution> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#InvitedTalk> .
+<https://merged-ontology#WebSite> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#Paper> .
+<https://merged-ontology#isSubmittedFor> <http://www.w3.org/2000/01/rdf-schema#label> "Ist eingereicht für"@de .
+<https://merged-ontology#hasSequence> <http://www.w3.org/2000/01/rdf-schema#label> "Hat abfolge"@de .
+<https://merged-ontology#IndustrialPaper> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#PosterPaper> .
+<https://merged-ontology#presentationOfPaper> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#IndividualPresentation> .
+<https://merged-ontology#ProgrammeBrochure> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#Paper> .
+<https://merged-ontology#presentationOfPaper> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#hasTutorial> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#ConferenceSeries> .
+<https://merged-ontology#hasSequence> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://merged-ontology#section> .
+<https://merged-ontology#IndustrialPaper> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#WorkshopPaper> .
+<https://merged-ontology#Notice> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#isTheStartDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
+<https://merged-ontology#ResearchInstitute> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#AcademicInstitution> .
+<https://merged-ontology#IndividualPresentation> <http://www.w3.org/2000/01/rdf-schema#label> "Die individuelle präsentation"@de .
+<https://merged-ontology#aAssignedToReviewerPreferenceHas> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#isTheChairmanOfTheCommittee> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://merged-ontology#isAMemberOf> .
+<https://merged-ontology#PublisherOfTheConferenceProgress> <http://www.w3.org/2000/01/rdf-schema#label> "Verleger des konferenzfortschritts ist"@de .
+<https://merged-ontology#hasTutorial> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://merged-ontology#section> .
+<https://merged-ontology#locationOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#hasSex> <http://www.w3.org/2000/01/rdf-schema#label> "Hat geschlecht"@de .
+<https://merged-ontology#PreferenceOfTheEvaluator> <http://www.w3.org/2000/01/rdf-schema#label> "Präferenz des gutachters"@de .
+<https://merged-ontology#publisherOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#theFirstPartOf> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#c18ca92625881efc55bfa950b70d05fa> .
+<https://merged-ontology#PassiveConferenceParticipants> <http://www.w3.org/2000/01/rdf-schema#label> "Passiver konferenzteilnehmer"@de .
+<https://merged-ontology#DegreeInTheSubjectAreaOfTheExpert> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#AreaOfExpertiseOfTheEvaluator> .
+<https://merged-ontology#AnyContribution> <http://www.w3.org/2000/01/rdf-schema#label> "Eingereichter beitrag"@de .
+<https://merged-ontology#IndustrialPaper> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#DemoPaper> .
+<https://merged-ontology#hasTutorial> <http://www.w3.org/2000/01/rdf-schema#label> "Hat tutorium"@de .
+<https://merged-ontology#AcceptedPaper> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#EvaluatedPaper> .
+<https://merged-ontology#locationOf> <http://www.w3.org/2000/01/rdf-schema#label> "Lage des"@de .
+<https://merged-ontology#Notice> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#RegularContribution> .
+<https://merged-ontology#aAssignedToReviewerPreferenceHas> <http://www.w3.org/2000/01/rdf-schema#label> "A assigned to reviewer preference has "@en .
+<https://merged-ontology#isAPreferredTopicOrSubjectAreaOfAnAssessor> <http://www.w3.org/2000/01/rdf-schema#label> "Ist ein präferiertes thema oder fachgebiet eines gutachters"@de .
+<https://merged-ontology#topicCoveredBy> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#coversTopic> .
+<https://merged-ontology#DemoChair> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <Conference_Participant> .
+<https://merged-ontology#hasLastName> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#Person> .
+<https://merged-ontology#NegativeReview> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <Review> .
+<https://merged-ontology#ConferencePaper> <http://www.w3.org/2000/01/rdf-schema#label> "Konferenz papier"@de .
+<https://merged-ontology#MultiAuthorVolume> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#Document> .
+<https://merged-ontology#Presenter> <http://www.w3.org/2000/01/rdf-schema#label> "Moderator"@de .
+<https://merged-ontology#InvitedTalkAbstract> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <Abstract> .
+<https://merged-ontology#organisedBy> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#organises> .
+<https://merged-ontology#AnyContribution> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#DemoSession> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#PosterSession> .
+<https://merged-ontology#PublisherOfTheConferenceProgress> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#scientificallyOrganisedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#LateRegisteredParticipant> <http://www.w3.org/2000/01/rdf-schema#label> "Zu spät angemeldete teilnehmer"@de .
+<https://merged-ontology#University> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#AcademicInstitution> .
+<https://merged-ontology#invitedReviewer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#MembersOfTheCommittee> <http://www.w3.org/2000/01/rdf-schema#label> "Members of the committee"@en .
+<https://merged-ontology#TheDateOfTheAcceptanceNoticeIs> <http://www.w3.org/2000/01/rdf-schema#label> "The date of the acceptance notice is"@en .
+<https://merged-ontology#scientificallyOrganises> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#AcademicInstitution> .
+<https://merged-ontology#Session> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <d6af71bb4c3ee74f99a8fcf32b7a71bf> .
+<https://merged-ontology#Co-authorOfAContribution> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#AuthorARegularContribution> .
+<https://merged-ontology#partOfEvent> <http://www.w3.org/2000/01/rdf-schema#label> "Part of event"@en .
+<https://merged-ontology#expertOpinionHas> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#AreaOfExpertiseOfTheEvaluator> .
+<https://merged-ontology#Track> <http://www.w3.org/2002/07/owl#disjointWith> <Invited_Talk> .
+<https://merged-ontology#AssignedPaper> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#SubmittedPaper> .
+<https://merged-ontology#Flyer> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#MultiAuthorVolume> .
+<https://merged-ontology#ConferenceApplicantHasPaid> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#contributionSubmittedHas> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#AreaOfExpertiseOfTheEvaluator> .
+<https://merged-ontology#organizationCommitteeOfTheConference> <http://www.w3.org/2000/01/rdf-schema#label> "Ist organisationsausschuss der konferenz"@de .
+<https://merged-ontology#ConferenceContribution> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#TheDateOfTheAcceptanceNoticeIs> <http://www.w3.org/2000/01/rdf-schema#label> "Datum der akzeptanz-mitteilung ist"@de .
+<https://merged-ontology#Reviewers> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#Person> .
+<https://merged-ontology#ConferenceSeries> <http://www.w3.org/2000/01/rdf-schema#label> "Konferenzreihe"@de .
+<https://merged-ontology#ImportantDate> <http://www.w3.org/2000/01/rdf-schema#label> "Important date"@en .
+<https://merged-ontology#assessedContribution> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#hasContribution> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#ConferenceParticipation> .
+<https://merged-ontology#OrganisingAgency> <http://www.w3.org/2000/01/rdf-schema#label> "Organising agency"@en .
+<https://merged-ontology#hasSequence> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#ConferenceSeries> .
+<https://merged-ontology#providesConferenceContribution> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#hasAuthor> .
+<https://merged-ontology#ISBNProgress> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://merged-ontology#ISBNProgress> <http://www.w3.org/2000/01/rdf-schema#label> "Isbn progress"@en .
+<https://merged-ontology#TutorialAbstract> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#Topic> <http://www.w3.org/2000/01/rdf-schema#label> "Thema"@de .
+<https://merged-ontology#PlaceOfTheConference> <http://www.w3.org/2000/01/rdf-schema#label> "Ort der konferenz"@de .
+<https://merged-ontology#ConferenceApplicants> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#Person> .
+<https://merged-ontology#DateOfSubmissionOfTheSummaries> <http://www.w3.org/2000/01/rdf-schema#label> "Datum der einreichung des zusammenfassungen"@de .
+<https://merged-ontology#hasWorkshop> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#Workshop> .
+<https://merged-ontology#hasLastName> <http://www.w3.org/2000/01/rdf-schema#label> "Hat nachnamen"@de .
+<https://merged-ontology#hasUpdatedVersion> <http://www.w3.org/2000/01/rdf-schema#label> "Has updated version"@en .
+<https://merged-ontology#scientificallyOrganisedBy> <http://www.w3.org/2000/01/rdf-schema#label> "Wissenschaftlich organisiert"@de .
+<https://merged-ontology#PassiveConferenceParticipants> <http://www.w3.org/2000/01/rdf-schema#label> "Passive conference participants"@en .
+<https://merged-ontology#reviewerOfPaper> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#ConferenceAnnouncement> <http://www.w3.org/2000/01/rdf-schema#label> "Konferenzankündigung"@de .
+<https://merged-ontology#NeutralReview> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#NegativeReview> .
+<https://merged-ontology#invitedReviewer> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#Reviewers> .
+<https://merged-ontology#scientificallyOrganises> <http://www.w3.org/2000/01/rdf-schema#label> "Scientifically organises"@en .
+<https://merged-ontology#scientificallyOrganisedBy> <http://www.w3.org/2000/01/rdf-schema#label> "Scientifically organised by"@en .
+<https://merged-ontology#TutorialChair> <http://www.w3.org/2000/01/rdf-schema#label> "Tutorial stuhl"@de .
+<https://merged-ontology#Flyer> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#Proceedings> .
+<https://merged-ontology#AnnotationProperty> <http://www.w3.org/2000/01/rdf-schema#label> "Annotation property"@en .
+<https://merged-ontology#ConferencePaper> <http://www.w3.org/2000/01/rdf-schema#label> "Conference paper"@en .
+<https://merged-ontology#ProgramCommitteeOfTheConferenceIs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://merged-ontology#isAPreferredTopicOrSubjectAreaOfAnAssessor> <http://www.w3.org/2000/01/rdf-schema#domain> <679ca8c699a73954959805392cdc2251> .
+<https://merged-ontology#SessionChair> <http://www.w3.org/2000/01/rdf-schema#label> "Session chair"@en .
+<https://merged-ontology#PaperAuthor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#updatedVersionOf> <http://www.w3.org/2000/01/rdf-schema#label> "Updated version of"@en .
+<https://merged-ontology#SessionChair> <http://www.w3.org/2000/01/rdf-schema#label> "Session chair"@de .
+<https://merged-ontology#hasEvent> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#Event> .
+<https://merged-ontology#hasImportantDate> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#ImportantDate> .
+<https://merged-ontology#Topic> <http://www.w3.org/2000/01/rdf-schema#label> "Topic"@en .
+<https://merged-ontology#WorkshopSession> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#ConferenceSession> .
+<https://merged-ontology#coversTopic> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#ConferenceApplicantHasPaid> <http://www.w3.org/2000/01/rdf-schema#label> "Conference applicant has paid"@en .
+<https://merged-ontology#listsEvent> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#eventOnList> .
+<https://merged-ontology#locationOf> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#Location> .
+<https://merged-ontology#ResearchTopic> <http://www.w3.org/2000/01/rdf-schema#label> "Research topic"@en .
+<https://merged-ontology#technicallyOrganises> <http://www.w3.org/2000/01/rdf-schema#domain> <Organization> .
+<https://merged-ontology#listsEvent> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#Event> .
+<https://merged-ontology#contributionSubmittedHas> <http://www.w3.org/2000/01/rdf-schema#label> "Hat beitrag eingreicht"@de .
+<https://merged-ontology#ProgrammeBrochure> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#WebSite> .
+<https://merged-ontology#published> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#ConferenceProceedings> .
+<https://merged-ontology#ScientificEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#Event> .
+<https://merged-ontology#partOfEvent> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#Event> .
+<https://merged-ontology#locationOf> <http://www.w3.org/2000/01/rdf-schema#label> "Location of"@en .
+<https://merged-ontology#Flyer> <http://www.w3.org/2000/01/rdf-schema#label> "Flyer"@en .
+<https://merged-ontology#Flyer> <http://www.w3.org/2000/01/rdf-schema#label> "Flyer"@de .
+<https://merged-ontology#isAnImportantDateForAConferenceSeries> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> .
+<https://merged-ontology#isTheChairmanOfTheCommittee> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#Chairman> .
+<https://merged-ontology#Session> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <7805ab71c05b40bea4492f573d08bd97> .
+<https://merged-ontology#EvaluatedPaper> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#AssignedPaper> .
+<https://merged-ontology#RegularContribution> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#Proceedings> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#ProgrammeBrochure> .
+<https://merged-ontology#publisherOf> <http://www.w3.org/2000/01/rdf-schema#label> "Herausgeber"@de .
+<https://merged-ontology#PosterPaper> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#hasTheTopicOrPostSubmitted> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#PosterPaper> <http://www.w3.org/2000/01/rdf-schema#label> "Poster-papier"@de .
+<https://merged-ontology#ProgramCommitteeOfTheConferenceIs> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#ConferenceSeries> .
+<https://merged-ontology#references> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#Print-readyContribution> <http://www.w3.org/2000/01/rdf-schema#label> "Druckfertiger beitrag"@de .
+<https://merged-ontology#hasUpdatedVersion> <http://www.w3.org/2000/01/rdf-schema#label> "Hat die aktualisierte version"@de .
+<https://merged-ontology#ResearchTopic> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#presentationOfPaper> <http://www.w3.org/2000/01/rdf-schema#label> "Presentation of paper"@en .
+<https://merged-ontology#PaperAuthor> <http://www.w3.org/2000/01/rdf-schema#label> "Papier autor"@de .
+<https://merged-ontology#hasReviewer> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#Paper> .
+<https://merged-ontology#SessionChair> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#hasAuthor> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#Person> .
+<https://merged-ontology#referencedIn> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#references> .
+<https://merged-ontology#SteeringCommittee> <http://www.w3.org/2000/01/rdf-schema#label> "Steuerungsausschuss"@de .
+<https://merged-ontology#ProgrammeBrochure> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#MultiAuthorVolume> .
+<https://merged-ontology#hasAFirstName> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#Person> .
+<https://merged-ontology#AuthorARegularContribution> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#ConferenceParticipantContributionHas> .
+<https://merged-ontology#hasTheTopicOrPostSubmitted> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://merged-ontology#isPartOfTheConferenceSeries> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#RegularPaper> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#IndustrialPaper> .
+<https://merged-ontology#ConferenceParticipantContributionHas> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#ContributedTalk> <http://www.w3.org/2002/07/owl#disjointWith> <Tutorial> .
+<https://merged-ontology#ConferenceSession> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#Session> .
+<https://merged-ontology#invitesMitgutachter> <http://www.w3.org/2000/01/rdf-schema#label> "Invites mitgutachter"@en .
+<https://merged-ontology#TheOrganizingCommitteeOfTheConferenceIs> <http://www.w3.org/2000/01/rdf-schema#label> "The organizing committee of the conference is"@en .
+<https://merged-ontology#organizationCommitteeOfTheConference> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#paperPresentedAs> <http://www.w3.org/2000/01/rdf-schema#domain> <0339d400ba65e92a1382463c4a274e12> .
+<https://merged-ontology#paperPresentedAs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#PcChair> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <Conference_Participant> .
+<https://merged-ontology#eventOnList> <http://www.w3.org/2000/01/rdf-schema#label> "Event-on-liste"@de .
+<https://merged-ontology#hasLastName> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://merged-ontology#InvitedSpeaker> <http://www.w3.org/2000/01/rdf-schema#label> "Invited speaker"@en .
+<https://merged-ontology#AnnotationProperty> <http://www.w3.org/2000/01/rdf-schema#label> "Annotationproperty"@de .
+<https://merged-ontology#TheDateOfTheAcceptanceNoticeIs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://merged-ontology#partOfEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://merged-ontology#ConferenceProceedings> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#DegreeInTheSubjectAreaOfTheExpert> <http://www.w3.org/2000/01/rdf-schema#label> "Degree in the subject area of the expert"@en .
+<https://merged-ontology#E-mailAddress> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://merged-ontology#ProgrammeBrochure> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#Flyer> .
+<https://merged-ontology#ConferenceSeries> <http://www.w3.org/2000/01/rdf-schema#label> "Conference series"@en .
+<https://merged-ontology#isAPreferredTopicOfAnAssessor> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#Topic> .
+<https://merged-ontology#isAMemberOf> <http://www.w3.org/2000/01/rdf-schema#label> "Is a member of"@en .
+<https://merged-ontology#Organizer> <http://www.w3.org/2000/01/rdf-schema#label> "Organizer"@en .
+<https://merged-ontology#IndividualPresentation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#Proceedings> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#Paper> .
+<https://merged-ontology#assessedContribution> <http://www.w3.org/2000/01/rdf-schema#domain> <https://merged-ontology#Review> .
+<https://merged-ontology#hasImportantDate> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#isAnImportantDateForAConferenceSeries> .
+<https://merged-ontology#ConferenceTrip> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#SocialEvent> .
+<https://merged-ontology#hasSex> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://merged-ontology#isAPreferredTopicOfAnAssessor> <http://www.w3.org/2000/01/rdf-schema#label> "Ist ein präferiertes thema eines gutachters"@de .
+<https://merged-ontology#CommitteeOfTheConference> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#ConferenceSeries> .
+<https://merged-ontology#MembersOfTheCommittee> <http://www.w3.org/2000/01/rdf-schema#label> "Angehörige des ausschusses"@de .
+<https://merged-ontology#authorOf> <http://www.w3.org/2002/07/owl#inverseOf> <https://merged-ontology#writtenBy> .
+<https://merged-ontology#ConferenceParticipant> <http://www.w3.org/2000/01/rdf-schema#label> "Conference participant"@en .
+<https://merged-ontology#OcMember> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <Conference_Participant> .
+<https://merged-ontology#isAPreferredTopicOfAnAssessor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#InverseFunctionalProperty> .
+<https://merged-ontology#ConferenceApplicantHasPaid> <equivalentClass> <4ae4e1b9c7bc86409118aed7f3233f55> .
+<https://merged-ontology#Track> <http://www.w3.org/2002/07/owl#disjointWith> <Conference> .
+<https://merged-ontology#CallForContributions> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#Presenter> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#Abstract> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://merged-ontology#ExtendedSummary> .
+<https://merged-ontology#ConferenceAnnouncement> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#hasSex> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<https://merged-ontology#programCommitteeOfTheConference> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#ConferenceSeries> .
+<https://merged-ontology#DegreeOfTheExpert'sPreference> <http://www.w3.org/2000/01/rdf-schema#label> "Degree of the expert's preference"@en .
+<https://merged-ontology#ContributedTalk> <http://www.w3.org/2002/07/owl#disjointWith> <Conference> .
+<https://merged-ontology#hasTheDeputyCommitteeChairman> <http://www.w3.org/2000/01/rdf-schema#label> "Hat stellvertrenden ausschussvorsitzender"@de .
+<https://merged-ontology#reviewOfPaper> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#Paper> .
+<https://merged-ontology#Workshop-management> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#WorkshopChair> .
+<https://merged-ontology#IndividualPresentation> <http://www.w3.org/2000/01/rdf-schema#label> "Individual presentation"@en .
+<https://merged-ontology#authorOf> <http://www.w3.org/2000/01/rdf-schema#range> <https://merged-ontology#Document> .
+<https://merged-ontology#DemoSession> <http://www.w3.org/2000/01/rdf-schema#label> "Demo-session"@de .
+<https://merged-ontology#Conference> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://merged-ontology#PosterPaper> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#DemoPaper> .
+<https://merged-ontology#WebSite> <http://www.w3.org/2002/07/owl#disjointWith> <https://merged-ontology#Proceedings> .
+

@@ -29,23 +29,23 @@ class Merge(sparkSession1: SparkSession) {
     // Retrieve class and relation labels for input ontologies
     //    val O1Classes: RDD[(String, String)] = ontStat.retrieveClassesWithCodesAndLabels(O1triples) //applied for ontologies with codes like Multifarm ontologies
     val O1Classes: RDD[String] = ontStat.getAllClasses(O1triples).distinct(2) //applied for ontologies with codes like Multifarm ontologies
-    println("All classes in O1:")
+    println("====================================== All classes in O1 ======================================")
     O1Classes.foreach(println(_))
     val O1Labels: Map[Node, graph.Triple] = O1triples.filter(x => x.getPredicate.getLocalName == "label").keyBy(_.getSubject).collect().toMap
     val O1LabelsBroadcasting: Broadcast[Map[Node, graph.Triple]] = sparkSession1.sparkContext.broadcast(O1Labels)
     val O1Relations: RDD[String] = ontStat.getAllRelations(O1LabelsBroadcasting, O1triples).map(x => x._2)
-    println("All relations in O1")
+    println("====================================== All relations in O1 ======================================")
     O1Relations.foreach(println(_))
 
     val O2Classes: RDD[String] = ontStat.getAllClasses(O2triples).map(x => p.stringPreProcessing(x)).persist(StorageLevel.MEMORY_AND_DISK).distinct(2) //For SEO
     //    val O2Classes: RDD[(String)] = ontStat.retrieveClassesWithCodesAndLabels(O2triples).map(x=>x._2).persist(StorageLevel.MEMORY_AND_DISK) //For Cmt and Multifarm dataset
-    println("All classes in O2")
+    println("====================================== All classes in O2 ======================================")
     O2Classes.foreach(println(_))
     //      val O2Relations: RDD[(String)] = ontStat.getAllRelationsOld(O2triples).map(x => p.stringPreProcessing(x._1))
     val O2Labels: Map[Node, graph.Triple] = O2triples.filter(x => x.getPredicate.getLocalName == "label").keyBy(_.getSubject).collect().toMap
     val O2LabelsBroadcasting: Broadcast[Map[Node, graph.Triple]] = sparkSession1.sparkContext.broadcast(O2Labels)
     val O2Relations: RDD[(String)] = ontStat.getAllRelations(O2LabelsBroadcasting, O2triples).map(x => p.stringPreProcessing(x._1))
-    println("All relations in O2")
+    println("====================================== All relations in O2 ======================================")
     O2Relations.foreach(println(_))
 
     println("======================================")
@@ -59,7 +59,7 @@ class Merge(sparkSession1: SparkSession) {
 
     val O1ClassesWithTranslation: RDD[(String, String)] = sparkSession1.sparkContext.textFile("src/main/resources/OfflineDictionaries/"+O1Name+"/classesWithTranslation.txt").map(x => (x.split(",").apply(0), x.split(",").apply(1))) //    println("O1 classes with translation")
     //    O1ClassesWithTranslation.foreach(println(_))
-    println("Classes Similarity:")
+    println("====================================== Classes Similarity ======================================")
     val sim = new ClassSimilarity()
     val matchedClasses: RDD[(String, String, String, Double)] = sim.GetClassSimilarity(O1ClassesWithTranslation, O2Classes)
     matchedClasses.foreach(println(_))
@@ -68,7 +68,7 @@ class Merge(sparkSession1: SparkSession) {
 
     val O1RelationsWithTranslation: RDD[(String, String)] = sparkSession1.sparkContext.textFile("src/main/resources/OfflineDictionaries/"+O1Name+"/RelationsWithTranslation.txt").map(x => (x.split(",").apply(0), x.split(",").apply(1))) //        println("O1 relations with translation")
     //        O1RelationsWithTranslation.foreach(println(_))
-    println("Relations Similarity:")
+    println("====================================== Relations Similarity ======================================")
     val relSim = new RelationSimilarity()
     val matchedRelations: RDD[(String, String, String, Double)] = relSim.GetRelationSimilarity(O2Relations, O1RelationsWithTranslation)
     matchedRelations.foreach(println(_))
@@ -77,14 +77,9 @@ class Merge(sparkSession1: SparkSession) {
 
     val om = new MultilingualOntology(sparkSession1)
     val multilingualMergedOntology: RDD[graph.Triple] = om.GenerateMultilingualOntology(O1ClassesWithTranslation, matchedClasses, matchedRelations, O1RelationsWithTranslation, O1Ontology, O2Ontology, O2translated)
-//    println("==========================================================================")
-//    println("|         Quality Assessment for the merged ontology        |")
-//    println("==========================================================================")
-//
-//    val quality = new QualityAssessment(sparkSession1)
-//    println("Class coverage for merged ontology Om is " + quality.ClassCoverage(O1triples, O2triples, multilingualMergedOntology, matchedClasses.count().toInt))
-//    println("Property coverage for merged ontology Om is " + quality.PropertyCoverage(O1triples, O2triples, multilingualMergedOntology, matchedRelations.count().toInt))
-//    println("Compactness for merged ontology Om is " + quality.Compactness(O1triples, O2triples, multilingualMergedOntology))
+
+//    multilingualMergedOntology.coalesce(1, shuffle = true).saveAsNTriplesFile("src/main/resources/MultilingualMergedOntology")
+
 
     multilingualMergedOntology
   }

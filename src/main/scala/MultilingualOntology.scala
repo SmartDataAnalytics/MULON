@@ -61,20 +61,10 @@ class MultilingualOntology(sparkSession: SparkSession) extends Serializable {
 
     val mergedOntology: RDD[graph.Triple] = O1.union(O2).distinct(2)
 
-    //    mergedOntology.coalesce(1, shuffle = true).saveAsNTriplesFile("src/main/resources/OfflineDictionaries/mergedOntology")
     mergedOntology
   }
 
 
-  //  def GetMultilingualMatchedClasses(sourceClassesWithBestTranslation: RDD[(String, String)], listOfMatchedClasses: RDD[List[String]]): RDD[(String, String)]={
-  //    val p = new PreProcessing()
-  //    val multilingualMatchedClasses: RDD[(String, String)] = listOfMatchedClasses.map(x => (p.stringPreProcessing(x.head).split(" ", 2).last, x(1))).keyBy(_._1).leftOuterJoin(sourceClassesWithBestTranslation.keyBy(_._2)).map { case (sourceTranslation, ((sourceTranslation1, target), Some((source, sourceTranslation2)))) => (source, target) }
-  //    multilingualMatchedClasses
-  //  }
-  //  def GetMultilingualMatchedRelations(similarRelations: RDD[(String, String, String)]): RDD[(String, String)]={
-  //    val multilingualMatchedRelations: RDD[(String, String)] = similarRelations.map(x => (x._1, x._3))
-  //    multilingualMatchedRelations
-  //  }
   /**
     * Remove duplicated classes according to the matching results.
     */

@@ -63,7 +63,9 @@ val numOfClasses = ontologyTriples.find(None, None, Some(NodeFactory.createURI("
     *  Get number of subClassOf relations in the ontology.
     */
   def getNumberOfSubClasses(ontologyTriples: RDD[graph.Triple]): Double = {
-    val numOfSubClasses = ontologyTriples.filter(q => q.getSubject.isURI && q.getObject.isURI && q.getPredicate.getLocalName == "subClassOf").distinct(2).count() //    println("Number of SubClasses "+numOfSubClasses)
+//    val numOfSubClasses = ontologyTriples.filter(q => q.getSubject.isURI && q.getObject.isURI && q.getPredicate.getLocalName == "subClassOf").distinct(2).count()
+    val numOfSubClasses = ontologyTriples.filter(q => q.getSubject.isURI && q.getPredicate.getLocalName == "subClassOf").distinct(2).count()
+    //    println("Number of SubClasses "+numOfSubClasses)
     numOfSubClasses
 
   }

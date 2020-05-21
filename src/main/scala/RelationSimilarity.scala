@@ -13,8 +13,8 @@ import org.apache.spark.rdd.RDD
     val gS = new GetSimilarity()
     val p = new PreProcessing()
     var sim: RDD[(String, String, String, Double)] = crossRelations.map(x => (x._2._1, x._2._2, x._1, gS.getSimilarity(p.removeStopWordsFromEnglish(p.splitCamelCase(x._1).toLowerCase), p.removeStopWordsFromEnglish(p.splitCamelCase(x._2._2).toLowerCase)))).filter(y => y._4 > 0.9)
-    println("sim"+sim.count())
-    sim.foreach(println(_))
+//    println("sim"+sim.count())
+//    sim.foreach(println(_))
     sim.distinct(2)
   }
 

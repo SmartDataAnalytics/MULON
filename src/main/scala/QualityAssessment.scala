@@ -79,7 +79,7 @@ class QualityAssessment(sparkSession: SparkSession) {
   def InheritanceRichness(ontologyTriples: RDD[graph.Triple]): Double = {
     val numOfSubClassOf = ontoStat.getNumberOfSubClasses(ontologyTriples)
     val numOfClasses = ontoStat.getNumberOfClasses(ontologyTriples)
-//    println("Number of subClassOf "+numOfSubClassOf+" Number of classes "+numOfClasses)
+    println("Number of subClassOf "+numOfSubClassOf+" Number of classes "+numOfClasses)
     ontoStat.roundNumber(numOfSubClassOf / numOfClasses)
   }
 
