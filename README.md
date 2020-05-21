@@ -13,7 +13,7 @@ mvn clean package
 ````
 Input
 ----------
-MULON reads input ontologies in Turtle and uses [SANSA](https://github.com/SANSA-Stack) readers to build a dataset of RDD[graph.Triple] for each ontology.
+MULON reads two input ontologies in Turtle in two different languages and uses [SANSA](https://github.com/SANSA-Stack) readers to build a dataset of RDD[graph.Triple] for each ontology.
 ````
 val O1 = ".../firstOntology-de.ttl"
 val O2 = ".../secondOntology-en.ttl"
