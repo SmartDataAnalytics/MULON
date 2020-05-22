@@ -88,8 +88,7 @@
 <p>The following example describing merging two ontologies: Conference ontology in German (O1), from the <a
         href="https://www.irit.fr/recherches/MELODI/multifarm/">MultiFarm</a> dataset, and the <a
         href="http://kddste.sda.tech/SEOontology/Documentation/">Scientific Events Ontology</a> in English (O2). First, MULON reads the two input ontologies in Turtle (line 1 and 2) and convert them into N-Triples format and generates RDD representation of them (line 4 and 5). MULON uses <a
-        href="https://github.com/SANSA-Stack">SANSA</a> readers to build a dataset of RDD[graph.Triple] for input
-    ontologies. SANSA support different RDF serialization formats (e.g. NTRIPLES/N3, XML/RDF, TURTLE, QUAD). Second, MULON generates the multilingual merged ontology (line 6) and gets its statistics (line 9) such as number of classes, number of object properties, number of  annotation properties, and number of  datatype properties. Finally, MULON creates the assessment sheet for the input and output ontologies (line 12).
+        href="https://github.com/SANSA-Stack/SANSA-RDF">SANSA-RDF library</a> with <a href="https://jena.apache.org/">Apache Jena framework</a> to parse and manipulate the input ontologies (as RDF triples) in a distributed manner. SANSA support different RDF serialization formats (e.g. NTRIPLES/N3, XML/RDF, TURTLE, QUAD). Second, MULON generates the multilingual merged ontology (line 6) and gets its statistics (line 9) such as number of classes, number of object properties, number of  annotation properties, and number of  datatype properties. Finally, MULON creates the assessment sheet for the input and output ontologies (line 12).
 </p>
 <div style="background-color:black;color:white;padding:20px;">
 <pre class="code">
@@ -97,10 +96,10 @@
     <code>val O2 = ".../SEO.ttl"</code>
 
     <code>val lang = Lang.NTRIPLES </code>
-    <code>val O1triples = spark.rdf(lang)(O1) </code>
-    <code>val O2triples = spark.rdf(lang)(O2) </code>
+    <code>val O1triples: RDD[graph.Triple] = spark.rdf(lang)(O1) </code>
+    <code>val O2triples: RDD[graph.Triple] = spark.rdf(lang)(O2) </code>
 
-    <code>val multilingualMergedOntology = ontoMerge.MergeOntologies(O1triples, O2triples) </code>
+    <code>val multilingualMergedOntology: RDD[graph.Triple] = ontoMerge.MergeOntologies(O1triples, O2triples) </code>
 
     <code>val ontStat = new OntologyStatistics(sparkSession1) </code>
     <code>println("Statistics for merged ontology") </code>
@@ -113,7 +112,7 @@
 </div>
 
 <!--<h2>Sample Output</h2>-->
-<p>A sample output for the merged ontology, in N-Triples format, is presented in the following script where every resource has English and German labels. For example  "ConferenceProceedings" is a class with German label "Fortschritte der konferenz".</p>
+<p>A sample output for the merged ontology, in N-Triples format, is presented in the following script where every resource has English and German labels. For example  "ConferenceProceedings" is a class with the German label "Fortschritte der konferenz".</p>
 
 <div style="background-color:black;color:white;padding:20px;">
 <pre class="example"><script type="application/n-triples">

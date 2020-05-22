@@ -51,7 +51,7 @@ import org.apache.spark.sql.SparkSession
 
     //    val multilingualMergedOntology = ontoMerge.MergeOntologies(O1triples, O2triples, offlineDictionaryForO1, offlineDictionaryForO2)
     //provide the two input ontologies in addition to their offline dictionaries
-    val multilingualMergedOntology = ontoMerge.MergeOntologies(O1triples, O2triples,"Ekaw-de", "Conference-de")
+    val multilingualMergedOntology: RDD[graph.Triple] = ontoMerge.MergeOntologies(O1triples, O2triples,"Ekaw-de", "Conference-de")
 //val multilingualMergedOntology = ontoMerge.MergeOntologies(O1triples, O2triples,"src/main/resources/OfflineDictionaries/Translations-Edas-en.csv")
 
 
