@@ -1,5 +1,5 @@
 # MULON
-MULON (MULtilingual Ontology mergiNg) is an approach for create a multilingual ontology by merging two ontologies from different natural languages.
+MULON (MULtilingual Ontology mergiNg) is an approach for creating a multilingual ontology by merging two ontologies from different natural languages.
 
 All implementations are based on Scala 2.11.11 and Apache Spark 2.3.1. 
 
