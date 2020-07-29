@@ -139,14 +139,4 @@ class MultilingualOntology(sparkSession: SparkSession) extends Serializable {
 
   }
 
-  //  def MultilingualInfoForTargetOntology(offlineDictionaryForTarget: String, resourceType: Char): RDD[(String, String)]= {
-  //    var targetResourcesWithTranslation = sparkSession.sparkContext.emptyRDD[(String, String)]
-  //    val targetDictionary: RDD[List[String]] = sparkSession.sparkContext.textFile(offlineDictionaryForTarget).map(_.split(",").toList)
-  //    if (resourceType == 'C')
-  //      targetResourcesWithTranslation = targetDictionary.filter(x => x(2) == "C").map(y => (y(0),y(1)))
-  //    else if (resourceType == 'P')
-  //      targetResourcesWithTranslation = targetDictionary.filter(x => x(2) == "P").map(y => (y(0),y(1)))
-  //
-  //    targetResourcesWithTranslation
-  //  }
 }
